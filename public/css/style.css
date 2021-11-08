@@ -1,0 +1,355 @@
+/* general */
+html, body{
+	background-color: white;
+	color: #000000;
+	font-family: 'Raleway', sans-serif;
+	/*font-weight: 500;*/
+	/*font-weight: bold;*/
+}
+/*.font-family-base{
+	font-family: 'Raleway', sans-serif;
+}*/
+h1 {
+	/*background-color: #800000;*/	
+	/*color: BLACK; /*BORDÓ MARCOA*/ /*MAROON; /*#800000*/
+	font-size: 22px;
+	/*padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 0px;*/
+	font-weight: bold;
+}
+h2 {
+	/*background-color: DARKRED;*/	
+	color: WHITE;
+	font-size: 16px;
+	/*padding-left: 10px;**/
+	/**padding-bottom: 10px;**/
+	font-weight: bold;
+	/*font-style: italic;*/
+	/**border-bottom: 1px solid WHITE;**/
+	margin-bottom: 0px;
+}
+
+/* *** */
+
+
+/* cabecera - logo marcoa - barra navegación - modales*/
+.barra-superior{
+	padding:0;
+	padding-bottom: 2px;
+}
+header{
+	line-height: 24px;
+	/*border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: grey;*/
+}
+.navbar{
+	background-color: SILVER;
+}
+.link-marcoa{
+	/*color: #000000;*/
+	color: WHITE;
+	font-size: 24px;
+}
+.link-marcoa:hover{
+	color: BLACK; /**DARKRED;**/
+	text-decoration:none;
+	font-weight: bold;
+}
+.nav-link{
+	/*color: #000000;*/
+	color: GREY;
+	/*letter-spacing: .1rem;*/
+	outline-color: #fff;
+	font-size: 14px;
+	/*font-weight: bold;*/
+	padding: 0;
+}
+.nav-link:hover{
+	color: BLACK; /**DARKRED;**/
+	font-weight: bold;
+}
+.link-barra-superior{
+	color: WHITE;
+}
+/**.tabla_etapas{
+	font-size: 14px;
+	/**width: 80%;
+}**/
+/**.pie-modal{
+	font-weight: bold;
+	color:#800000; 
+	font-size:14px;
+	border-width: 1px;
+	border-style: dotted;	
+	border-color: #800000;
+}**/
+
+/* *** */
+
+
+/* pie */
+footer{
+	/*margin-top: 20px;*/
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: SILVER;
+	/*width: 98%;*/
+	color: SILVER;
+	font-weight: bold;
+	font-size: 14px;
+	background-color: WHITE;
+}
+/* *** */
+
+
+/* botones */
+.btn{
+	background-color: BLACK; /**DARKRED;**/
+	border: 2px solid BLACK; /**DARKRED;**/
+	font-weight: bold;
+	border-radius: 2px;
+	/*letter-spacing: .1rem;*/
+}
+.btn:hover{
+	background-color: WHITE !important; 
+	border: 2px solid BLACK !important; /**DARKRED;**/ 
+    color: BLACK !important; /**DARKRED;**/ 
+	box-shadow:none !important;
+}
+.btn:active:focus{
+	box-shadow:0 0 0 2px BLACK !important; /**DARKRED;**/ 
+}
+.btn-primary{
+	font-size: 16px;
+	padding: 10px 20px;
+}
+.btn-secondary{
+	font-size: 12px;
+	padding: 6px 16px;
+}
+/*.close:active:focus{
+	border-color: white !important;
+	box-shadow:0 0 0 2px white !important;
+}*/
+.boton-generar{
+	/*font-size: 10px;*/
+	padding: 6px 16px;
+	background-color: GREY;
+	border: 2px solid GREY;
+	/*color: DARKRED;*/
+	position: right;
+}
+.btn-outline-secondary{
+	border: 2px solid;
+	font-weight: bold;
+	border-radius: 2px;
+	font-size: 10px;
+	padding: 2px 12px;
+}
+.btn-outline-secondary:hover{
+	text-decoration:none;
+}
+.boton-agregar{
+	padding: 2px 8px;
+	background-color: GREY;
+	border: 1px solid GREY;
+}
+.boton-coherencia{
+	border-radius: 200px;
+	background-color: MEDIUMSEAGREEN;
+	border: 2px solid MEDIUMSEAGREEN;
+}
+.boton-imp{
+	font-size: 10px;
+	padding: 1px 8px;
+	color: WHITE !important;
+	background-color: GREY;
+	border-color: GREY;
+}
+/* *** */
+
+
+/* formulario */
+.form-control{
+	border-radius: 2px;
+	/*width: 30%;*/
+}
+.form-control:hover{
+	border-color: BLACK; /**#993232;**/
+}
+.form-control.active{
+	border-color: BLACK; /**#993232;**/
+}
+.form-control:invalid:focus{
+	border-color: BLACK; /**#993232;**/
+	box-shadow:0 0 0 .2rem rgba(153,50,50,.25);
+}
+.form-control:active:focus{
+	border-color: BLACK; /**#993232;**/
+	box-shadow:0 0 0 2px #993232 !important;
+}
+.cont-formulario{
+	padding-top: 10px;
+}
+/* *** */
+
+
+/* página bienvenida */
+.titulo {
+	font-size: 84px;
+	margin-top: 140px;
+}
+.sub-titulo {
+	font-size: 24px;
+	margin-bottom: 140px;
+}
+/* *** */
+
+
+
+/* content */
+.contenido{
+	/**min-height: 80vh;**/
+	/**margin-top: 20px;**/
+	margin-bottom: 60px;
+	/**align-items: center;**/
+	justify-content: center;
+}
+.creacion{
+	background-color: SILVER;
+	width: 30%;
+	padding-top: 30px;
+	padding-right: 20px;
+}
+.edicion{
+	background-color: SILVER;
+	width: 30%;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+.bloque-prin{
+	padding-top: 30px;
+}
+.bloque-pub{
+	padding: 20px;
+	/*border: 1px dotted CC8B79;*/
+}
+.bloque-eva{
+	padding: 20px;
+	
+}
+/* *** */
+
+/* etapas */
+.etapas{
+	font-size:12px;
+	font-weight: bold;
+	/**height: 100px;
+	background-color: DARKRED;**/
+}
+.e-analisis{
+	background-color: 432371;
+	border-color: 432371;
+	padding: 10px;
+	color: WHITE;
+}
+.e-diseño{
+	background-color: 714674;
+	border-color: 714674;
+	padding: 10px;
+	color: WHITE;
+}
+.e-desarrollo{
+	background-color: 9F6976;
+	border-color: 9F6976;
+	padding: 10px;
+	color: WHITE;
+}
+.e-publicacion{
+	background-color: CC8B79;
+	border-color: CC8B79;
+	padding: 10px;
+	color: WHITE;
+}
+.e-evaluacion{
+	background-color: FAAE7B;
+	border-color: FAAE7B;
+	padding: 10px;
+	color: WHITE;
+}
+.e-coherencia{
+	background-color: MEDIUMSEAGREEN; 
+	border-color: MEDIUMSEAGREEN;
+	padding: 10px;
+	width: 96%;
+}
+.config{
+	padding: 10px;
+}
+/* *** */
+
+/* pestañas de etapa de diseño */
+.tab-content{
+	width: 98%;
+}
+.pestaña{
+	padding: 10px;
+	color: BLACK; /**DARKRED;**/
+}
+.pestaña:hover{
+	color: BLACK; /**DARKRED;**/
+	font-weight: bold;
+}
+.pestaña-pequeña{
+	padding: 8px;
+	font-size: 12px;
+}
+.table{
+	font-size: 12px;
+}
+/* *** */
+
+/*guía del análisis de coherecia */
+.preg-guia{
+	padding-top: 14px;
+	border-bottom: 1px dotted SILVER; 
+}
+/* *** */
+
+/*configuración */
+.bloque-config{
+	margin-left: 20px;
+	border: 1px dotted SILVER;
+	padding-top: 10px;
+}
+/* *** */
+
+/* enlaces de ayuda */
+.a-croa{
+	color: MEDIUMORCHID; /*VIOLETA SUGERENCIA CROA*/
+}
+.a-croa-modal{
+	border-bottom: 2px solid MEDIUMORCHID;
+}
+.a-marcoa{
+	color: MEDIUMTURQUOISE; /*AZUL AYUDA MARCOA*/
+}
+.a-marcoa-modal{
+	border-bottom: 2px solid MEDIUMTURQUOISE;
+}
+/* *** */
+
+/* etapa de desarrollo */
+.bloque-imp{
+	border: 1px dotted SILVER;
+}
+.bloque-nodo{
+	border: 1px dotted SILVER;
+	display: none;
+}
+.bloque-meta{
+	border: 1px dotted SILVER;
+}
+/* *** */
