@@ -20,6 +20,9 @@ Route::get('/', 'App\Http\Controllers\BienvenidaController@index') ;
 // });
 
 Route::get('/inicio', 'App\Http\Controllers\InicioController@index')->name('inicio');
+Route::get('/GestorProyectos', 'App\Http\Controllers\GestorProyectosController@index')->name('GestorProyectos');
+Route::post('/GestorProyectos', 'App\Http\Controllers\GestorProyectosController@store')->name('GestorProyectos.store');
+Route::get('/GestorProyectos/crear', 'App\Http\Controllers\GestorProyectosController@create')->name('NuevoProyecto');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -32,7 +35,8 @@ Route::get('/creacion', 'App\Http\Controllers\CreacionController@index')->name('
 Route::post('/creacion', 'App\Http\Controllers\CreacionController@crear')->name('creacion');
 Route::get('/edicion', 'App\Http\Controllers\EdicionController@index')->name('edicion');
 
-Route::get('/principal', 'App\Http\Controllers\PrincipalController@index')->name('principal');
+Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')->name('principal'); 
+// Esta ruta recibe como parametro el id del proyecto en cuestión
 
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
 Route::get('/analisis', 'App\Http\Controllers\AnalisisController@index')->name('analisis');

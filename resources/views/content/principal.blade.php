@@ -11,7 +11,20 @@
 
 	<div class="row bloque-prin">
 		<div class="col-10">
-			<h1>PROCESO DE CREACIÓN DEL OA</h1>
+
+			<h1>PROCESO DE CREACIÓN DEL OA
+
+			<br>
+			<?php print($proyecto['titulo'])?>
+		{{-- 	<?php
+				echo "<pre>";
+				print_r($proyecto); 
+				echo "</pre>";
+			?> --}}
+			</h1>
+			{{-- <h3>Etapa</h3> --}}
+			{{-- <?php print($etapa)?>  --}}
+
 		</div>
 		<div class="col-2 text-right">
 			<a class="nav-link" data-toggle="modal" href="#etapas" style="padding-left:12px;">
@@ -36,7 +49,7 @@
 	<div class="row"> 
 		<div class="col">
 			<p class="etapas">1RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis')}}" role="button">
+				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis','proyecto')}}" role="button">
 					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
 						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
