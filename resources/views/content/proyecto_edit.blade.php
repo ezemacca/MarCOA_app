@@ -32,18 +32,19 @@
 
 
 	<div class="conteniner-fluid creacion">
-		<form method="POST" action="{{ route('GestorProyectos.store') }}"> 
+		<form method="POST" action="{{ route('GestorProyectos.update', $proyecto) }}"> 
 			{{-- La acción debe llevar al create de GestorProyectos --}}
 			@csrf
+			@method('PATCH')
 
 			<div class="row justify-content-center">
 				<div class="col-sm-8">
 					<div class="form-group">
-						<input type="text" class="form-control" name="nom_proy" id="nom_proy" value="{{ old('nom_proy') }}" aria-describedby="aclaracion" placeholder="Nombre de nuevo proyecto" required>
+						<input type="text" class="form-control" name="nom_proy" id="nom_proy" value="{{ $proyecto -> titulo }}" aria-describedby="aclaracion"  required>
 						<label>
 							<br>
 							<br>
-							<textarea name="desc_proy" placeholder="Descripcion" ></textarea>
+							<textarea name="desc_proy" placeholder="Descripcion" >{{ $proyecto-> descripcion }} </textarea>
 						</label>
 						<br>
 						<!--<small class="form-text text-muted" id="aclaracion">El nombre debe ...</small>-->
@@ -54,14 +55,12 @@
 						<!--<button type="submit" class="btn btn-secondary">CREAR</button>-->
 						{{-- <a class="btn btn-secondary" href="{{route('NuevoProyecto')}}" role="button">CREAR</a> --}}
 						{{-- <a class="btn btn-secondary" href="{{action('GestorProyectosController@create' , 'nom_proy')}}" role="button">CREAR</a> --}}
-						<button>Crear</button>
+						<button>Actualizar</button>
 					</div>
 				</div>
 			</div>				
 		</form>
-		
-			<a class="btn btn-primary" href="{{ route('GestorProyectos') }}" role="button">Volver</a>
-		
+		<a class="btn btn-primary" href="{{ route('GestorProyectos') }}" role="button">Volver</a>
 	</div>
 	@stop
 
@@ -80,8 +79,8 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Ingresar un nombre para el nuevo proyecto.</p>
-					<p>Luego, presionar el botón <strong>CREAR</strong>.</p>
+					<p>Ingrese el nuevo nombre para el proyecto.</p>
+					<p>Luego, presionar el botón <strong>Actualizar</strong>.</p>
 				</div>
 			</div>
 		</div>

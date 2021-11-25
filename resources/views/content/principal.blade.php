@@ -12,16 +12,25 @@
 	<div class="row bloque-prin">
 		<div class="col-10">
 
-			<h1>PROCESO DE CREACIÓN DEL OA
+			<h1>PROCESO DE CREACIÓN DEL OA</h1>
 
 			<br>
-			<?php print($proyecto['titulo'])?>
+			<h3><?php print($proyecto['titulo'])?></h3> 
+				
+				<form action="{{route('GestorProyectos.edit',$proyecto)}}" role="button">
+
+						<button>Editar nombre y descripción</button>
+					</form>
+			<br>
+			<h5><?php print($proyecto['descripcion'])?></h5> 
+
+			
 		{{-- 	<?php
 				echo "<pre>";
 				print_r($proyecto); 
 				echo "</pre>";
 			?> --}}
-			</h1>
+			
 			{{-- <h3>Etapa</h3> --}}
 			{{-- <?php print($etapa)?>  --}}
 
@@ -47,9 +56,12 @@
 	
 	@include('includes/errores')
 	<div class="row"> 
+
+{{-- ETAPA1 --}}
+@if($proyecto['etapa'] === 1)
 		<div class="col">
 			<p class="etapas">1RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis','proyecto')}}" role="button">
+				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis',$proyecto)}}" role="button">
 					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
 						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -59,6 +71,38 @@
 				</a>
 			</p>
 		</div>
+@elseif ($proyecto['etapa'] > 1)
+	<div class="col">
+			<p class="etapas">1RA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis.edit',$proyecto)}}" role="button">
+					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+					</svg>	
+					</br></br>
+					EDITAR ANÁLISIS
+				</a>
+			</p>
+		</div>
+
+@else
+	<div class="col">
+			<p class="etapas">1RA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-analisis">
+					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+					</svg>	
+					</br></br>
+					ANÁLISIS
+				</a>
+			</p>
+		</div>
+@endif
+
+
+{{-- ETAPA2 --}}
+@if($proyecto['etapa'] >= 2)
 		<div class="col">
 			<p class="etapas">2DA ETAPA
 				<a class="btn btn-primary btn-lg btn-block e-diseño" href="{{route('diseño')}}" role="button">
@@ -71,6 +115,22 @@
 				</a>
 			</p>
 		</div>
+@else
+	<div class="col">
+			<p class="etapas">2DA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-diseño">
+					<svg class="bi bi-brush" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
+					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
+					</svg>				
+					</br></br>
+					DISEÑO
+				</a>
+			</p>
+		</div>
+@endif
+
+@if($proyecto['etapa'] >= 3)
 		<div class="col">
 			<p class="etapas">3RA ETAPA
 				<a class="btn btn-primary btn-lg btn-block e-desarrollo" href="{{route('desarrollo')}}" role="button">
@@ -83,6 +143,22 @@
 				</a>
 			</p>
 		</div>
+@else
+<div class="col">
+			<p class="etapas">3RA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-desarrollo">
+					<svg class="bi bi-tools" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
+					  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
+					</svg>
+					</br></br>
+					DESARROLLO
+				</a>
+			</p>
+		</div>
+@endif
+
+@if($proyecto['etapa'] >= 4)
 		<div class="col">
 			<p class="etapas">4TA ETAPA
 				<a class="btn btn-primary btn-lg btn-block e-publicacion" href="{{route('publicacion')}}" role="button">
@@ -94,6 +170,20 @@
 				</a>
 			</p>
 		</div>
+@else
+<div class="col">
+			<p class="etapas">4TA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-publicacion" >
+					<svg class="bi bi-tv-fill" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"/>
+					</svg>
+					</br></br>
+					PUBLICACIÓN
+				</a>
+			</p>
+		</div>
+@endif
+@if($proyecto['etapa'] >= 5)
 		<div class="col">
 			<p class="etapas">5TA ETAPA
 				<a class="btn btn-primary btn-lg btn-block e-evaluacion" href="{{route('evaluacion')}}" role="button">
@@ -107,7 +197,23 @@
 			</p>
 		</div>
 	</div>
-	
+@else
+<div class="col">
+			<p class="etapas">5TA ETAPA
+				<a class="btn btn-primary btn-lg btn-block e-evaluacion" >
+					<svg class="bi bi-file-check" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8h-1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5V1z"/>
+					  <path fill-rule="evenodd" d="M15.854 2.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 4.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+					</svg>				
+					</br></br>
+					EVALUACIÓN
+				</a>
+			</p>
+		</div>
+	</div>
+@endif
+
+@if($proyecto['etapa'] >= 3)
 	<div class="row">
 		<div class="col-5">
 			<p class="etapas">
@@ -118,7 +224,18 @@
 			</p>
 		</div>
 	</div>
-
+@else
+	<div class="row">
+		<div class="col-5">
+			<p class="etapas">
+				<a class="btn btn-primary btn-lg btn-block e-coherencia" >
+					ANÁLISIS DE COHERENCIA INTERNA
+				</a>
+				INSTANCIA INTERMEDIA DE REVISIÓN
+			</p>
+		</div>
+	</div>
+@endif
 	<div class="row bloque-prin">
 		<div class="col text-center">
 			<a class="btn btn-primary boton-generar" href="{{route('configuracion')}}" role="button">EXPORTAR OA</a>
@@ -127,10 +244,14 @@
 	
 	<div class="row bloque-prin">
 		<div class="col text-right">
+
+			
 			<button type="submit" class="btn btn-secondary">GUARDAR PROYECTO</button>
+			<a href="">ELIMINAR PROYECTO</a>
 		</div>
 	</div>
 	
+
 </div>
 
 @stop

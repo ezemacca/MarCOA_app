@@ -17,12 +17,12 @@ class CreateAnalisesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->constrained('users');
             $table->foreignId('proyecto_id')->constrained('proyectos');
-            $table->text('1_necesidad_dest');
-            $table->text('2_utilidad_oa');
-            $table->text('3_nivel_educ');
-            $table->text('4_tema_oa');
-            $table->text('5_conoc_prev');
-            $table->text('4_conoc_post');
+            $table->text('analisis_p1');
+            $table->text('analisis_p2');
+            $table->text('analisis_p3');
+            $table->text('analisis_p4');
+            $table->text('analisis_p5');
+            $table->text('analisis_p6');
             $table->timestamps();
         });
     }

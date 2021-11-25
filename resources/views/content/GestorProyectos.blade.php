@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
-@section('title','portafolio')
-
 @section('content')
-
+<br>
+<br>
 <h1>@lang('Proyectos de ') {{Auth::user()->name}}</h1>
-
+<br>
+<br>
 <div>
 	<form action="{{route('creacion')}}" role="button">
 
@@ -26,8 +26,8 @@
 
 		{{$proyecto['descripcion']}}
 		&nbsp; 
-		<a href="{{route('principal', $proyecto)}}"> Continuar con el proyecto</a>
-		<a href="">Eliminar</a>
+		<a href="{{route('principal', $proyecto)}}"> Abrir proyecto</a>
+		
 
 		<br> 
 		<br>

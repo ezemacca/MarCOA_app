@@ -75,9 +75,9 @@ class GestorProyectosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Proyecto $proyecto)
     {
-        //
+        return view('content.proyecto_edit',['proyecto' => $proyecto]);
     }
 
     /**
@@ -87,9 +87,13 @@ class GestorProyectosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Proyecto $proyecto)
     {
-        //
+        $proyecto->update([
+            'titulo'=> request('nom_proy'),
+            'descripcion'=> request('desc_proy'),
+        ]);
+        return redirect()->route('principal',$proyecto);
     }
 
     /**

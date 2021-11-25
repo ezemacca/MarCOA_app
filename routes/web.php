@@ -23,7 +23,8 @@ Route::get('/inicio', 'App\Http\Controllers\InicioController@index')->name('inic
 Route::get('/GestorProyectos', 'App\Http\Controllers\GestorProyectosController@index')->name('GestorProyectos');
 Route::post('/GestorProyectos', 'App\Http\Controllers\GestorProyectosController@store')->name('GestorProyectos.store');
 Route::get('/GestorProyectos/crear', 'App\Http\Controllers\GestorProyectosController@create')->name('NuevoProyecto');
-
+Route::get('/GestorProyectos/{proyecto}/editar', 'App\Http\Controllers\GestorProyectosController@edit')->name('GestorProyectos.edit');
+Route::patch('/GestorProyectos/{proyecto}', 'App\Http\Controllers\GestorProyectosController@update')->name('GestorProyectos.update');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('inicio');
@@ -39,7 +40,13 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 // Esta ruta recibe como parametro el id del proyecto en cuestión
 
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
-Route::get('/analisis', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
+
+Route::post('/analisis', 'App\Http\Controllers\AnalisisController@store')->name('analisis.store');
+Route::get('/analisis/{id}', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
+
+Route::get('/analisis/{id}/editar', 'App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
+Route::patch('/analisis/{analisis}', 'App\Http\Controllers\AnalisisController@update')->name('analisis.update');
+
 Route::get('/diseño', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
 Route::get('/coherencia', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
 Route::get('/desarrollo', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');

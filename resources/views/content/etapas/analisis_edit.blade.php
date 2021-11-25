@@ -2,34 +2,11 @@
 
 @section('content')
 
-<div class="container-fluid e-analisis">
-	<div class="row">
-		<div class="col text-center">			
-			<svg class="bi bi-search" width="50" height="50" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-				<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-				<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-			</svg>
-		</div>
-		<div class="col-10">
-			<h1>ETAPA DE ANÁLISIS</h1>
-			<h2>Planteo de la necesidad educativa que da origen al OA</h2>
-		</div>
-		<div class="col text-right">
-			<a class="nav-link" data-toggle="modal" href="#etapa-analisis">
-				<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-				</svg>
-			</a>					
-		</div>
-	</div>
-</div>				
-
-@if ($analisis <> null)
-	<h1>usted ya realizó el análisis, desea editarlo? </h1>
-@else
 <div class="container-fluid cont-formulario">
-	<form method="POST" action="{{ route('analisis.store')}}">
-		{{ csrf_field() }}
+	<form method="POST" action="{{ route('analisis.update', $analisis)}}">
+		@csrf 
+		@method('PATCH')
+		
 		
 		<div class="form-group">
 			<div class="row">
@@ -46,7 +23,7 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p1" id="analisis_p1" value="{{ old('analisis_p1') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p1" id="analisis_p1" value="{{ old('analisis_p1') }}" required ></textarea>
+		<textarea type="text" class="form-control" name="analisis_p1" id="analisis_p1" required >{{$analisis->analisis_p1 }}</textarea>
 		</div>
 
 		<div class="form-group">
@@ -64,7 +41,7 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p2" id="analisis_p2" value="{{ old('analisis_p2') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p2" id="analisis_p2" value="{{ old('analisis_p2') }}" required></textarea>
+			<textarea type="text" class="form-control" name="analisis_p2" id="analisis_p2" required>{{$analisis->analisis_p2 }}</textarea>
 		</div>	
 
 		<div class="form-group">
@@ -81,7 +58,7 @@
 				</div>
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p3" id="analisis_p3" value="{{ old('analisis_p3') }}" required> --}}
-			<textarea type="text" class="form-control" name="analisis_p3" id="analisis_p3" value="{{ old('analisis_p3') }}" required></textarea>
+			<textarea type="text" class="form-control" name="analisis_p3" id="analisis_p3" required>{{$analisis->analisis_p3 }}</textarea>
 		</div>	
 
 		<div class="form-group">
@@ -99,7 +76,7 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p4" id="analisis_p4" value="{{ old('analisis_p4') }}" required>--}}
 
-			<textarea type="text" class="form-control" name="analisis_p4" id="analisis_p4" value="{{ old('analisis_p4') }}" required></textarea>
+			<textarea type="text" class="form-control" name="analisis_p4" id="analisis_p4" required> {{$analisis->analisis_p4 }}</textarea>
 		</div>	
 
 		<div class="form-group">
@@ -117,7 +94,7 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p5" id="analisis_p5" value="{{ old('analisis_p5') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p5" id="analisis_p5" value="{{ old('analisis_p5') }}" required></textarea>
+			<textarea type="text" class="form-control" name="analisis_p5" id="analisis_p5"  required>{{$analisis->analisis_p5 }}</textarea>
 		</div>	
 
 		<div class="form-group">
@@ -135,12 +112,15 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p6" id="analisis_p6" value="{{ old('analisis_p6') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p6" id="analisis_p6" value="{{ old('analisis_p6') }}" required></textarea>
+			<textarea type="text" class="form-control" name="analisis_p6" id="analisis_p6" required>{{$analisis->analisis_p6 }}</textarea>
 		</div>				
 		{{-- formulario oculto que envía los datos del proyecto al controlador analisis.store --}}
 			{{-- <?php $proyecto_id = $proyecto['id']; ?>
 			<input type="hidden" name="proyecto_id" value= $proyecto> --}}
-			<input type="hidden" value="{{$proyecto->id}}" name="proyecto_id">
+
+
+
+			{{-- <input type="hidden" value="{{$proyecto->id}}" name="proyecto_id"> --}}
 
 			<div class="row">
 				<div class="col text-left">
@@ -164,7 +144,7 @@
 								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
 								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
 							</svg>
-							GUARDAR
+							ACTUALIZAR
 						</button>
 					</div>	
 				</div>
@@ -343,5 +323,3 @@
 				</div>
 			</div>
 		</div>
-
-@endif

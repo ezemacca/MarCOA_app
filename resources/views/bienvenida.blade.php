@@ -21,7 +21,7 @@
                         <a class="btn btn-primary" href="{{ route('GestorProyectos') }}" role="button">Continuar</a>
 
                         <!-- <a class="btn btn-primary"  href="{{ route('logout')  }}" role="button" > Cerrar Sesión</a> -->
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                        {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a> --}}
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     					@csrf
