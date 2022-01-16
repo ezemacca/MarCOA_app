@@ -17,10 +17,10 @@
 			<br>
 			<h3><?php print($proyecto['titulo'])?></h3> 
 				
-				<form action="{{route('GestorProyectos.edit',$proyecto)}}" role="button">
+				{{-- <form action="{{route('GestorProyectos.edit',$proyecto)}}" role="button">
 
 						<button>Editar nombre y descripción</button>
-					</form>
+					</form> --}}
 			<br>
 			<h5><?php print($proyecto['descripcion'])?></h5> 
 
@@ -105,7 +105,7 @@
 @if($proyecto['etapa'] >= 2)
 		<div class="col">
 			<p class="etapas">2DA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-diseño" href="{{route('diseño')}}" role="button">
+				<a class="btn btn-primary btn-lg btn-block e-diseño" href="{{route('diseño', $proyecto)}}" role="button">
 					<svg class="bi bi-brush" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
 					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
@@ -129,7 +129,7 @@
 			</p>
 		</div>
 @endif
-
+{{-- ETAPA3 --}}
 @if($proyecto['etapa'] >= 3)
 		<div class="col">
 			<p class="etapas">3RA ETAPA
@@ -157,7 +157,7 @@
 			</p>
 		</div>
 @endif
-
+{{-- ETAPA4 --}}
 @if($proyecto['etapa'] >= 4)
 		<div class="col">
 			<p class="etapas">4TA ETAPA
@@ -183,6 +183,7 @@
 			</p>
 		</div>
 @endif
+{{-- ETAPA5 --}}
 @if($proyecto['etapa'] >= 5)
 		<div class="col">
 			<p class="etapas">5TA ETAPA
@@ -212,7 +213,7 @@
 		</div>
 	</div>
 @endif
-
+{{-- ETAPACOHERENCIA --}}
 @if($proyecto['etapa'] >= 3)
 	<div class="row">
 		<div class="col-5">
@@ -246,14 +247,17 @@
 		<div class="col text-right">
 
 			
-			<button type="submit" class="btn btn-secondary">GUARDAR PROYECTO</button>
-			<a href="">ELIMINAR PROYECTO</a>
+			{{-- <button type="submit" class="btn btn-secondary">GUARDAR PROYECTO</button> --}}
+			
 		</div>
 	</div>
 	
 
 </div>
+<div class="col text-left">
+<a class="btn btn-primary"  href="{{ route('GestorProyectos') }}" role="button">Volver a mis proyectos</a>
 
+</div>
 @stop
 
 	<!-- Extra large modal - qué es un OA -->
@@ -328,3 +332,5 @@
 			</div>
 		</div>
 	</div>
+
+	

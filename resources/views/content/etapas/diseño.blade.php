@@ -24,36 +24,79 @@
 		</div>
 	</div>	
 	
+	{{-- se realiza el manejo de cada subetapa con un parámetro traído del constructor que sólo se autoincrementa cuando se realiza correctamente un STORE en la base de datos --}}
 	<div class="container-fluid cont-formulario">
 		<ul class="nav nav-tabs">
+		@if($subetapa==1 )
+			  <li class="nav-item active ">
+				<a class="nav-link active pestaña" data-toggle="tab" href="#diseño_inst">DISEÑO INSTRUCCIONAL</a>
+			  </li>
+		 @else
+		  <li class="nav-item ">
+			<a class="nav-link  pestaña" data-toggle="tab" href="#diseño_inst">DISEÑO INSTRUCCIONAL</a>
+		  </li>
+		 @endif
+
+		 @if($subetapa==2)
+			  <li class="nav-item active">
+				<a class="nav-link active pestaña" data-toggle="tab" href="#estructura">ESTRUCTURA</a>
+			  </li>
+		 @else
+			  <li class="nav-item ">
+				<a class="nav-link  pestaña" data-toggle="tab" href="#estructura">ESTRUCTURA</a>
+			  </li>
+		 @endif
+
+		@if($subetapa==3)
+
 		  <li class="nav-item active">
-			<a class="nav-link active pestaña" data-toggle="tab" href="#diseño_inst">DISEÑO INSTRUCCIONAL</a>
+			<a class="nav-link active pestaña" data-toggle="tab" href="#diseño_mult">DISEÑO MULTIMEDIAL</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link pestaña" data-toggle="tab" href="#estructura">ESTRUCTURA</a>
-		  </li>
+
+		@else
 		  <li class="nav-item">
 			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult">DISEÑO MULTIMEDIAL</a>
 		  </li>
+		 @endif
 		</ul>	
 	</div>
 	
 	<div class="tab-content">
 		<!--DISEÑO INSTRUCCIONAL-->
-		<div id="diseño_inst" class="tab-pane in active">
-			@include('content.etapas.includes.instruccional')
-		</div>
+		@if($subetapa==2)
+			<div id="diseño_inst" class="tab-pane {{-- in active --}}">
+				@include('content.etapas.includes.instruccional_edit')
+			</div>
+		@else
+			<div id="diseño_inst" class="tab-pane{{--  in active --}}">
+				@include('content.etapas.includes.instruccional')
+			</div>
+		@endif
+
 		<!--ESTRUCTURA-->
-		<div id="estructura" class="tab-pane">
-			@include('content.etapas.includes.estructura')
-		</div>
+		@if($subetapa==3)
+			<div id="estructura" class="tab-pane">
+				@include('content.etapas.includes.estructura_edit')
+			</div>
+		@else
+			<div id="estructura" class="tab-pane">
+				@include('content.etapas.includes.estructura')
+			</div>
+		@endif
+		
 		<!--DISEÑO MULTIMEDIAL-->
+		@if($subetapa==4)
+			<div id="diseño_mult" class="tab-pane">
+				@include('content.etapas.includes.multimedial_edit')
+			</div>	
+		@else
 		<div id="diseño_mult" class="tab-pane">
 			@include('content.etapas.includes.multimedial')
 		</div>	
+		@endif
 	</div>
-@stop
 
+@stop
 	<!-- Extra large modal - etapa de diseño-->
 	<div id="etapa-diseño" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl">		

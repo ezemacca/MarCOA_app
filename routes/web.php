@@ -25,11 +25,22 @@ Route::post('/GestorProyectos', 'App\Http\Controllers\GestorProyectosController@
 Route::get('/GestorProyectos/crear', 'App\Http\Controllers\GestorProyectosController@create')->name('NuevoProyecto');
 Route::get('/GestorProyectos/{proyecto}/editar', 'App\Http\Controllers\GestorProyectosController@edit')->name('GestorProyectos.edit');
 Route::patch('/GestorProyectos/{proyecto}', 'App\Http\Controllers\GestorProyectosController@update')->name('GestorProyectos.update');
+
+Route::delete('/GestorProyectos/{proyecto}/eliminar', 'App\Http\Controllers\GestorProyectosController@destroy')->name('GestorProyectos.destroy');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('inicio');
 
 require __DIR__.'/auth.php';
+
+
+Route::post('/diseño/{proyecto}', 'App\Http\Controllers\DiseñoController@store')->name('diseño.store');
+
+Route::post('/diseño/instruccional/{proyecto}', 'App\Http\Controllers\DiseñoController@store_instruccional')->name('diseño.store_instruccional');
+
+Route::get('/diseño/{id}', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
+
+Route::patch('/diseño/{id},{subetapa},{instruccional}/editar', 'App\Http\Controllers\DiseñoController@update_instruccional')->name('diseño.update_instruccional');
 
 
 Route::get('/creacion', 'App\Http\Controllers\CreacionController@index')->name('creacion');
@@ -41,13 +52,13 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
 
-Route::post('/analisis', 'App\Http\Controllers\AnalisisController@store')->name('analisis.store');
+Route::post('/analisis/{proyecto}', 'App\Http\Controllers\AnalisisController@store')->name('analisis.store');
 Route::get('/analisis/{id}', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
 
 Route::get('/analisis/{id}/editar', 'App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
 Route::patch('/analisis/{analisis}', 'App\Http\Controllers\AnalisisController@update')->name('analisis.update');
 
-Route::get('/diseño', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
+
 Route::get('/coherencia', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
 Route::get('/desarrollo', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
 Route::get('/publicacion', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');

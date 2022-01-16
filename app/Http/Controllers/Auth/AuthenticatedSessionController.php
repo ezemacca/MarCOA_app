@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect(route('GestorProyectos'));
+        return redirect(route('inicio'));
         // return redirect()->intended(RouteServiceProvider::HOME);
     }
 

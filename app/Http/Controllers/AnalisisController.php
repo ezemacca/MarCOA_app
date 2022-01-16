@@ -25,13 +25,12 @@ class AnalisisController extends Controller
 		}
 	}
 
-	public function store()
+	public function store($proyecto)
 	{
 
 
 		 Analisis::create([
 			'proyecto_id'=>request('proyecto_id'),
-			'user_id'=> Auth::user()->id,
 			'analisis_p1'=>request('analisis_p1'),
 			'analisis_p2'=>request('analisis_p2'),
 			'analisis_p3'=>request('analisis_p3'),

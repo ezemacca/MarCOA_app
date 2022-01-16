@@ -28,7 +28,7 @@
 	<h1>usted ya realizó el análisis, desea editarlo? </h1>
 @else
 <div class="container-fluid cont-formulario">
-	<form method="POST" action="{{ route('analisis.store')}}">
+	<form method="POST" action="{{ route('analisis.store',$proyecto)}}">
 		{{ csrf_field() }}
 		
 		<div class="form-group">

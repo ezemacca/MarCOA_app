@@ -60,7 +60,7 @@
 			</div>				
 		</form>
 		
-			<a class="btn btn-primary" href="{{ route('GestorProyectos') }}" role="button">Volver</a>
+			<a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Volver</a>
 		
 	</div>
 	@stop
