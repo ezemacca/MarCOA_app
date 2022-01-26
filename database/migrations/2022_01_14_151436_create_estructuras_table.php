@@ -15,13 +15,13 @@ class CreateEstructurasTable extends Migration
     {
         Schema::create('estructuras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('diseño_id');
+            $table->unsignedBigInteger('diseño_id')->unique();
             $table->foreign('diseño_id')->references('id')->on('diseños')
+            ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->text('estructura_p1');
-            $table->text('estructura_p2');
-            $table->unsignedTinyInteger('tipo');  
+            $table->string('estructura_p2');  
         });
     }
 

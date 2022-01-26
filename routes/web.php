@@ -34,13 +34,23 @@ Route::delete('/GestorProyectos/{proyecto}/eliminar', 'App\Http\Controllers\Gest
 require __DIR__.'/auth.php';
 
 
+
+
 Route::post('/diseño/{proyecto}', 'App\Http\Controllers\DiseñoController@store')->name('diseño.store');
 
-Route::post('/diseño/instruccional/{proyecto}', 'App\Http\Controllers\DiseñoController@store_instruccional')->name('diseño.store_instruccional');
+
 
 Route::get('/diseño/{id}', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
 
-Route::patch('/diseño/{id},{subetapa},{instruccional}/editar', 'App\Http\Controllers\DiseñoController@update_instruccional')->name('diseño.update_instruccional');
+Route::patch('/diseño/instruccional/{id},{instruccional}/editar', 'App\Http\Controllers\InstruccionalController@update')->name('instruccional.update');
+Route::post('/diseño/instruccional/{proyecto}', 'App\Http\Controllers\InstruccionalController@store')->name('instruccional.store');
+
+Route::patch('/diseño/estructura/{proyecto},{estructura?}/editar', 'App\Http\Controllers\EstructuraController@update')->name('estructura.update');
+Route::post('/diseño/estructura/{proyecto}', 'App\Http\Controllers\EstructuraController@store')->name('estructura.store');
+
+
+Route::patch('/diseño/multimedial/{proyecto},{estructura},{multimedial?}/editar', 'App\Http\Controllers\MultimedialController@update')->name('multimedial.update');
+Route::post('/diseño/multimedial/{proyecto}', 'App\Http\Controllers\MultimedialController@store')->name('multimedial.store');
 
 
 Route::get('/creacion', 'App\Http\Controllers\CreacionController@index')->name('creacion');
@@ -53,7 +63,7 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
 
 Route::post('/analisis/{proyecto}', 'App\Http\Controllers\AnalisisController@store')->name('analisis.store');
-Route::get('/analisis/{id}', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
+Route::get('/analisis/{proyecto}', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
 
 Route::get('/analisis/{id}/editar', 'App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
 Route::patch('/analisis/{analisis}', 'App\Http\Controllers\AnalisisController@update')->name('analisis.update');

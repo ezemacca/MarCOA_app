@@ -6,9 +6,10 @@
 				</a>					
 			</div>
 
-			<form method="POST" action="{{ route('diseño.store',['proyecto'=>$proyecto])}}" enctype="multipart/form-data">
+			<form 
+				method="POST"
+			 	action="{{ route('estructura.store',['proyecto'=>$proyecto])}}" enctype="multipart/form-data">
 				{{ csrf_field() }}
-
 				
 				<div class="form-group">
 					<div class="row">
@@ -25,17 +26,19 @@
 					</div>	
 					<select class="form-control" name="estructura_p1" id="estructura_p1" value="{{ old('estructura_p1') }}" required>
 						<option selected>Elegir estructura</option>
-						<option value="1">Secuencial</option>
-						<option value="2">Jerárquica</option>
-						<option value="3">En red</option>
-						<option value="4">Mixta</option>
+						<option value="Secuencial">Secuencial</option>
+						<option value="Jerárquica">Jerárquica</option>
+						<option value="En red">En red</option>
+						<option value="Mixta">Mixta</option>
 					</select>
 				</div>
 				
 				<div class="form-group">
 					<div class="row">
 						<div class="col-11">
-							<label for="estructura_p2">2. Mapa de navegación:</label>
+							<label for="estructura_p2">2. Mapa de navegación:
+							<input type="file" class="form-control-file" name="estructura_p2" id="estructura_p2">		
+							</label>
 						</div>
 						<div class="col text-right">
 							<a class="nav-link" data-toggle="modal" href="#de_ayuda2">
@@ -45,7 +48,7 @@
 							</a>
 						</div>
 					</div>	
-					<input type="file" class="form-control-file" name="estructura_p2" id="estructura_p2">
+					
 				</div>				
 				
 				<div class="row">
@@ -58,13 +61,13 @@
 							GUARDAR
 						</button>-->
 						<div class="conteiner-fluid text-left">
-							<a class="btn btn-secondary e-diseño" {{-- href="{{route('principal')}}" --}} role="button">
+							<button class="btn btn-secondary e-diseño" {{-- href="{{route('principal')}}" --}} role="button">
 								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 									<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
 									<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
 								</svg>
 								GUARDAR
-							</a>
+							</button>
 						</div>	
 						<div class="col text-right">
 							<a class="btn btn-secondary boton-generar" href="" role="button">

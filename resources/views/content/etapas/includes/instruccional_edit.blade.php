@@ -9,7 +9,7 @@
 				<h1>usted ya realizó el diseño instruccional, desea editarlo? </h1>
 			@else --}}
 
-			<form method="POST" action="{{ route('diseño.update_instruccional',[$proyecto, $subetapa,'instruccional'=>$instruccional])}}">
+			<form method="POST" action="{{ route('instruccional.update',[$proyecto,'instruccional'=>$instruccional])}}">
 				@csrf 
 				@method('PATCH')
 				<div class="form-group">
@@ -101,7 +101,7 @@
 					{{-- <input type="text" class="form-control" name="instruccional_p4" id="instruccional_p4" value="{{ old('instruccional_p4') }}" required> --}}
 					<textarea type="text" class="form-control" name="instruccional_p4" id="instruccional_p4" required >{{$instruccional->instruccional_p4 }}</textarea>
 				</div>				
-				<input type="hidden" value="{{$proyecto->id}}" name="proyecto_id">
+				<input type="hidden" value="{{$proyecto}}" name="proyecto_id">
 				<div class="row">
 					<div class="col text-left">
 						<!--<button type="submit" class="btn btn-secondary e-diseño">

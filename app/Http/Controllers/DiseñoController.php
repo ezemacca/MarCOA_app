@@ -15,11 +15,26 @@ class DiseñoController extends Controller
 	{
 		$proyecto = Proyecto::findorFail($id);
 
+		$diseño= $proyecto->diseño()->first();
 		
+		$subetapa = $diseño->getAttribute('subetapa');
 		
-		return view('content.etapas.diseño',['proyecto' => Proyecto::findorFail($id),'subetapa'=>1]);
+		$instruccional= $diseño->Instruccional()->first();
+
+		$estructura= $diseño->estructura()->first();
+
+		$multimedial=$diseño->multimedial()->first();
+
+		return view('content.etapas.diseño',['proyecto' => Proyecto::findorFail($id),'subetapa'=> $subetapa, 'instruccional'=>$instruccional,'estructura'=>$estructura, 'multimedial'=>$multimedial]);
 	}
 
+	public function create()
+    {
+        // Diseño::create([
+        //     'proyecto_id'=>$proyecto,
+        //     'subetapa'=>1,
+        // ]);
+    }
 	public function store($id)
 	{
 		// switch($subetapa){
@@ -43,64 +58,11 @@ class DiseñoController extends Controller
 		
 	}
 
-	public function store_instruccional($proyecto)
+	public function store_instruccional()
 	{
-		// $instruccional= new Instruccional([
-		// 	//falta diseñoId
-		// 	'instruccional_p1'=>request('instruccional_p1'),
-		// 	'instruccional_p2'=>request('instruccional_p2'),
-		// 	'instruccional_p3'=>request('instruccional_p3'),
-		// 	'instruccional_p4'=>request('instruccional_p4'),
-		// ]);
-		
-		
-		// $this->$instruccional->save();
-		// // $proyecto = Proyecto::findorFail($id);
-		// // $subetapa=$subetapa+1;
-
-		$diseño_id=Diseño::where('proyecto_id','=',$proyecto)->increment('subetapa',1);
-
-
-		Diseño::create([
-			//faltadiseñoId
-			'proyecto_id'=>$proyecto,
-			'subetapa'=>1
-		]);
-		
-		Instruccional::create([
-			//faltadiseñoId
-			'diseño_id'=>$diseño_id,
-			'instruccional_p1'=>request('instruccional_p1'),
-			'instruccional_p2'=>request('instruccional_p2'),
-			'instruccional_p3'=>request('instruccional_p3'),
-			'instruccional_p4'=>request('instruccional_p4'),
-		]);
-		
-		$proyecto = Proyecto::findorFail($id);
-		$instruccional =Instruccional::where('proyecto_id', '=', $id)->first();
-
-		Diseño::where('proyecto_id','=',$proyecto)->increment('subetapa',1);
-
-		return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'instruccional'=>$instruccional]);
 
 	}
-	public function store_estructura($id)
-	{
-		return(request());
-	}
-	public function store_multimedial($id)
-	{
-	}
 
 
-	public function update_instruccional($id,$subetapa,Instruccional $instruccional){
-		$instruccional->update([
-			'instruccional_p1'=>request('instruccional_p1'),
-			'instruccional_p2'=>request('instruccional_p2'),
-			'instruccional_p3'=>request('instruccional_p3'),
-			'instruccional_p4'=>request('instruccional_p4'),
-		]);
-		return redirect()-> view('content.etapas.diseño',['proyecto' => Proyecto::findorFail($id)],compact('subetapa'));
-	}
 }
 

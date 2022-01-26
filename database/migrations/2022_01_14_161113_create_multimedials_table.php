@@ -15,8 +15,9 @@ class CreateMultimedialsTable extends Migration
     {
         Schema::create('multimedials', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('diseño_id');
+            $table->unsignedBigInteger('diseño_id')->unique();
             $table->foreign('diseño_id')->references('id')->on('diseños')
+            ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->text('diseño_mult_p1');

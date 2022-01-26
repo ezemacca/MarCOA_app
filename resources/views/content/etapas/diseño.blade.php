@@ -58,13 +58,14 @@
 			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult">DISEÑO MULTIMEDIAL</a>
 		  </li>
 		 @endif
+		 
 		</ul>	
 	</div>
 	
 	<div class="tab-content">
 		<!--DISEÑO INSTRUCCIONAL-->
-		@if($subetapa==2)
-			<div id="diseño_inst" class="tab-pane {{-- in active --}}">
+		@if($subetapa>=2)
+			<div id="diseño_inst" class="tab-pane  }}">
 				@include('content.etapas.includes.instruccional_edit')
 			</div>
 		@else
@@ -74,8 +75,8 @@
 		@endif
 
 		<!--ESTRUCTURA-->
-		@if($subetapa==3)
-			<div id="estructura" class="tab-pane">
+		@if($subetapa>=3)
+			<div id="estructura" class="tab-pane ">
 				@include('content.etapas.includes.estructura_edit')
 			</div>
 		@else
@@ -85,7 +86,7 @@
 		@endif
 		
 		<!--DISEÑO MULTIMEDIAL-->
-		@if($subetapa==4)
+		@if($subetapa>=4)
 			<div id="diseño_mult" class="tab-pane">
 				@include('content.etapas.includes.multimedial_edit')
 			</div>	

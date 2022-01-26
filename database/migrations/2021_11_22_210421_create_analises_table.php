@@ -15,8 +15,9 @@ class CreateAnalisesTable extends Migration
     {
         Schema::create('analises', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('proyecto_id');
+            $table->unsignedBigInteger('proyecto_id')->unique();
             $table->foreign('proyecto_id')->references('id')->on('proyectos')
+            ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
 

@@ -15,4 +15,19 @@ class Proyecto extends Model
     protected $casts = [
         'options' => 'array',
     ];
+
+    public function user(){
+       return $this->belongsTo(User::class);
+    }
+
+    public function analisis()
+    {
+        return $this->hasOne(Analisis::class);
+    }
+
+    public function diseño()
+    {
+        return $this->hasOne(Diseño::class);
+    }
+
 }

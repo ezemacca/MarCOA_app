@@ -15,17 +15,24 @@ class CreateInstruccionalsTable extends Migration
     {
          Schema::create('diseños', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('proyecto_id');
-            $table->foreign('proyecto_id')->references('id')->on('proyectos')
+            $table->unsignedBigInteger('proyecto_id')->unique();
+            $table->foreign('proyecto_id')
+            ->references('id')
+            ->on('proyectos')
+            ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
             $table->unsignedTinyInteger('subetapa');
         });
 
         Schema::create('instruccionals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('diseño_id');
-            $table->foreign('diseño_id')->references('id')->on('diseños')
+            $table->unsignedBigInteger('diseño_id')->unique();
+            $table->foreign('diseño_id')
+            ->references('id')
+            ->on('diseños')
+            ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->text('instruccional_p1');

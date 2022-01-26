@@ -9,7 +9,7 @@
 				<h1>usted ya realizó el diseño instruccional, desea editarlo? </h1>
 			@else --}}
 
-			<form method="POST" action="{{ route('diseño.store_instruccional',$proyecto) }}">
+			<form method="POST" action="{{ route('instruccional.store',$proyecto) }}">
 				{{ csrf_field() }}
 				
 				<div class="form-group">
@@ -96,7 +96,7 @@
 					</div>	
 					<input type="text" class="form-control" name="instruccional_p4" id="instruccional_p4" value="{{ old('instruccional_p4') }}" required>
 				</div>				
-				<input type="hidden" value="{{$proyecto->id}}" name="proyecto_id">
+				<input type="hidden" value="{{$proyecto}}" name="proyecto_id">
 				<div class="row">
 					<div class="col text-left">
 						<!--<button type="submit" class="btn btn-secondary e-diseño">
