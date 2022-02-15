@@ -35,7 +35,7 @@ class InstruccionalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($proyecto, Request $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
         
         // $instruccional= new Instruccional([
@@ -54,8 +54,8 @@ class InstruccionalController extends Controller
         // $diseño_id=Diseño::where('proyecto_id','=',$proyecto)->increment('subetapa',1);
 
 
-        $diseño= Diseño::where('proyecto_id', '=', $proyecto)->first();
-
+        // Diseño::where('proyecto_id', '=', $proyecto)->first();
+        $diseño= $proyecto->diseño;
         $diseño->instruccional()->create([
             'instruccional_p1'=>request('instruccional_p1'),
             'instruccional_p2'=>request('instruccional_p2'),
@@ -99,18 +99,23 @@ class InstruccionalController extends Controller
      * @param  \App\Models\Instruccional  $instruccional
      * @return \Illuminate\Http\Response
      */
-    public function update($id,Instruccional $instruccional)
+    public function update(Proyecto $proyecto,Request $request)
     {
-        $proyecto = Proyecto::findorFail($id)->first();
+        // $proyecto = Proyecto::findorFail($id)->first();
+        $diseño= $proyecto->diseño;
+        // Diseño::where('proyecto_id', '=', $id)->first();
 
-        $diseño= Diseño::where('proyecto_id', '=', $id)->first();
+        $subetapa= $diseño->subetapa;
+
+        $instruccional=$diseño->instruccional;
+
         $instruccional->update([
             'instruccional_p1'=>request('instruccional_p1'),
             'instruccional_p2'=>request('instruccional_p2'),
             'instruccional_p3'=>request('instruccional_p3'),
             'instruccional_p4'=>request('instruccional_p4'),
         ]);
-        return view('content.etapas.diseño',['proyecto' => $proyecto,'subetapa'=>$diseño->subetapa,'instruccional'=>$instruccional]);
+        return view('content.etapas.diseño',['proyecto' => $proyecto,'subetapa'=>$subetapa,'instruccional'=>$instruccional]);
     }
 
     /**

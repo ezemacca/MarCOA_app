@@ -2,31 +2,41 @@
 <div class="container-fluid barra-superior">
 	
 	<nav class="navbar navbar-expand-lg">
-		<a class="link-marcoa" href="{{url('/')}}">MarCOA</a>
-		<!--<b>Mar</b>co para la <b>C</b>reación de <b>O</b>bjetos de <b>A</b>prendizaje-->
-		<ul class="navbar-nav ml-auto">
-		  <li class="nav-item">
-			<a class="nav-link link-barra-superior" data-toggle="modal" href="#que_es">QUÉ ES</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link link-barra-superior" data-toggle="modal" href="#como_se_usa">CÓMO SE USA</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link link-barra-superior" data-toggle="modal" href="#quienes_somos">QUIÉNES SOMOS</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link link-barra-superior" data-toggle="modal" href="#contacto"> CONTACTO</a>
-		  </li>
-		  @if (Auth::check())
-			  <li class="nav-item">
-					<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">|Salir</a>
+		<div class="container-fluid">
 
-						<form class="nav-link link-barra-superior" data-toggle="modal" id="logout-form" action="{{ route('logout') }}" method="POST" >
-    					@csrf
-						</form>
+			<div class="col-lg-4">
+				<a class="navbar" href="{{url('/')}}">
+					<img src="{{url('/images/MarCOA-06.png')}}" width="35%" height="35%"/>
+				</a>
+			</div>
+			<!--<b>Mar</b>co para la <b>C</b>reación de <b>O</b>bjetos de <b>A</b>prendizaje-->
+			{{-- <ul class="navbar-nav ml-auto > --}}
+			<ul class="nav navbar-nav">
+
+			  <li class="nav-item">
+				<a class="nav-link link-barra-superior" data-toggle="modal" href="#que_es"><br>QUÉ ES</a>
 			  </li>
-		  @endif
-		</ul>
+
+			  <li class="nav-item">
+				<a class="nav-link link-barra-superior" data-toggle="modal" href="#como_se_usa"><br>CÓMO SE USA</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link link-barra-superior" data-toggle="modal" href="#quienes_somos"><br>QUIÉNES SOMOS</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link link-barra-superior" data-toggle="modal" href="#contacto"><br>CONTACTO</a>
+			  </li>
+			  @if (Auth::check())
+				  <li class="nav-item">
+							<form class="nav-link link-barra-superior" data-toggle="modal" id="logout-form" action="{{ route('logout') }}" method="POST" >
+	    					@csrf
+
+	    					<a class="nav-link link-barra-superior" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><br>| SALIR</a>
+							</form>
+				  </li>
+			  @endif
+			</ul>
+		</div>
 	</nav>
 
 	<!-- Extra large modal - qué es MarCOA -->

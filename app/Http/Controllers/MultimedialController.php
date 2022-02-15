@@ -37,16 +37,21 @@ class MultimedialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($proyecto, Request $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        $diseño= Diseño::where('proyecto_id', '=', $proyecto)
-                ->first();
+        
 
+       
+
+
+        $diseño= $proyecto->diseño()->where('proyecto_id', '=', $proyecto->id)->first();
+        // $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)->first();
         $multimedial=$diseño->multimedial()
-        ->create([
-                    'diseño_mult_p1'=>request('diseño_mult_p1')
+            ->create([
+                        'diseño_mult_p1'=>request('diseño_mult_p1')
 
-        ]); 
+            ]); 
+        
 
         $cant_mapeos= ((count($request->all())-2)/3);
         
@@ -57,15 +62,14 @@ class MultimedialController extends Controller
                 'descripcion'=>request('diseño_mult_p2_c2f'.$i),
                 'plantilla'=>request('diseño_mult_p2_c3f'.$i),
             ]);
+
+            $diseño->increment('subetapa',1);
+            
+
         }
-        
+        $proyecto->increment('etapa',1);
+       return redirect()->route('principal', $proyecto);
 
-        
-
-        $diseño->increment('subetapa',1);
-        
-
-        return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(),'estructura'=>$diseño->estructura()->first(), 'multimedial'=>$multimedial]);  
     }
 
     /**
@@ -97,9 +101,34 @@ class MultimedialController extends Controller
      * @param  \App\Models\Multimedial  $multimedial
      * @return \Illuminate\Http\Response
      */
-    public function update($proyecto, $estructura, Multimedial $multimedial, Request $request)
+    public function update( $proyecto, Request $request)
     {
-        return($request);
+
+        $diseño= Diseño::where('proyecto_id', '=', $proyecto)->first();
+
+        $diseño->multimedial->first()->update([
+            'diseño_mult_p1'=>request('diseño_mult_p1')
+        ]);
+
+        $cant_mapeos= ((count($request->all())-3)/3);
+        
+        for ($i = 0; $i < $cant_mapeos; $i++) {
+            
+            $diseño->multimedial->mapeos()->create([
+                'nodo'=>request("diseño_mult_p2_c1f".$i),
+                'descripcion'=>request('diseño_mult_p2_c2f'.$i),
+                'plantilla'=>request('diseño_mult_p2_c3f'.$i),
+            ]);
+
+            // $diseño->increment('subetapa',1);
+
+
+        }
+
+
+         return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(),'estructura'=>$diseño->estructura()->first(), 'multimedial'=>$diseño->multimedial]); 
+
+         
     }
 
     /**

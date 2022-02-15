@@ -11,9 +11,91 @@
 	</a>					
 </div>
 
-<form method="POST" action="{{ route('multimedial.update',['proyecto'=>$proyecto,'estructura'=>$estructura,'multimedial'=>$multimedial]) }}">
-	@csrf 
-	 	@method('PATCH')
+
+					
+					
+					
+			
+
+
+							<label for="diseño_mult_p2">Mapeos Actuales:</label>
+							
+							<table class="table table-bordered table-hover table-sortable text-center" >
+								<thead>
+									<tr>
+										<!--<th scope="col">#</th>-->
+										<th scope="col">NOMBRE DEL NODO</th>
+										<th scope="col">DESCRIPCIÓN</th>
+										<th scope="col">PLANTILLA A UTILIZAR</th>
+									</tr>
+								</thead>
+									<tbody>						       
+											<div>
+									
+												@php 
+													$mapeos=$multimedial->mapeos;
+													// $cant_mapeos=(count($mapeos->all()));
+													$n=0;
+
+												@endphp
+
+												
+												@foreach($mapeos as $mapeo)
+													
+													
+
+												<tr>
+
+													<td >
+														<textarea  type="text"  name="{{"p2_c1f".$n}}" class="form-control" id="{{"p2_c1f".$n}}" data-items="8"
+														placeholder="Complete con el nombre del nodo"  >{{$mapeo->nodo}}
+													</textarea>
+													</td>
+
+													<td >												 	
+														<textarea  type="text" name="{{"p2_c2f".$n}}" class="form-control" id="{{"p2_c2f".$n}}" data-items="8"
+														placeholder="Complete con la descripción" >{{$mapeo->descripcion}}
+														</textarea>
+													</td>
+
+													<td >
+														<textarea type="text" name="{{"p2_c3f".$n}}" class="form-control" id="{{"p2_c3f".$n}} "data-items="8"
+														placeholder="Complete con la plantilla a utilizar">{{$mapeo->plantilla}}
+														</textarea>											
+													</td>
+
+													@php
+													++$n;
+													@endphp
+
+												
+
+													<td>
+													<form action="{{route('mapeo.destroy',$mapeo)}}" method="POST">
+															@csrf
+															@method('DELETE')
+
+        												
+     			 										
+														<button linkname="borrar" class="btn btn-primary" role="button" > 
+														<span >Eliminar</span>
+														</button>
+													</form>
+													</td>
+
+												</tr>
+
+													
+													
+												@endforeach
+											</div>
+							</tbody>
+							</table>
+
+
+<form method="POST" action="{{ route('multimedial.update',$proyecto,$multimedial) }}">
+	{{ csrf_field() }}
+	@method('PATCH')
 
 	<div class="form-group">
 		<div class="row">
@@ -28,9 +110,7 @@
 				</a>
 			</div>
 		</div>	
-		<input type="text" class="form-control" name="diseño_mult_p1" id="diseño_mult_p1" value="{{$multimedial->diseño_mult_p1 }}" required>
-		{{-- <textarea type="text" class="form-control" name="diseño_mult_p1" id="diseño_mult_p1" required >{{$multimedial->diseño_mult_p1 }}</textarea> --}}
-
+		<textarea type="text" class="form-control" name="diseño_mult_p1" id="diseño_mult_p1" required>{{ $multimedial->diseño_mult_p1 }}</textarea> 
 	</div>
 
 						{{-- <div class="col text-right">
@@ -45,9 +125,6 @@
 					
 			<div class="row clearfix">
 						<div class="col-md-12 table-responsive">
-
-
-
 							<label for="diseño_mult_p2">2. Mapeo entre nodos y plantillas multimedia:</label>
 							<table class="table table-bordered table-hover table-sortable text-center" id="tab_logic">
 								<thead>
@@ -63,77 +140,46 @@
 									<div class="controls" id="profs"> 
 
 										<form class="input-append">
-												@php 
-													$mapeos=$multimedial->mapeos;
-													// $cant_mapeos=(count($mapeos->all()));
-													$n=0;
 
-												@endphp
-
-												
-												@foreach($mapeos as $mapeo)
-													
-													
-
-												<tr id={{"addr".$n}} data-id= "{{$n}}" class="hidden">
+											
+												<!--<th scope="row">1</th>-->
+												{{-- <input type="text" class="control-group" name="diseño_mult_p2" id="fields" value="{{ old('diseño_mult_p2') }}" required> --}}
+												<tr id='addr0' data-id="0" class="hidden">
 
 													<td data-name="diseño_mult_p2_c1f">
-														<input autocomplete="off" class="form-control" type="text"  name={{"diseño_mult_p2_c1f".$n}} id={{"diseño_mult_p2_c1f".$n}} data-items="8"
-														placeholder="Complete con el nombre del nodo" value="{{$mapeo->nodo}}" >
+														<input autocomplete="off" class="form-control" type="text"  name="diseño_mult_p2_c1f0" id="diseño_mult_p2_c1f1" data-items="8"
+														placeholder="Complete con el nombre del nodo" value="{{ old('diseño_mult_p2_f1c1') }}" required>
 													</td>
 
 													<td data-name="diseño_mult_p2_c2f">												 	
-														<input autocomplete="off" class="form-control" type="text" name={{"diseño_mult_p2_c2f".$n}} id={{"diseño_mult_p2_c2f".$n}} data-items="8"
-														placeholder="Complete con la descripción"value="{{$mapeo->descripcion}}" >
+														<input autocomplete="off" class="form-control" type="text" name="diseño_mult_p2_c2f0" id="diseño_mult_p2_c2f1" data-items="8"
+														placeholder="Complete con la descripción"value="{{ old('diseño_mult_p2_f1c2') }}" required>
 													</td>
 
 													<td data-name="diseño_mult_p2_c3f">
-														<input autocomplete="off" class="form-control" type="text" name={{"diseño_mult_p2_c3f".$n}} id={{"diseño_mult_p2_c3f".$n}} data-items="8"
-														placeholder="Complete con la plantilla a utilizar"value="{{$mapeo->plantilla}}" >												
+														<input autocomplete="off" class="form-control" type="text" name="diseño_mult_p2_c3f0" id="diseño_mult_p2_c3f1" data-items="8"
+														placeholder="Complete con la plantilla a utilizar"value="{{ old('diseño_mult_p2_f1c3') }}" required>												
 													</td>
 
-													@php
-													++$n;
-													@endphp
 
-													{{-- <td>
-														<button name="borrar" class='btn btn-danger' > Eliminar </button>
-													</td> --}}
+
 													<td data-name="del">
-
-														
-
-														<button  name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'><span aria-hidden="true">×</span></button>
+														<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'><span aria-hidden="true">×</span></button>
 
 													</td>
-													
-													
 
 												</tr>
-
-													{{-- 
-														<td>
-														<textarea type="text" class="form-control" name={{"diseño_mult_p2_c1f".$n}} id={{"diseño_mult_p2_c1f".$n}} required >{{$mapeo->nodo}}</textarea>
-														</td>
-														<td>
-														<textarea type="text" class="form-control" name={{"diseño_mult_p2_c2f".$n}} id={{"diseño_mult_p2_c2f".$n}} required >{{$mapeo->descripcion}}</textarea>
-														<td>
-														<textarea type="text" class="form-control" name={{"diseño_mult_p2_c3f".$n}} id={{"diseño_mult_p2_c3f".$n}} required >{{$mapeo->plantilla}}</textarea>
-														</td> --}}
-													
-												@endforeach
-
-
-												<!--<th scope="row">1</th>-->
-												{{-- <input type="text" class="control-group" name="diseño_mult_p2" id="fields" value="{{ old('diseño_mult_p2') }}" required> --}}
-												
 											</form>
 
 										</div>
 									</tbody>
 								</table>			
 
-							<a id="add_row" class="btn btn-primary float-right">Agregar Mapeo</a>
+								<h3>
+									<a id="add_row" class="btn btn-secondary float-right">
+									Agregar Mapeo
+								</a>
+								</h3>
 						</div>
 			</div>
 			<div class="row">
@@ -146,12 +192,12 @@
 							GUARDAR
 						</button>-->
 					<div class="conteiner-fluid text-left">
-							<button class="btn btn-secondary e-diseño" {{-- href="{{route('principal')}}" --}} role="button" type="submit">
+							<button type="submit" class="btn btn-secondary e-diseño" {{-- href="{{route('principal')}}" --}} role="button">
 								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 									<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
 									<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
 								</svg>
-								ACTUALIZAR
+								Guardar Cambios
 							</button>
 					</div>	
 					<div class="col text-right">
@@ -166,7 +212,21 @@
 					</div>
 				</div>
 			</div>		
+		
+									</tbody>
+								</table>			
+
 		</form>
+
+			</div>
+						<!--<button type="submit" class="btn btn-secondary e-diseño">
+							<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
+								<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
+								<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
+							</svg>
+							GUARDAR
+						</button>-->
+					
 
 		<script>
 					$(document).ready(function() {

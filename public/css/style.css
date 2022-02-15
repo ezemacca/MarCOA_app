@@ -1,42 +1,12 @@
+/*para centrar cualquier div*/
+.centrado {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #672B60;
+  padding: 10px;
+}
+
 /* general */
-/* Split the screen in half */
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-/* Control the left side */
-.left {
-  left: 0;
-}
-
-/* Control the right side */
-.right {
-  right: 0;
-}
-
-/* If you want the content centered horizontally and vertically */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-/* Style the image inside the centered container, if needed */
-/*.centered img {
-  width: 150px;
-  border-radius: 50%;
-}
-} */
-
-
 html, body{
 	background-color: white;
 	color: #000000;
@@ -57,6 +27,7 @@ h1 {
 	font-weight: bold;
 }
 h2 {
+
 	/*background-color: DARKRED;*/	
 	color: WHITE;
 	font-size: 16px;
@@ -68,24 +39,51 @@ h2 {
 	margin-bottom: 0px;
 }
 
+h3{
+	color: black;
+	font-size: 30px;
+	/*padding-left: 10px;**/
+	/**padding-bottom: 10px;**/
+	font-weight: bold;
+	font-family: 'Raleway';
+	/**border-bottom: 1px solid WHITE;**/
+	margin-bottom: 0px;
+}
+
 /* *** */
 
 
 /* cabecera - logo marcoa - barra navegación - modales*/
 .barra-superior{
 	padding:0;
-	padding-bottom: 2px;
+	padding-bottom: 20px;
 }
 header{
 	line-height: 24px;
+	/*line-with: 10px;*/
 	/*border-bottom-width: 1px;
 	border-bottom-style: dotted;
 	border-bottom-color: grey;*/
 }
 .navbar{
-	background-color: SILVER;
+	background-color: BLACK; 
+	display: inline-flex;
+  /*float:center;*/
+
 }
+li {
+  /*display: inline;*/
+}
+
+/*
+.nav {
+  display: inline-block;
+ 
+  float:right;
+  white-space: nowrap;
+}*/
 .link-marcoa{
+	
 	/*color: #000000;*/
 	color: WHITE;
 	font-size: 24px;
@@ -231,10 +229,6 @@ footer{
 .cont-formulario{
 	padding-top: 10px;
 }
-
-
-
-
 /* *** */
 
 
@@ -395,3 +389,61 @@ footer{
 	border: 1px dotted SILVER;
 }
 /* *** */
+
+
+/*Dividir la pantalla de bienvenida en 2*/
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  /*top: 0;*/
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+
+/*El Grid de bienvenida para iniciar sesion*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 500px auto ;
+  background-color: grey;
+  padding: 0px;
+  grid-column-gap: 1px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn-group{
+	margin: 10px 0 10px 0;
+}
+

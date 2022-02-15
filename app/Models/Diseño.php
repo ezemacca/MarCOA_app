@@ -29,5 +29,8 @@ class Diseño extends Model
     public function proyecto(){
        return $this->belongsTo(Proyecto::class);
     }
-
+    public function getsubetapa()
+    {
+        return ucfirst($subetapa);
+    }
 }

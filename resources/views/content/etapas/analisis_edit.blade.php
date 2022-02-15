@@ -2,8 +2,10 @@
 
 @section('content')
 
+{{-- {{dd($analisis)}} --}}
+
 <div class="container-fluid cont-formulario">
-	<form method="POST" action="{{ route('analisis.update', $analisis)}}">
+	<form method="POST" action="{{ route('analisis.update', $proyecto)}} ">
 		@csrf 
 		@method('PATCH')
 		

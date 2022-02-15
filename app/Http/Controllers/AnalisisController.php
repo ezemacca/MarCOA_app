@@ -68,12 +68,15 @@ class AnalisisController extends Controller
 	public function edit( $id)
 	{
 		$proyecto = Proyecto::findorFail($id);
-		$analisis = Analisis::where('proyecto_id', '=', $id)->first();
+		$analisis= $proyecto->analisis()->first();
+	// 	// $analisis = Analisis::where('proyecto_id', '=', $id)->first();
 		
-		return view('content.etapas.analisis_edit',['analisis' => $analisis]);
+		return view('content.etapas.analisis_edit',['proyecto'=>$proyecto,'analisis'=>$analisis]);
+		// return dd($proyecto) ;
 	}
 
-	public function update(Analisis $analisis){
+	public function update(Proyecto $proyecto, Request $request){
+		$analisis=$proyecto->analisis;
 		$analisis->update([
 			'analisis_p1'=>request('analisis_p1'),
 			'analisis_p2'=>request('analisis_p2'),
@@ -82,7 +85,8 @@ class AnalisisController extends Controller
 			'analisis_p5'=>request('analisis_p5'),
 			'analisis_p6'=>request('analisis_p6'),
 		]);
-		return redirect()-> route('principal', $analisis['proyecto_id']);
+		return redirect()-> route('principal', $proyecto
+	);
 	}
 }
 

@@ -30,4 +30,13 @@ class Proyecto extends Model
         return $this->hasOne(Diseño::class);
     }
 
+    public function estructura()
+    {
+        return $this->hasOne(Estructura::class);
+    }
+
+    public function coherencia()
+    {
+        return $this->hasOne(Coherencia::class);
+    }
 }

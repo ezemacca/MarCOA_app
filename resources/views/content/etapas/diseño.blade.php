@@ -31,9 +31,9 @@
 			  <li class="nav-item active ">
 				<a class="nav-link active pestaña" data-toggle="tab" href="#diseño_inst">DISEÑO INSTRUCCIONAL</a>
 			  </li>
-		 @else
+		 @elseif($subetapa>1)
 		  <li class="nav-item ">
-			<a class="nav-link  pestaña" data-toggle="tab" href="#diseño_inst">DISEÑO INSTRUCCIONAL</a>
+			<a class="nav-link  pestaña" data-toggle="tab" href="#diseño_inst"> EDITAR DISEÑO INSTRUCCIONAL</a>
 		  </li>
 		 @endif
 
@@ -41,9 +41,9 @@
 			  <li class="nav-item active">
 				<a class="nav-link active pestaña" data-toggle="tab" href="#estructura">ESTRUCTURA</a>
 			  </li>
-		 @else
+		 @elseif($subetapa>2)
 			  <li class="nav-item ">
-				<a class="nav-link  pestaña" data-toggle="tab" href="#estructura">ESTRUCTURA</a>
+				<a class="nav-link  pestaña" data-toggle="tab" href="#estructura">EDITAR ESTRUCTURA</a>
 			  </li>
 		 @endif
 
@@ -53,25 +53,25 @@
 			<a class="nav-link active pestaña" data-toggle="tab" href="#diseño_mult">DISEÑO MULTIMEDIAL</a>
 		  </li>
 
-		@else
+		@elseif($subetapa>3)
 		  <li class="nav-item">
-			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult">DISEÑO MULTIMEDIAL</a>
+			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult">EDITAR DISEÑO MULTIMEDIAL</a>
 		  </li>
-		 @endif
-		 
+		  @endif
 		</ul>	
 	</div>
 	
 	<div class="tab-content">
 		<!--DISEÑO INSTRUCCIONAL-->
 		@if($subetapa>=2)
-			<div id="diseño_inst" class="tab-pane  }}">
+			<div id="diseño_inst" class="tab-pane">
 				@include('content.etapas.includes.instruccional_edit')
 			</div>
-		@else
-			<div id="diseño_inst" class="tab-pane{{--  in active --}}">
+		@elseif($subetapa==1)
+			<div id="diseño_inst" class="tab-pane in active">
 				@include('content.etapas.includes.instruccional')
 			</div>
+
 		@endif
 
 		<!--ESTRUCTURA-->
@@ -79,22 +79,32 @@
 			<div id="estructura" class="tab-pane ">
 				@include('content.etapas.includes.estructura_edit')
 			</div>
-		@else
-			<div id="estructura" class="tab-pane">
+		@elseif($subetapa==2)
+			<div id="estructura" class="tab-pane in active">
 				@include('content.etapas.includes.estructura')
 			</div>
 		@endif
 		
 		<!--DISEÑO MULTIMEDIAL-->
 		@if($subetapa>=4)
-			<div id="diseño_mult" class="tab-pane">
+			<div id="diseño_mult" class="tab-pane  ">
 				@include('content.etapas.includes.multimedial_edit')
 			</div>	
-		@else
-		<div id="diseño_mult" class="tab-pane">
+			<br><br><br>
+		<div class="centrado">
+			<a > Usted ya completó esta etapa, si quiere editar alguna de las subetapas, seleccionela arriba.</a>
+		</div>
+		@elseif($subetapa==3)
+		<div id="diseño_mult" class="tab-pane in active">
 			@include('content.etapas.includes.multimedial')
 		</div>	
+
 		@endif
+		
+		
+
+
+
 	</div>
 
 @stop

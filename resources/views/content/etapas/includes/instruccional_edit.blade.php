@@ -8,8 +8,11 @@
 			{{-- @if ($instruccional ?? '' <> null)
 				<h1>usted ya realizó el diseño instruccional, desea editarlo? </h1>
 			@else --}}
+			{{-- @php
+			dd($proyecto)
+			@endphp --}}
 
-			<form method="POST" action="{{ route('instruccional.update',[$proyecto,'instruccional'=>$instruccional])}}">
+			<form method="POST" action="{{ route('instruccional.update',$proyecto )}}">
 				@csrf 
 				@method('PATCH')
 				<div class="form-group">

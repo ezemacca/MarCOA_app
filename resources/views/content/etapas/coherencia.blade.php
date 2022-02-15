@@ -26,13 +26,13 @@
 	</div>	
 	
 	<div class="container-fluid">
-		<form method="POST" action="{{ url('coherencia') }}">
-			{{ csrf_field() }}		
+		<form method="POST" action="{{ route('coherencia.store',$proyecto) }}">
+			@csrf	
 
 			<div class="form-check preg-guia">
 				<div class="row">
 					<div class="col-11">
-						<input class="form-check-input" type="checkbox" value="" id="coherencia_p1">
+						<input class="form-check-input" type="checkbox" value="coherencia_p1" id="coherencia_p1" name="coherencia[]">
 						<label class="form-check-label" for="coherencia_p1">¿Hay un solo objetivo y es de carácter específico?</label>
 					</div>
 					<div class="col text-right">
@@ -49,7 +49,7 @@
 			<div class="form-check preg-guia">
 				<div class="row">
 					<div class="col-11">
-						<input class="form-check-input" type="checkbox" value="" id="coherencia_p2">
+						<input class="form-check-input" type="checkbox" value="coherencia_p2" id="coherencia_p2" name="coherencia[]">
 						<label class="form-check-label" for="coherencia_p2">¿Se plantea adecuadamente la necesidad educativa que da origen al OA?</label>
 					</div>
 					<div class="col text-right">
@@ -65,13 +65,13 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id="coherencia_p3">
+					<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]">
 					<label class="form-check-label" for="coherencia_p3">¿Los contenidos ofrecen la información pertinente para alcanzar el objetivo planteado?</label>		
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="" id="coherencia_p4">
+							<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]">
 							<label class="form-check-label" for="coherencia_p4">¿Los contenidos ofrecen más/menos información de la que es necesaria?</label>
 						</div>
 						<div class="col text-right">
@@ -88,13 +88,13 @@
 				
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id="coherencia_p5">
+					<input class="form-check-input" type="checkbox" value="coherencia_p5" id="coherencia_p5" name="coherencia[]">
 					<label class="form-check-label" for="coherencia_p5">¿Las actividades posibilitan poner en práctica los procesos cognitivos enunciados en el objetivo?</label>	
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="" id="coherencia_p6">
+							<input class="form-check-input" type="checkbox" value="coherencia_p6" id="coherencia_p6" name="coherencia[]">
 							<label class="form-check-label" for="coherencia_p6">¿Las actividades permiten operar con la información incluida en los contenidos?</label>	
 						</div>
 						<div class="col text-right">
@@ -111,13 +111,13 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id="coherencia_p7">
+					<input class="form-check-input" type="checkbox" value="coherencia_p7" id="coherencia_p7" name="coherencia[]">
 					<label class="form-check-label" for="coherencia_p7">¿La autoevaluación posibilita demostrar que el objetivo ha sido alcanzado?</label>				
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="" id="coherencia_p8">
+							<input class="form-check-input" type="checkbox" value="coherencia_p8" id="coherencia_p8" name="coherencia[]">
 							<label class="form-check-label" for="coherencia_p8">¿La autoevalución presenta preguntas cuya respuesta pone en juego la información presentada y los procesos cognitivos que se pretende poner en práctica?</label>
 					</div>
 					<div class="col text-right">
@@ -133,9 +133,11 @@
 			</div>
 			
 			</br>
-			<div class="conteiner-fluid text-left">
-				<a class="btn btn-secondary" href="{{route('principal')}}" role="button">ANÁLISIS REALIZADO</a>
-			</div>			
+				<div class="conteiner-fluid text-left">
+					<button class="btn btn-secondary"  role="button">
+						ANÁLISIS REALIZADO
+					</button>
+				</div>		
 		</form>
 	</div>
 	
@@ -192,7 +194,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Objetivo...</p>
+					<p>
+						@php
+						$proyecto->diseño->instruccional->instruccional_p1
+						@endphp
+					</p>
 				</div>
 			</div>
 		</div>
@@ -218,7 +224,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">DESICIONES TOMADAS EN RELACIÓN A LOS CONTENIDOS DEL OA</h5>
+					<h5 class="modal-title">DECISIONES TOMADAS EN RELACIÓN A LOS CONTENIDOS DEL OA</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -234,7 +240,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">DESICIONES TOMADAS EN RELACIÓN A LAS ACTIVIDADES DEL OA</h5>
+					<h5 class="modal-title">DECISIONES TOMADAS EN RELACIÓN A LAS ACTIVIDADES DEL OA</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -250,7 +256,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">DESICIONES TOMADAS EN RELACIÓN A LA AUTOEVALUACIÓN DEL OA</h5>
+					<h5 class="modal-title">DECISIONES TOMADAS EN RELACIÓN A LA AUTOEVALUACIÓN DEL OA</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

@@ -27,6 +27,7 @@ Route::get('/GestorProyectos/{proyecto}/editar', 'App\Http\Controllers\GestorPro
 Route::patch('/GestorProyectos/{proyecto}', 'App\Http\Controllers\GestorProyectosController@update')->name('GestorProyectos.update');
 
 Route::delete('/GestorProyectos/{proyecto}/eliminar', 'App\Http\Controllers\GestorProyectosController@destroy')->name('GestorProyectos.destroy');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('inicio');
@@ -34,7 +35,7 @@ Route::delete('/GestorProyectos/{proyecto}/eliminar', 'App\Http\Controllers\Gest
 require __DIR__.'/auth.php';
 
 
-
+Route::delete('/Mapeo/{id}/eliminar', 'App\Http\Controllers\MapeoController@destroy')->name('mapeo.destroy');
 
 Route::post('/diseño/{proyecto}', 'App\Http\Controllers\DiseñoController@store')->name('diseño.store');
 
@@ -42,14 +43,13 @@ Route::post('/diseño/{proyecto}', 'App\Http\Controllers\DiseñoController@store
 
 Route::get('/diseño/{id}', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
 
-Route::patch('/diseño/instruccional/{id},{instruccional}/editar', 'App\Http\Controllers\InstruccionalController@update')->name('instruccional.update');
+Route::patch('/diseño/instruccional/{proyecto}/editar', 'App\Http\Controllers\InstruccionalController@update')->name('instruccional.update');
 Route::post('/diseño/instruccional/{proyecto}', 'App\Http\Controllers\InstruccionalController@store')->name('instruccional.store');
 
 Route::patch('/diseño/estructura/{proyecto},{estructura?}/editar', 'App\Http\Controllers\EstructuraController@update')->name('estructura.update');
 Route::post('/diseño/estructura/{proyecto}', 'App\Http\Controllers\EstructuraController@store')->name('estructura.store');
 
-
-Route::patch('/diseño/multimedial/{proyecto},{estructura},{multimedial?}/editar', 'App\Http\Controllers\MultimedialController@update')->name('multimedial.update');
+Route::patch('/diseño/multimedial/{proyecto}/editar', 'App\Http\Controllers\MultimedialController@update')->name('multimedial.update');
 Route::post('/diseño/multimedial/{proyecto}', 'App\Http\Controllers\MultimedialController@store')->name('multimedial.store');
 
 
@@ -62,15 +62,23 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
 
-Route::post('/analisis/{proyecto}', 'App\Http\Controllers\AnalisisController@store')->name('analisis.store');
-Route::get('/analisis/{proyecto}', 'App\Http\Controllers\AnalisisController@index')->name('analisis');
-
-Route::get('/analisis/{id}/editar', 'App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
-Route::patch('/analisis/{analisis}', 'App\Http\Controllers\AnalisisController@update')->name('analisis.update');
 
 
-Route::get('/coherencia', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
-Route::get('/desarrollo', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
+
+Route::patch('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@update')->name('analisis.update');
+Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
+Route::get('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@index')->name('analisis');
+Route::get('/analisis/{id}/editar','App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
+
+
+Route::get('/coherencia/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
+Route::post('/coherencia/{proyecto}', 'App\Http\Controllers\CoherenciaController@store')->name('coherencia.store');
+Route::get('/coherencia/{id}/editar', 'App\Http\Controllers\CoherenciaController@edit')->name('coherencia.edit');
+Route::patch('/coherencia/{proyecto?}', 'App\Http\Controllers\CoherenciaController@update')->name('coherencia.update');
+
+
+Route::get('/desarrollo{proyecto}', 'App\Http\Controllers\desarrollo\DesarrolloController@index')->name('desarrollo');
+
 Route::get('/publicacion', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');
 Route::get('/evaluacion', 'App\Http\Controllers\EvaluacionController@index')->name('evaluacion');
 Route::get('/configuracion', 'App\Http\Controllers\ConfiguracionController@index')->name('configuracion');
