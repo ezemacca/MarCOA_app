@@ -77,7 +77,7 @@ Route::get('/coherencia/{id}/editar', 'App\Http\Controllers\CoherenciaController
 Route::patch('/coherencia/{proyecto?}', 'App\Http\Controllers\CoherenciaController@update')->name('coherencia.update');
 
 
-Route::get('/desarrollo{proyecto}', 'App\Http\Controllers\desarrollo\DesarrolloController@index')->name('desarrollo');
+
 
 Route::get('/publicacion', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');
 Route::get('/evaluacion', 'App\Http\Controllers\EvaluacionController@index')->name('evaluacion');
@@ -89,11 +89,27 @@ Route::get('/visualizacion', 'VisualizacionController@index')->name('visualizaci
 // Route::get('/register', 'App\Http\Controllers\Auth\AuthenticatedSessionController@create')->name('login');
 
 
+// DESARROLLO
+
+Route::get('/desarrollo/{proyecto}', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
+
+// Route::post('/desarrollo/general/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@store')->name('metadatos.general.store');
+
+Route::post('/desarrollo/crear/{proyecto}', 'App\Http\Controllers\DesarrolloController@create')->name('desarrollo.create');
 
 
+    //METADATOS_GENERAL 
+Route::patch('/desarrollo/metadatos/general/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@update')->name('metadatos.general.update');
+
+Route::post('/desarrollo/metadatos/general/guardar/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@store')->name('metadatos.general.store');
 
 
+    //METADATOS_CICLO
 
+
+Route::patch('/desarrollo/metadatos/ciclo/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\CicloController@update')->name('metadatos.ciclo.update');
+
+Route::post('/desarrollo/metadatos/ciclo/guardar/{proyecto}', 'App\Http\Controllers\metadatos\CicloController@store')->name('metadatos.ciclo.store');
 
 
 

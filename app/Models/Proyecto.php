@@ -1,10 +1,11 @@
 <?php
 
-//este es un modelo php, que representa la tabla proyecto de la base de datos
+
 namespace App\Models; 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\desarrollo\Desarrollo;
 
 class Proyecto extends Model
 {
@@ -38,5 +39,10 @@ class Proyecto extends Model
     public function coherencia()
     {
         return $this->hasOne(Coherencia::class);
+    }
+
+    public function desarrollo()
+    {
+        return $this->hasOne(Desarrollo::class);
     }
 }

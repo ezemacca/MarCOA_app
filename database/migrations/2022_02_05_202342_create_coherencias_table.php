@@ -16,7 +16,8 @@ class CreateCoherenciasTable extends Migration
         Schema::create('coherencias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('proyecto_id')->unique();
-            $table->foreign('proyecto_id')
+            $table
+            ->foreign('proyecto_id')
             ->references('id')
             ->on('proyectos')
             ->onUpdate('cascade')

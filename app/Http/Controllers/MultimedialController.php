@@ -39,11 +39,6 @@ class MultimedialController extends Controller
      */
     public function store(Proyecto $proyecto, Request $request)
     {
-        
-
-       
-
-
         $diseño= $proyecto->diseño()->where('proyecto_id', '=', $proyecto->id)->first();
         // $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)->first();
         $multimedial=$diseño->multimedial()
@@ -68,6 +63,10 @@ class MultimedialController extends Controller
 
         }
         $proyecto->increment('etapa',1);
+       
+       $proyecto->desarrollo()->create([
+            'subetapa'=>1
+        ]);
        return redirect()->route('principal', $proyecto);
 
     }

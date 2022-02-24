@@ -5,11 +5,10 @@ namespace App\Models\Desarrollo\Metadatos;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tecnica extends Model
+class Contribuyente extends Model
 {
-    public function metadatos(){
-       return $this->belongsTo(Metadatos::class);
-    }
-    public $timestamps = false;
+
+    protected $fillable = ['ciclo_p3_cont-1','ciclo_p3_cont-2','ciclo_p3_cont-3'];
     use HasFactory;
+    public $timestamps = false;
 }

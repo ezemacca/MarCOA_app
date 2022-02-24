@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\desarollo\metadatos;
+namespace App\Http\Controllers\metadatos;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCicloRequest;
-use App\Http\Requests\UpdateCicloRequest;
 use App\Models\Ciclo;
+use App\Models\General;
+use App\Models\desarrollo\Desarrollo;
+use App\Models\desarrollo\metadatos\Metadatos;
+use App\Models\Proyecto;
+use App\Models\Diseño;
+
 
 class CicloController extends Controller
 {
@@ -35,9 +40,19 @@ class CicloController extends Controller
      * @param  \App\Http\Requests\StoreCicloRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCicloRequest $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->ciclo()->create([
+                'ciclo_p1'=>request('ciclo_p1'),
+                'ciclo_p2'=>request('ciclo_p2'),
+            ]);
+        $proyecto->desarrollo->metadatos->ciclo->contribuyente()->create([
+            'ciclo_p3_cont-1'=>request('ciclo_p3_cont-1'),'
+            ciclo_p3_cont-2'=>request('ciclo_p3_cont-2'),
+            'ciclo_p3_cont-3'=>request('ciclo_p3_cont-3'),
+        ]);
+        $proyecto->desarrollo->metadatos->increment('subetapa',1);
+        return $request;
     }
 
     /**

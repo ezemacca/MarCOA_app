@@ -5,11 +5,14 @@ namespace App\Models\Desarrollo\Metadatos;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tecnica extends Model
+class PalabrasClave extends Model
 {
-    public function metadatos(){
-       return $this->belongsTo(Metadatos::class);
-    }
+    protected $fillable = ['proyecto_id','general_p6'];
+   
     public $timestamps = false;
+
+    public function general(){
+       return $this->belongsTo(General::class);
+    }
     use HasFactory;
 }

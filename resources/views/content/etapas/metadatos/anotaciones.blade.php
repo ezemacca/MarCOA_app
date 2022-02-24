@@ -45,7 +45,7 @@
 					<label for="anotaciones_p1_anot-3">8.1.3. Texto</label>
 				</div>
 			</div>
-			<input type="text" class="form-control" name="anotaciones_p1_anot-3" id="anotaciones_p1_anot-1" value="{{ old('anotaciones_p1_anot-1') }}" required>		
+			<input type="text" class="form-control" name="anotaciones_p1_anot-3" id="anotaciones_p1_anot-1" value="{{ old('anotaciones_p1_anot-3') }}" required>		
 		</div>
 	</div>
 	
