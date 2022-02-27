@@ -40,8 +40,9 @@ class GeneralController extends Controller
      */
     public function store(Proyecto $proyecto, Request $request)
     {
-        $proyecto->desarrollo->metadatos()->create([
-            'subetapa'=>1]);
+        // $proyecto->desarrollo->metadatos()->create([
+        //     'subetapa'=>1]);
+        
         $proyecto->desarrollo->metadatos->general()->create([
                 'general_p1'=>request('general_p1'),
                 'general_p2'=>request('general_p2'),
@@ -54,6 +55,7 @@ class GeneralController extends Controller
             ]);
         $proyecto->desarrollo->metadatos->general->palabrasclave()->create([
                 'general_p6'=>request('general_p6-1')]);
+        
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
 
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);

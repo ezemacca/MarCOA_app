@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\desarollo\metadatos;
+namespace App\Http\Controllers\metadatos;
+
+
+use Illuminate\Http\Request;
+use App\Models\General;
+use App\Models\desarrollo\Desarrollo;
+use App\Models\Proyecto;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreEducacionalRequest;
-use App\Http\Requests\UpdateEducacionalRequest;
 use App\Models\Educacional;
 
 class EducacionalController extends Controller
@@ -35,9 +39,25 @@ class EducacionalController extends Controller
      * @param  \App\Http\Requests\StoreEducacionalRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEducacionalRequest $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->educacional()->create([
+        'educacional_p1'=>request('educacional_p1'),
+        'educacional_p2'=>request('educacional_p2'),
+        'educacional_p3'=>request('educacional_p3'),
+        'educacional_p4'=>request('educacional_p4'),
+        'educacional_p5'=>request('educacional_p5'),
+        'educacional_p6'=>request('educacional_p6'),
+        'educacional_p7'=>request('educacional_p7'),
+        'educacional_p8'=>request('educacional_p8'),
+        'educacional_p9'=>request('educacional_p9'),
+        'educacional_p10'=>request('educacional_p10'),
+        'educacional_p11'=>request('educacional_p11')
+    ]);
+        
+        $proyecto->desarrollo->metadatos->increment('subetapa',1);
+        
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**
@@ -69,9 +89,22 @@ class EducacionalController extends Controller
      * @param  \App\Models\Educacional  $educacional
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEducacionalRequest $request, Educacional $educacional)
+    public function update(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->educacional()->create([
+        'educacional_p1'=>request('educacional_p1'),
+        'educacional_p2'=>request('educacional_p2'),
+        'educacional_p3'=>request('educacional_p3'),
+        'educacional_p4'=>request('educacional_p4'),
+        'educacional_p5'=>request('educacional_p5'),
+        'educacional_p6'=>request('educacional_p6'),
+        'educacional_p7'=>request('educacional_p7'),
+        'educacional_p8'=>request('educacional_p8'),
+        'educacional_p9'=>request('educacional_p9'),
+        'educacional_p10'=>request('educacional_p10'),
+        'educacional_p11'=>request('educacional_p11')
+    ]);
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**

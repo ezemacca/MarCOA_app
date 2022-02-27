@@ -22,10 +22,10 @@ class CreateClasificacionsTable extends Migration
             ->on('metadatos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->tinytext('clasificaciones_p1_cla-1');
-            $table->text('clasificaciones_p1_cla-2');
-            $table->text('clasificaciones_p1_cla-3');
-            $table->text('clasificaciones_p1_cla-4');
+            $table->tinytext('clasificaciones_p1_cla_1');
+            $table->text('clasificaciones_p1_cla_2');
+            $table->text('clasificaciones_p1_cla_3');
+            $table->text('clasificaciones_p1_cla_4');
 
         });
     }

@@ -55,35 +55,26 @@
 		</div>
 		<div>
 			<label for="ciclo_p3_cont">CONTRIBUCIÓN</label></br>
-			<label for="ciclo_p3_cont-1">2.3.1. Papel del contribuyente *</label>
-			<input type="text" class="form-control" name="ciclo_p3_cont-1" id="ciclo_p3_cont-1" value="{{ old('ciclo_p3_cont-1') }}" required>
-			<label for="ciclo_p3_cont-2">2.3.2. Identidad del contribuyente *</label>
-			<input type="text" class="form-control" name="ciclo_p3_cont-2" id="ciclo_p3_cont-2" value="{{ old('ciclo_p3_cont-2') }}" required>
-
-			<label for="ciclo_p3_cont-3">2.3.3. Fecha de contribución *</label>
-
 			
 
-			{{-- <input type="text" class="form-control" name="ciclo_p3_cont-3" id="ciclo_p3_cont-3" value="{{ old('ciclo_p3_cont-3') }}" required>	 --}}	
-		<div class="container">
-		   <div class="row">
-		      <div class='col-sm-6'>
-		         <div class="form-group">
-		            <div class='input-group date' id='ciclo_p3_cont-3'>
-		               <input type="text" class="form-control" name="ciclo_p3_cont-3" id="datetimepicker1" value="{{ old('ciclo_p3_cont-3') }}" required>
-		               <span class="input-group-addon">
-		               <span class="glyphicon glyphicon-calendar"></span>
-		               </span>
-		            </div>
-		         </div>
-		      </div>
-		      <script type="text/javascript">
-		         $(function () {
-		             $('#datetimepicker1').datetimepicker();
-		         });
-		      </script>
-		   </div>
-		</div>
+			<label for="ciclo_p3_cont_1">2.3.1. Papel del contribuyente *</label>
+			<input type="text" class="form-control" name="ciclo_p3_cont_1" id="ciclo_p3_cont_1" value="{{ old('ciclo_p3_cont_1') }}" required>
+
+			<label for="ciclo_p3_cont_2">2.3.2. Identidad del contribuyente *</label>
+			<input type="text" class="form-control" name="ciclo_p3_cont_2" id="ciclo_p3_cont_2" value="{{ old('ciclo_p3_cont_2') }}" required>
+
+			<label for="ciclo_p3_cont_3">2.3.3. Fecha de contribución *</label>
+
+			
+			<label for="ciclo_p3_cont_3">2.3.3. Fecha de contribución *</label>
+			
+			<input placeholder="Seleccione fecha" type="date" id="ciclo_p3_cont_3" class="form-control" name= "ciclo_p3_cont_3" value="{{ old('ciclo_p3_cont_3') }}">
+
+					  <i class="fas fa-calendar input-prefix" tabindex=1></i>
+					
+			      <script >
+			        $('.datepicker').datepicker();
+			      </script>
 
 
 		</div>

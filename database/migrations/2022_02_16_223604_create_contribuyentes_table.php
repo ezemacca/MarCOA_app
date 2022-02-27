@@ -18,12 +18,12 @@ class CreateContribuyentesTable extends Migration
             $table->unsignedBigInteger('ciclo_id');
             $table->foreign('ciclo_id')
             ->references('id')
-            ->on('generals')
+            ->on('ciclos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->text('ciclo_p3_cont-1');
-            $table->text('ciclo_p3_cont-2');
-            $table->date('ciclo_p3_cont-3');
+            $table->text('ciclo_p3_cont_1');
+            $table->text('ciclo_p3_cont_2');
+            $table->date('ciclo_p3_cont_3');
         });
     }
 

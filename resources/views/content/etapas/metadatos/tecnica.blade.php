@@ -1,5 +1,5 @@
 <!--CATEGORÍA 4-->
-<form method="POST" action="{{ url('desarrollo') }}">
+<form method="POST" action="{{ route('metadatos.tecnica.store', $proyecto) }}">
 	{{ csrf_field() }}
 
 	<div class="form-group">
@@ -72,7 +72,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-1">4.4.1. Tipo de plataforma *</label>
+						<label for="tecnica_p4_1">4.4.1. Tipo de plataforma *</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-1">
@@ -82,7 +82,7 @@
 						</a>
 					</div>
 				</div>
-				<select class="form-control" name="tecnica_p4-1" id="tecnica_p4-1" value="{{ old('tecnica_p4-1') }}" required>
+				<select class="form-control" name="tecnica_p4_1" id="tecnica_p4_1" value="{{ old('tecnica_p4_1') }}" required>
 					<option selected>Elegir tipo</option>
 					<option value="1">Navegador</option>
 					<option value="2">Sistema operativo</option>
@@ -92,7 +92,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-2">4.4.2. Nombre de plataforma *</label>
+						<label for="tecnica_p4_2">4.4.2. Nombre de plataforma *</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-2">
@@ -102,13 +102,13 @@
 						</a>
 					</div>
 				</div>
-				<input type="text" class="form-control" name="tecnica_p4-2" id="tecnica_p4-2" value="{{ old('tecnica_p4-2') }}" required>
+				<input type="text" class="form-control" name="tecnica_p4_2" id="tecnica_p4_2" value="{{ old('tecnica_p4_2') }}" required>
 			</div>
 
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-3">4.4.3. Versión mínima (y versión máxima)</label>
+						<label for="tecnica_p4_3">4.4.3. Versión mínima (y versión máxima)</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-3">
@@ -118,13 +118,13 @@
 						</a>
 					</div>
 				</div>
-				<input type="text" class="form-control" name="tecnica_p4-3" id="tecnica_p4-3" value="{{ old('tecnica_p4-3') }}" required>
+				<input type="text" class="form-control" name="tecnica_p4_3" id="tecnica_p4_3" value="{{ old('tecnica_p4_3') }}" required>
 			</div>
 
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-4">4.4.4. Instalación</label>
+						<label for="tecnica_p4_4">4.4.4. Instalación</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-4">
@@ -134,13 +134,13 @@
 						</a>
 					</div>
 				</div>
-				<input type="text" class="form-control" name="tecnica_p4-4" id="tecnica_p4-4" value="{{ old('tecnica_p4-4') }}" required>
+				<input type="text" class="form-control" name="tecnica_p4_4" id="tecnica_p4_4" value="{{ old('tecnica_p4_4') }}" required>
 			</div>
 
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-5">4.4.5. Otros requisitos</label>
+						<label for="tecnica_p4_5">4.4.5. Otros requisitos</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-5">
@@ -150,13 +150,13 @@
 						</a>
 					</div>
 				</div>
-				<input type="text" class="form-control" name="tecnica_p4-5" id="tecnica_p4-5" value="{{ old('tecnica_p4-5') }}" required>
+				<input type="text" class="form-control" name="tecnica_p4_5" id="tecnica_p4_5" value="{{ old('tecnica_p4_5') }}" required>
 			</div>
 
 			<div class="form-group">
 				<div class="row">
 					<div class="col-11">
-						<label for="tecnica_p4-6">4.4.6. Duración</label>
+						<label for="tecnica_p4_6">4.4.6. Duración</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#dem-t_ayuda4-6">
@@ -166,7 +166,7 @@
 						</a>
 					</div>
 				</div>
-				<input type="text" class="form-control" name="tecnica_p4-6" id="tecnica_p4-6" value="{{ old('tecnica_p4-6') }}" required>
+				<input type="text" class="form-control" name="tecnica_p4_6" id="tecnica_p4_6" value="{{ old('tecnica_p4_6') }}" required>
 			</div>
 		</div>
 	</div>
@@ -181,13 +181,14 @@
 		</button>
 	</div>-->
 	<div class="conteiner-fluid text-left">
-		<a class="btn btn-secondary e-desarrollo" href="{{route('principal',$proyecto)}}" role="button">
+		<button class="btn btn-secondary e-desarrollo" href="{{route('principal',$proyecto)}}" role="button">
+			
 			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				<path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
 				<path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
 			</svg>
 			GUARDAR
-		</a>
+		</button>
 	</div>
 </form>
 

@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anotaciones extends Model
 {
-    public function metadatos(){
+   protected $fillable=['metadatos_id',
+      'anotaciones_p1_anot_1',
+      'anotaciones_p1_anot_2',
+      'anotaciones_p1_anot_3'];
+   
+   public function metadatos(){
        return $this->belongsTo(Metadatos::class);
-    }
-    public $timestamps = false;
+   }
+   
+   public $timestamps = false;
     use HasFactory;
 }

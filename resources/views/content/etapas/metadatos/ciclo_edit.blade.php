@@ -1,5 +1,6 @@
 <!--CATEGORÍA 2-->
-<form method="POST" action="{{ route('metadatos.ciclo.store', $proyecto) }}">
+<form method="POST" action="{{ route('metadatos.ciclo.update', $proyecto) }}">
+	@method('PATCH')
 	{{ csrf_field() }}
 
 	<div class="form-group">
@@ -15,7 +16,7 @@
 				</a>
 			</div>
 		</div>
-		<input type="text" class="form-control" name="ciclo_p1" id="ciclo_p1" value="{{old('ciclo_p1')}}" required>
+		<input type="text" class="form-control" name="ciclo_p1" id="ciclo_p1" value="{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p1}}" required>
 	</div>
 
 	<div class="form-group">
@@ -31,9 +32,9 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="ciclo_p2" id="ciclo_p2" value="{{ old('ciclo_p2') }}" required>
-			<option selected>Elegir estado</option>
-			<option value="1">Final</option>
+		<select class="form-control" name="ciclo_p2" id="ciclo_p2" value="{{ $proyecto->desarrollo->metadatos->ciclo->ciclo_p2 }}" required>
+			<option selected>{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p2}} </option>
+			<option value="final">Final</option>
 			<option value="2">?????</option>
 			<option value="3">?????</option>
 		</select>	
@@ -53,26 +54,28 @@
 			</div>
 		</div>
 		<div>
-			<label for="ciclo_p3_cont">CONTRIBUCIÓN</label></br>
-			<label for="ciclo_p3_cont-1">2.3.1. Papel del contribuyente *</label>
-			<input type="text" class="form-control" name="ciclo_p3_cont-1" id="ciclo_p3_cont-1" value="{{ old('ciclo_p3_cont-1') }}" required>
-			<label for="ciclo_p3_cont-2">2.3.2. Identidad del contribuyente *</label>
-			<input type="text" class="form-control" name="ciclo_p3_cont-2" id="ciclo_p3_cont-2" value="{{ old('ciclo_p3_cont-2') }}" required>
+			<label for="ciclo_p3_cont">CONTRIBUCIÓN</label>
+			</br>
+			<label for="ciclo_p3_cont_1">2.3.1. Papel del contribuyente *</label>
+			<input type="text" class="form-control" name="ciclo_p3_cont_1" id="ciclo_p3_cont_1" value="{{ $proyecto->desarrollo->metadatos->ciclo->contribuyentes->first()->ciclo_p3_cont_1}}" required>
 
-			<label for="ciclo_p3_cont-3">2.3.3. Fecha de contribución *</label>
+			<label for="ciclo_p3_cont_2">2.3.2. Identidad del contribuyente *</label>
+			
+			<input type="text" class="form-control" name="ciclo_p3_cont_2" id="ciclo_p3_cont_2" value="{{ $proyecto->desarrollo->metadatos->ciclo->contribuyentes->first()->ciclo_p3_cont_2 }}" required>
 
-			<div id="date-picker-example" >
 
-					  <input placeholder="Seleccione fecha" type="text" id="example" class="form-control">
+			<label for="ciclo_p3_cont_3">2.3.3. Fecha de contribución *</label>
+			
+			<input placeholder="Seleccione fecha" type="date" id="ciclo_p3_cont_3" class="form-control" name= "ciclo_p3_cont_3" value= "{{ $proyecto->desarrollo->metadatos->ciclo->contribuyentes->first()->ciclo_p3_cont_3 }}">
+
 					  <i class="fas fa-calendar input-prefix" tabindex=1></i>
 					
 			      <script >
 			        $('.datepicker').datepicker();
 			      </script>
-			   
-			</div>
+			
 
-			{{-- <input type="text" class="form-control" name="ciclo_p3_cont-3" id="ciclo_p3_cont-1" value="{{ old('ciclo_p3_cont-1') }}" required>	 --}}	
+			{{-- <input type="text" class="form-control" name="ciclo_p3_cont_3" id="ciclo_p3_cont_1" value="{{ old('ciclo_p3_cont_1') }}" required>	 --}}	
 		</div>
 		<div class="conteiner-fluid text-right">			
 			<a class="btn btn-secondary boton-agregar" href="" role="button">				
@@ -94,13 +97,13 @@
 		</button>
 	</div>-->
 	<div class="conteiner-fluid text-left">
-		<a class="btn btn-secondary e-desarrollo" href="{{route('principal',$proyecto)}}" role="button">
+		<button class="btn btn-secondary e-desarrollo"  role="button">
 			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				<path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
 				<path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
 			</svg>
 			ACTUALIZAR
-		</a>
+		</button>
 	</div>
 </form>
 				

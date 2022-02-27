@@ -22,11 +22,10 @@ class CreateRelacionsTable extends Migration
             ->on('metadatos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->tinytext('relacion_p1_rel-1');
-            $table->tinytext('relacion_p1_rel-2-1');
-            $table->text('relacion_p1_rel-2-2');
-            $table->text('relacion_p1_rel-2-3');
-             
+            $table->tinytext('relacion_p1_rel_1');
+            $table->tinytext('relacion_p1_rel_2_1');
+            $table->text('relacion_p1_rel_2_2');
+            $table->text('relacion_p1_rel_2_3');
         });
     }
 

@@ -59,12 +59,13 @@ class MultimedialController extends Controller
             ]);
 
             $diseño->increment('subetapa',1);
-            
-
         }
         $proyecto->increment('etapa',1);
        
        $proyecto->desarrollo()->create([
+            'subetapa'=>1
+        ]);
+       $proyecto->desarrollo->metadatos()->create([
             'subetapa'=>1
         ]);
        return redirect()->route('principal', $proyecto);

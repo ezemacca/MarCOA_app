@@ -46,13 +46,17 @@ class CicloController extends Controller
                 'ciclo_p1'=>request('ciclo_p1'),
                 'ciclo_p2'=>request('ciclo_p2'),
             ]);
-        $proyecto->desarrollo->metadatos->ciclo->contribuyente()->create([
-            'ciclo_p3_cont-1'=>request('ciclo_p3_cont-1'),'
-            ciclo_p3_cont-2'=>request('ciclo_p3_cont-2'),
-            'ciclo_p3_cont-3'=>request('ciclo_p3_cont-3'),
+
+
+        $proyecto->desarrollo->metadatos->ciclo->contribuyentes()->create([
+            'ciclo_p3_cont_1'=>request('ciclo_p3_cont_1'),
+            'ciclo_p3_cont_2'=>request('ciclo_p3_cont_2'),
+            'ciclo_p3_cont_3'=>request('ciclo_p3_cont_3'),
         ]);
+
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
-        return $request;
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**
@@ -84,9 +88,20 @@ class CicloController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCicloRequest $request, Ciclo $ciclo)
+    public function update(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->ciclo()->update([
+                'ciclo_p1'=>request('ciclo_p1'),
+                'ciclo_p2'=>request('ciclo_p2'),
+            ]);
+
+
+        $proyecto->desarrollo->metadatos->ciclo->contribuyentes->first()->update([
+            'ciclo_p3_cont_1'=>request('ciclo_p3_cont_1'),
+            'ciclo_p3_cont_2'=>request('ciclo_p3_cont_2'),
+            'ciclo_p3_cont_3'=>request('ciclo_p3_cont_3'),
+        ]);
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**

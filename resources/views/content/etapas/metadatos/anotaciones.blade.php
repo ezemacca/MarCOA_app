@@ -1,5 +1,5 @@
 <!--CATEGORÍA 8-->
-<form method="POST" action="{{ url('desarrollo') }}">
+<form method="POST" action="{{ route('metadatos.anotaciones.store',$proyecto) }}">
 	{{ csrf_field() }}
 
 	<div class="row">
@@ -24,28 +24,39 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-11">
-					<label for="anotaciones_p1_anot-1">8.1.1. Anotador</label>
+					<label for="anotaciones_p1_anot_1">8.1.1. Anotador</label>
 				</div>
 			</div>
-			<input type="text" class="form-control" name="anotaciones_p1_anot-1" id="anotaciones_p1_anot-1" value="{{ old('anotaciones_p1_anot-1') }}" required>
+			<input type="text" class="form-control" name="anotaciones_p1_anot_1" id="anotaciones_p1_anot_1" value="{{ old('anotaciones_p1_anot_1') }}" required>
 		</div>
 		
 		<div class="form-group">
 			<div class="row">
 				<div class="col-11">
-					<label for="anotaciones_p1_anot-2">8.1.2. Fecha de anotación</label>
+					<label for="anotaciones_p1_anot_2">8.1.2. Fecha de anotación</label>
 				</div>
 			</div>
-			<input type="text" class="form-control" name="anotaciones_p1_anot-2" id="anotaciones_p1_anot-2" value="{{ old('anotaciones_p1_anot-2') }}" required>
+			
+			{{-- <input type="text" class="form-control" name="anotaciones_p1_anot_2" id="anotaciones_p1_anot_2" value="{{ old('anotaciones_p1_anot_2') }}" required> --}}
+
+
+			<input placeholder="Seleccione fecha" type="date" id="anotaciones_p1_anot_2" class="form-control" name= "anotaciones_p1_anot_2" value= "{{ old('anotaciones_p1_anot_2') }}">
+
+					  <i class="fas fa-calendar input-prefix" tabindex=1></i>
+					
+			      <script >
+			        $('.datepicker').datepicker();
+			      </script>
 		</div>
+		
 		
 		<div class="form-group">
 			<div class="row">
 				<div class="col-11">
-					<label for="anotaciones_p1_anot-3">8.1.3. Texto</label>
+					<label for="anotaciones_p1_anot_3">8.1.3. Texto</label>
 				</div>
 			</div>
-			<input type="text" class="form-control" name="anotaciones_p1_anot-3" id="anotaciones_p1_anot-1" value="{{ old('anotaciones_p1_anot-3') }}" required>		
+			<input type="text" class="form-control" name="anotaciones_p1_anot_3" id="anotaciones_p1_anot_1" value="{{ old('anotaciones_p1_anot_3') }}" required>		
 		</div>
 	</div>
 	
@@ -59,13 +70,13 @@
 		</button>
 	</div>-->
 	<div class="conteiner-fluid text-left">
-		<a class="btn btn-secondary e-desarrollo" href="{{route('principal',$proyecto)}}" role="button">
+		<button class="btn btn-secondary e-desarrollo" role="button">
 			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				<path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
 				<path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
 			</svg>
 			GUARDAR
-		</a>
+		</button>
 	</div>
 </form>
 				

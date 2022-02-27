@@ -25,12 +25,12 @@ class CreateTecnicasTable extends Migration
             $table->text('tecnica_p1');
             $table->text('tecnica_p2');
             $table->text('tecnica_p3');
-            $table->text('tecnica_p4-1');
-            $table->text('tecnica_p4-2');
-            $table->text('tecnica_p4-3');
-            $table->text('tecnica_p4-4');
-            $table->text('tecnica_p4-5');
-            $table->text('tecnica_p4-6');
+            $table->text('tecnica_p4_1');
+            $table->text('tecnica_p4_2');
+            $table->text('tecnica_p4_3');
+            $table->text('tecnica_p4_4');
+            $table->text('tecnica_p4_5');
+            $table->text('tecnica_p4_6');
 
 
         });

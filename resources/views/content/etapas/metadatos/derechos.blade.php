@@ -1,5 +1,5 @@
 <!--CATEGORÍA 6-->
-<form method="POST" action="{{ url('desarrollo') }}">
+<form method="POST" action="{{ route('metadatos.derechos.store',$proyecto) }}">
 	{{ csrf_field() }}
 
 	<div class="form-group">
@@ -17,8 +17,8 @@
 		</div>
 		<select class="form-control" name="derechos_p1" id="derechos_p1" value="{{ old('derechos_p1') }}" required>
 			<option selected>Elegir costo</option>
-			<option value="1">No</option>
-			<option value="2">Si</option>
+			<option value="No">No</option>
+			<option value="Si">Si</option>
 		</select>
 	</div>
 	
@@ -37,8 +37,8 @@
 		</div>
 		<select class="form-control" name="derechos_p2" id="derechos_p2" value="{{ old('derechos_p2') }}" required>
 			<option selected>Elegir derechos</option>
-			<option value="1">No</option>
-			<option value="2">Si</option>
+			<option value="No">No</option>
+			<option value="Si">Si</option>
 		</select>
 	</div>
 
@@ -57,12 +57,12 @@
 		</div>
 		<select class="form-control" name="derechos_p3" id="derechos_p3" value="{{ old('derechos_p3') }}" required>
 			<option selected>Elegir tipo de licencia</option>
-			<option value="1">CC BY</option>
-			<option value="2">CC BY-SA</option>
-			<option value="3">CC BY-ND</option>
-			<option value="4">CC BY-NC</option>
-			<option value="5">CC BY-NC-SA</option>
-			<option value="6">CC BY-NC-ND</option>
+			<option value="CC BY">CC BY</option>
+			<option value="CC BY-SA">CC BY-SA</option>
+			<option value="CC BY-ND">CC BY-ND</option>
+			<option value="CC BY-NC">CC BY-NC</option>
+			<option value="CC BY-NC-SA">CC BY-NC-SA</option>
+			<option value="CC BY-NC-ND">CC BY-NC-ND</option>
 		</select>	
 	</div>	
 
@@ -76,13 +76,13 @@
 		</button>
 	</div>-->
 	<div class="conteiner-fluid text-left">
-		<a class="btn btn-secondary e-desarrollo" href="{{route('principal',$proyecto)}}" role="button">
+		<button class="btn btn-secondary e-desarrollo" role="button">
 			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				<path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
 				<path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
 			</svg>
 			GUARDAR
-		</a>
+		</button>
 	</div>
 </form>
 

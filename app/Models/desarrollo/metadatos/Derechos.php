@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Derechos extends Model
 {
-    public function metadatos(){
+   protected $fillable = ['metadatos_id','derechos_p1','derechos_p2','derechos_p3'];
+   public function metadatos(){
        return $this->belongsTo(Metadatos::class);
     }
-    use HasFactory;
-    public $timestamps = false;
+   use HasFactory;
+   public $timestamps = false;
 }

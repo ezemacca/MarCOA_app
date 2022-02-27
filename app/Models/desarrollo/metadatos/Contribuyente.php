@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Contribuyente extends Model
 {
 
-    protected $fillable = ['ciclo_p3_cont-1','ciclo_p3_cont-2','ciclo_p3_cont-3'];
+    protected $fillable = ['ciclo_p3_cont_1','ciclo_p3_cont_2','ciclo_p3_cont_3'];
+
     use HasFactory;
+
+    
+    
+    public function ciclos()
+    {
+       return $this->belongsTo(Ciclo::class);
+    }
     public $timestamps = false;
 }

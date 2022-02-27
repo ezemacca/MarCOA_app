@@ -14,7 +14,7 @@ class Ciclo extends Model
     {
        return $this->belongsTo(Metadatos::class);
     }
-    public function contribuyente()
+    public function contribuyentes()
     {
         return $this->hasMany(Contribuyente::class);
     }

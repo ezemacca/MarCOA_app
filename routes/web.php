@@ -111,9 +111,48 @@ Route::patch('/desarrollo/metadatos/ciclo/actualizar/{proyecto}', 'App\Http\Cont
 
 Route::post('/desarrollo/metadatos/ciclo/guardar/{proyecto}', 'App\Http\Controllers\metadatos\CicloController@store')->name('metadatos.ciclo.store');
 
+//METADATOS_META-METADATOS
+
+Route::patch('/desarrollo/metadatos/metametadatos/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\MetametadatosController@update')->name('metadatos.metametadatos.update');
+
+Route::post('/desarrollo/metadatos/metametadatos/guardar/{proyecto}', 'App\Http\Controllers\metadatos\MetametadatosController@store')->name('metadatos.metametadatos.store');
+
+//METADATOS_TECNICA
+
+Route::patch('/desarrollo/metadatos/tecnica/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\TecnicaController@update')->name('metadatos.tecnica.update');
+
+Route::post('/desarrollo/metadatos/tecnica/guardar/{proyecto}', 'App\Http\Controllers\metadatos\TecnicaController@store')->name('metadatos.tecnica.store');
+
+//METADATOS_EDUCACIONAL
+
+Route::patch('/desarrollo/metadatos/educacional/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\EducacionalController@update')->name('metadatos.educacional.update');
+
+Route::post('/desarrollo/metadatos/educacional/guardar/{proyecto}', 'App\Http\Controllers\metadatos\EducacionalController@store')->name('metadatos.educacional.store');
+
+//METADATOS_DERECHO
+
+Route::patch('/desarrollo/metadatos/derechos/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\DerechosController@update')->name('metadatos.derechos.update');
+
+Route::post('/desarrollo/metadatos/derechos/guardar/{proyecto}', 'App\Http\Controllers\metadatos\DerechosController@store')->name('metadatos.derechos.store');
 
 
+//METADATOS_RELACION
 
+Route::patch('/desarrollo/metadatos/relacion/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\RelacionController@update')->name('metadatos.relacion.update');
+
+Route::post('/desarrollo/metadatos/relacion/guardar/{proyecto}', 'App\Http\Controllers\metadatos\RelacionController@store')->name('metadatos.relacion.store');
+
+//METADATOS_ANOTACIONES
+
+Route::patch('/desarrollo/metadatos/anotaciones/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\AnotacionesController@update')->name('metadatos.anotaciones.update');
+
+Route::post('/desarrollo/metadatos/anotaciones/guardar/{proyecto}', 'App\Http\Controllers\metadatos\AnotacionesController@store')->name('metadatos.anotaciones.store');
+
+//METADATOS_CLASIFICACION
+
+Route::patch('/desarrollo/metadatos/clasificacion/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\ClasificacionController@update')->name('metadatos.clasificacion.update');
+
+Route::post('/desarrollo/metadatos/clasificacion/guardar/{proyecto}', 'App\Http\Controllers\metadatos\ClasificacionController@store')->name('metadatos.clasificacion.store');
 
 // Route::get('/etapas', function () {
     // return 'Etapas';

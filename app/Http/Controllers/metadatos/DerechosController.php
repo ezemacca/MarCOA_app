@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\desarollo\metadatos;
+namespace App\Http\Controllers\metadatos;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreDerechosRequest;
-use App\Http\Requests\UpdateDerechosRequest;
+use App\Models\Proyecto;
+use Illuminate\Http\Request;
 use App\Models\Derechos;
 
 class DerechosController extends Controller
@@ -35,10 +35,18 @@ class DerechosController extends Controller
      * @param  \App\Http\Requests\StoreDerechosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDerechosRequest $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        //
-    }
+        $proyecto->desarrollo->metadatos->derechos()->create([
+        'derechos_p1'=>request('derechos_p1'),
+        'derechos_p2'=>request('derechos_p2'),
+        'derechos_p3'=>request('derechos_p3')
+    ]);
+        
+        $proyecto->desarrollo->metadatos->increment('subetapa',1);
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+     }
 
     /**
      * Display the specified resource.
@@ -69,9 +77,15 @@ class DerechosController extends Controller
      * @param  \App\Models\Derechos  $derechos
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDerechosRequest $request, Derechos $derechos)
+    public function update(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->derechos()->update([
+        'derechos_p1'=>request('derechos_p1'),
+        'derechos_p2'=>request('derechos_p2'),
+        'derechos_p3'=>request('derechos_p3')
+    ]);    
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**

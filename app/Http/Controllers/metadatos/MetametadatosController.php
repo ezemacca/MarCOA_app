@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\desarollo\metadatos;
+namespace App\Http\Controllers\metadatos;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMetametadatosRequest;
-use App\Http\Requests\UpdateMetametadatosRequest;
-use App\Models\Metametadatos;
+use App\Models\Ciclo;
+use App\Models\General;
+use App\Models\desarrollo\Desarrollo;
+use App\Models\desarrollo\metadatos\Metadatos;
+use App\Models\Proyecto;
+use App\Models\Diseño;
+use App\Models\desarrollo\metadatos\Metametadatos;
 
 class MetametadatosController extends Controller
 {
@@ -35,9 +40,17 @@ class MetametadatosController extends Controller
      * @param  \App\Http\Requests\StoreMetametadatosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMetametadatosRequest $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->Metametadatos()->create([
+        'metametadatos_p1'=>request('metametadatos_p1'),
+        'metametadatos_p2'=>request('metametadatos_p2'),
+        'metametadatos_p3'=>request('metametadatos_p3'),
+        'metametadatos_p4'=>request('metametadatos_p4')
+            ]);
+        $proyecto->desarrollo->metadatos->increment('subetapa',1);
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**
@@ -69,9 +82,15 @@ class MetametadatosController extends Controller
      * @param  \App\Models\Metametadatos  $metametadatos
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMetametadatosRequest $request, Metametadatos $metametadatos)
+    public function update(Proyecto $proyecto, Request $request)
     {
-        //
+     $proyecto->desarrollo->metadatos->Metametadatos()->update([
+        'metametadatos_p1'=>request('metametadatos_p1'),
+        'metametadatos_p2'=>request('metametadatos_p2'),
+        'metametadatos_p3'=>request('metametadatos_p3'),
+        'metametadatos_p4'=>request('metametadatos_p4')
+            ]);   
+     return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**

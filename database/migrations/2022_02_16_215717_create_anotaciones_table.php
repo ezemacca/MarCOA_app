@@ -22,9 +22,9 @@ class CreateAnotacionesTable extends Migration
             ->on('metadatos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->text('anotaciones_p1_anot-1');
-            $table->date('anotaciones_p1_anot-2');
-            $table->text('anotaciones_p1_anot-3');
+            $table->text('anotaciones_p1_anot_1');
+            $table->date('anotaciones_p1_anot_2');
+            $table->text('anotaciones_p1_anot_3');
         });
     }
 

@@ -70,11 +70,11 @@
 						</li>
 					@endif
 
-					@if($subetapa==6)
+					@if($subetapa==7)
 						<li class="nav-item active">
-							<a class="nav-link activepestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
+							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
 						</li>
-					@elseif($subetapa>=7)
+					@elseif($subetapa>=8)
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
 						</li>
@@ -85,20 +85,20 @@
 							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
 						</li>
 					@elseif($subetapa>=9)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
+						<li class="nav-item ">
+							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
 						</li>
 					@endif
 
 
 					@if($subetapa==9)
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
 						</li>
 					
 					@elseif($subetapa>=10)
 						<li class="nav-item">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
+							<a class="nav-link  pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
 						</li>
 					@endif
 
@@ -134,7 +134,7 @@
 				@if($subetapa>=4)
 				{{-- edicion --}}
 				<div id="meta_metadatos" class="tab-pane">
-					@include('content.etapas.metadatos.metametadatos')
+					@include('content.etapas.metadatos.metametadatos_edit')
 				</div>
 				@elseif($subetapa==3)
 				<div id="meta_metadatos" class="tab-pane in active">
@@ -146,7 +146,7 @@
 				@if($subetapa>=5)
 				{{-- edicion --}}
 					<div id="tecnica" class="tab-pane">
-						@include('content.etapas.metadatos.tecnica')
+						@include('content.etapas.metadatos.tecnica_edit')
 					</div>
 				@elseif($subetapa==4)
 					<div id="tecnica" class="tab-pane in active">
@@ -158,7 +158,7 @@
 				@if($subetapa>=6)
 				{{-- edicion --}}
 					<div id="educacional" class="tab-pane ">
-						@include('content.etapas.metadatos.educacional')
+						@include('content.etapas.metadatos.educacional_edit')
 					</div>
 				@elseif($subetapa==5)
 					<div id="educacional" class="tab-pane in active">
@@ -170,7 +170,7 @@
 				@if($subetapa>=7)
 				{{-- edicion --}}
 				<div id="derechos_de_uso" class="tab-pane">
-					@include('content.etapas.metadatos.derechos')
+					@include('content.etapas.metadatos.derechos_edit')
 				</div>
 				@elseif($subetapa==6)
 					<div id="derechos_de_uso" class="tab-pane in active">
@@ -182,7 +182,7 @@
 				@if($subetapa>=8)
 				{{-- edicion --}}
 					<div id="relacion" class="tab-pane">
-						@include('content.etapas.metadatos.relacion')
+						@include('content.etapas.metadatos.relacion_edit')
 					</div>
 				@elseif($subetapa==7)
 				<div id="relacion" class="tab-pane in active">
@@ -192,7 +192,7 @@
 				<!--CATEGORÍA 8-->
 				@if($subetapa>=9)
 					<div id="anotaciones" class="tab-pane">
-						@include('content.etapas.metadatos.anotaciones')
+						@include('content.etapas.metadatos.anotaciones_edit')
 					</div>
 				@elseif($subetapa==8)
 					<div id="anotaciones" class="tab-pane in active">
@@ -205,7 +205,7 @@
 				@if($subetapa>=10)
 				{{-- edicion --}}
 					<div id="clasificacion" class="tab-pane">
-						@include('content.etapas.metadatos.clasificacion')
+						@include('content.etapas.metadatos.clasificacion_edit')
 					</div>
 				@elseif($subetapa==9)
 					<div id="clasificacion" class="tab-pane in active">

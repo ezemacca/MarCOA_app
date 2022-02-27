@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\desarollo\metadatos;
+namespace App\Http\Controllers\metadatos;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAnotacionesRequest;
 use App\Http\Requests\UpdateAnotacionesRequest;
 use App\Models\Anotaciones;
+use App\Models\Proyecto;
+use Illuminate\Http\Request;
+
 
 class AnotacionesController extends Controller
 {
@@ -26,8 +29,9 @@ class AnotacionesController extends Controller
      */
     public function create()
     {
-        //
-    }
+       
+
+       }
 
     /**
      * Store a newly created resource in storage.
@@ -35,9 +39,18 @@ class AnotacionesController extends Controller
      * @param  \App\Http\Requests\StoreAnotacionesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAnotacionesRequest $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->anotaciones()->create([
+      'anotaciones_p1_anot_1'=>request('anotaciones_p1_anot_1'),
+      'anotaciones_p1_anot_2'=>request('anotaciones_p1_anot_2'),
+      'anotaciones_p1_anot_3'=>request('anotaciones_p1_anot_3')
+
+   ]);
+
+    $proyecto->desarrollo->metadatos->increment('subetapa',1);
+
+    return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**
@@ -69,9 +82,16 @@ class AnotacionesController extends Controller
      * @param  \App\Models\Anotaciones  $anotaciones
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAnotacionesRequest $request, Anotaciones $anotaciones)
+    public function update(Proyecto $proyecto, Request $request)
     {
-        //
+        $proyecto->desarrollo->metadatos->anotaciones()->update([
+        'anotaciones_p1_anot_1'=>request('anotaciones_p1_anot_1'),
+        'anotaciones_p1_anot_2'=>request('anotaciones_p1_anot_2'),
+        'anotaciones_p1_anot_3'=>request('anotaciones_p1_anot_3')
+
+        ]);
+         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+
     }
 
     /**
