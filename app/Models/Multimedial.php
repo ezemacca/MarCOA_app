@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Multimedial extends Model
 {
-    protected $fillable = ['diseño_mult_p1'];
+    protected $fillable = ['id','diseño_mult_p1'];
 
     use HasFactory;
     public $timestamps = false;

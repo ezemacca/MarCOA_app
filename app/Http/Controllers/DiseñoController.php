@@ -25,7 +25,7 @@ class DiseñoController extends Controller
 
 		$multimedial=$diseño->multimedial()->first();
 
-		return view('content.etapas.diseño',['proyecto' => Proyecto::findorFail($id),'subetapa'=> $subetapa, 'instruccional'=>$instruccional,'estructura'=>$estructura, 'multimedial'=>$multimedial]);
+		return view('content.etapas.diseño',['proyecto' => $proyecto,'subetapa'=> $subetapa, 'instruccional'=>$instruccional,'estructura'=>$estructura, 'multimedial'=>$multimedial]);
 	}
 
 	public function create()

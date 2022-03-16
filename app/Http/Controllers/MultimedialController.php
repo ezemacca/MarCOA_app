@@ -68,7 +68,8 @@ class MultimedialController extends Controller
        $proyecto->desarrollo->metadatos()->create([
             'subetapa'=>1
         ]);
-       return redirect()->route('principal', $proyecto);
+
+       return (redirect()->route('principal', $proyecto));
 
     }
 

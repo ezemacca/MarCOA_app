@@ -58,13 +58,21 @@ h3{
 	padding:0;
 	padding-bottom: 20px;
 }
+
 header{
-	line-height: 24px;
+	line-height: 22px;
+	position: relative;
+
 	/*line-with: 10px;*/
 	/*border-bottom-width: 1px;
 	border-bottom-style: dotted;
 	border-bottom-color: grey;*/
 }
+
+
+
+
+
 .navbar{
 	background-color: BLACK; 
 	display: inline-flex;
@@ -290,6 +298,7 @@ footer{
 	border-color: 432371;
 	padding: 10px;
 	color: WHITE;
+	clear:none;  
 }
 .e-diseño{
 	background-color: 714674;

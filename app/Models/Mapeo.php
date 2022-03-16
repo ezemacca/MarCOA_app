@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mapeo extends Model
 {
-    protected $fillable = ['nodo','descripcion','plantilla'];
+    protected $fillable = ['multimedial_id','nodo','descripcion','plantilla'];
     use HasFactory;
     public $timestamps = false;
 

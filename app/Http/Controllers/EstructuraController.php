@@ -45,7 +45,6 @@ class EstructuraController extends Controller
             ->create([
                         'estructura_p1'=>request('estructura_p1'),
                         'estructura_p2'=>$request->file('estructura_p2')->store('estructura_p2')
-
             ]);
 
             $diseño->increment('subetapa',1);

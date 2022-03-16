@@ -11,45 +11,15 @@
 	</a>					
 </div>
 
-<form method="POST" action="{{ route('multimedial.store',$proyecto) }}">
-	{{ csrf_field() }}
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-11">
-				<label for="diseño_mult_p1">1. ¿Qué tipos de escenarios se utilizarán?</label>	
-			</div>
-			<div class="col text-right">
-				<a class="nav-link" data-toggle="modal" href="#dm_ayuda1">
-					<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-					</svg>				
-				</a>
-			</div>
-		</div>	
-		<input type="text" class="form-control" name="diseño_mult_p1" id="diseño_mult_p1" value="{{ old('diseño_mult_p1') }}" required>
-	</div>
-
-						{{-- <div class="col text-right">
-							<a class="nav-link" data-toggle="modal" href="#dm_ayuda2">
-								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-								</svg>					
-							</a>
-						</div> --}}
-					
-					
-					
-			<div class="row clearfix">
-						<div class="col-md-12 table-responsive">
-							<label for="diseño_mult_p2">2. Mapeo entre nodos y plantillas multimedia:</label>
-							<table class="table table-bordered table-hover table-sortable text-center" id="tab_logic">
+							{{-- <table class="table table-bordered table-hover table-sortable text-center" id="tab_logic">
 								<thead>
 									<tr>
-										<!--<th scope="col">#</th>-->
+										<th scope="col">#</th>
 										<th scope="col">NOMBRE DEL NODO</th>
 										<th scope="col">DESCRIPCIÓN</th>
 										<th scope="col">PLANTILLA A UTILIZAR</th>
+										<th scope="col">ACCIONES</th>
 									</tr>
 								</thead>
 								<tbody>						       
@@ -59,11 +29,14 @@
 										<form class="input-append">
 
 											
-												<!--<th scope="row">1</th>-->
-												{{-- <input type="text" class="control-group" name="diseño_mult_p2" id="fields" value="{{ old('diseño_mult_p2') }}" required> --}}
+												<th scope="row">1</th>
+												<input type="text" class="control-group" name="diseño_mult_p2" id="fields" value="{{ old('diseño_mult_p2') }}" required>
 												<tr id='addr0' data-id="0" class="hidden">
+													 --}}
 
-													<td data-name="diseño_mult_p2_c1f">
+													@livewire('mapeos-dinamicos', ['proyecto' => $proyecto])
+													
+													{{-- <td data-name="diseño_mult_p2_c1f">
 														<input autocomplete="off" class="form-control" type="text"  name="diseño_mult_p2_c1f0" id="diseño_mult_p2_c1f1" data-items="8"
 														placeholder="Complete con el nombre del nodo" value="{{ old('diseño_mult_p2_f1c1') }}" required>
 													</td>
@@ -97,15 +70,11 @@
 			</div>
 			<div class="row">
 				<div class="col text-left">
-						<!--<button type="submit" class="btn btn-secondary e-diseño">
-							<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-								<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-								<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-							</svg>
-							GUARDAR
-						</button>-->
+					
 					<div class="conteiner-fluid text-left">
-							<button class="btn btn-secondary e-diseño" {{-- href="{{route('principal')}}" --}} role="button">
+							<button class="btn btn-secondary e-diseño" href="{{route('principal',$proyecto)}}" role="button">
+							<button wire:click="submit" class="btn btn-secondary e-diseño">
+
 								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 									<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
 									<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
@@ -125,7 +94,7 @@
 					</div>
 				</div>
 			</div>		
-		</form>
+		</form> --}}
 
 
 

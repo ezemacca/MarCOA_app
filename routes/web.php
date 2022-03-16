@@ -91,7 +91,7 @@ Route::get('/visualizacion', 'VisualizacionController@index')->name('visualizaci
 
 // DESARROLLO
 
-Route::get('/desarrollo/{proyecto}', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
+Route::get('/desarrollo/{proyecto}{scorm?}', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
 
 // Route::post('/desarrollo/general/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@store')->name('metadatos.general.store');
 
@@ -153,6 +153,12 @@ Route::post('/desarrollo/metadatos/anotaciones/guardar/{proyecto}', 'App\Http\Co
 Route::patch('/desarrollo/metadatos/clasificacion/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\ClasificacionController@update')->name('metadatos.clasificacion.update');
 
 Route::post('/desarrollo/metadatos/clasificacion/guardar/{proyecto}', 'App\Http\Controllers\metadatos\ClasificacionController@store')->name('metadatos.clasificacion.store');
+
+
+//DESARROLLO_IMPLEMENTACION
+Route::post('/implementacion/{proyecto}','App\Http\Controllers\ScormController@store')->name('scorm.store');
+
+
 
 // Route::get('/etapas', function () {
     // return 'Etapas';

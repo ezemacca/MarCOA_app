@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\desarrollo\Desarrollo;
-
 use App\Models\Proyecto;
+use App\Models\Nodo;
+use App\Models\Scorm;
+use Peopleaps\Scorm\Model\ScormModel;
 use App\Models\Diseño;
+
 class DesarrolloController extends Controller
 {
     /**
@@ -16,12 +18,18 @@ class DesarrolloController extends Controller
      */
     public function index(Proyecto $proyecto)
     {
+        // $posts = Post::has('comments')->get();
+
+        // $nodos= Nodo::has('scorm')->all();
+        $nodos=$proyecto->desarrollo->nodos;
+        
         if(is_null($proyecto->desarrollo))
         {
             route('desarrollo.create',$proyecto);
         }
+
         else{   
-            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos]);
         };
     }
 
