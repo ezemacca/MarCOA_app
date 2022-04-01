@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\desarrollo\metadatos\Metadatos;
 use App\Models\Nodo;
+use App\Models\Implementacion;
 
 class Desarrollo extends Model
 {
@@ -24,6 +25,10 @@ class Desarrollo extends Model
     public function nodos()
     {
         return $this->hasMany(Nodo::class);
+    }
+    public function implementacion()
+    {
+        return $this->hasOne(Implementacion::class);
     }
 
     public $timestamps = false;

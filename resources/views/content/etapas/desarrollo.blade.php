@@ -38,7 +38,14 @@
 	<div class="tab-content">
 		<!--IMPLEMENTACIÓN-->
 		<div id="implementacion" class="tab-pane in active">
-			@include('content.etapas.includes.implementacion')
+
+			@if($decision=="nueva")
+				@include('content.etapas.includes.implementacion_nueva')
+			@elseif($decision=="importar")
+				@include('content.etapas.includes.implementacion_importar')
+			@elseif($decision=="null")
+				@include('content.etapas.includes.implementacion_decidir')
+			@endif
 
 		</div>
 		

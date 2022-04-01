@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDesarrollosTable extends Migration
+class CreateImplementacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreateDesarrollosTable extends Migration
      */
     public function up()
     {
-        Schema::create('desarrollos', function (Blueprint $table) {
+        Schema::create('implementacions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->unsignedBigInteger('proyecto_id')->unique();
-            $table->foreign('proyecto_id')
+            $table->unsignedBigInteger('desarrollo_id');
+            $table->foreign('desarrollo_id')
             ->references('id')
-            ->on('proyectos')
-            ->unique()
+            ->on('desarrollos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            
-            $table->unsignedTinyInteger('subetapa');
+            $table->string('decision',100)->nullable()->default('null');
+            $table->timestamps();
         });
+
     }
 
     /**
@@ -35,6 +34,6 @@ class CreateDesarrollosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('desarrollos');
+        Schema::dropIfExists('implementacions');
     }
 }

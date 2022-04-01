@@ -1,8 +1,8 @@
 
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <!-- Bootstrap -->
-{{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- --}}<style>
+{{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
+<style>
 body { background-color:#fafafa; }
 .container { margin:150px auto;}
     .treegrid-indent {
@@ -38,9 +38,10 @@ body { background-color:#fafafa; }
 	                <div class="card-header">Nodos</div>
 
 	                <div class="card-body">
+
 	                <table id="tree-table" class="table table-hover table-bordered">
 
-	                    <tbody>
+	                    <tbody >
 	                            @foreach($nodos as $nodo)
 	                                <tr data-id="{{$nodo->id}}" data-parent="0" data-level="1">
 	                                    <td bold data-column="name"><strong>{{$nodo->nombre}}</strong></td>
@@ -62,6 +63,7 @@ body { background-color:#fafafa; }
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script src="js/javascript.js"></script>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -142,6 +144,10 @@ body { background-color:#fafafa; }
         }
     };
 });
-
   </script>
-
+{{-- <script>
+	@import "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+	var elemento=document.querySelector('tree-table');
+	elemento.setAttribute('rel','stylesheet');
+	elemento.css('href','bootstrap.min.css');
+</script> --}}

@@ -157,7 +157,8 @@ Route::post('/desarrollo/metadatos/clasificacion/guardar/{proyecto}', 'App\Http\
 
 //DESARROLLO_IMPLEMENTACION
 Route::post('/implementacion/{proyecto}','App\Http\Controllers\ScormController@store')->name('scorm.store');
-
+Route::get('/implemetacion/importar{proyecto}', 'App\Http\Controllers\DesarrolloController@importar')->name('desarrollo.importar');
+Route::get('/implemetacion/nueva{proyecto}', 'App\Http\Controllers\DesarrolloController@nueva')->name('desarrollo.nueva');
 
 
 // Route::get('/etapas', function () {

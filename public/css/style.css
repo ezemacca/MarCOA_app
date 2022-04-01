@@ -50,6 +50,12 @@ h3{
 	margin-bottom: 0px;
 }
 
+#implemetacion-box{
+	border: 10px dotted black;
+  padding: 15px;
+  background: lightblue;
+  background-clip: border-box;
+}
 /* *** */
 
 
@@ -149,6 +155,47 @@ footer{
 
 
 /* botones */
+
+#boton-decision{
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #9F6976;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 9px #999;
+}
+#boton-decision:hover{background-color: #FF737B}
+
+#boton-decision:active {
+  background-color: #FFB77D;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#boton-cambiar-decision{
+  padding: 15px 25px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #9F6976;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 9px #999;
+}
+#boton-decision-decision:hover{background-color: #973166}
+
+#boton-cambiar-decision:active {
+  background-color: #DB426C;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .btn{
 	background-color: BLACK; /**DARKRED;**/
 	border: 2px solid BLACK; /**DARKRED;**/
@@ -456,3 +503,15 @@ footer{
 	margin: 10px 0 10px 0;
 }
 
+#titulo-decision{
+	text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-size: 20px;
+}
+#titulo-cambiar-decision{
+	text-align: right;
+  text-transform: uppercase;
+  color: black;
+  font-size: 15px;
+}

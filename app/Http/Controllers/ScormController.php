@@ -56,7 +56,7 @@ class ScormController extends Controller
 
         // return (ScormModel::with('scos')->whereUuid($scorm['uuid'])->first());
 
-        return route('desarrollo', $proyecto);
+        return route('desarrollo', $proyecto, $scorm);
 
     }
 

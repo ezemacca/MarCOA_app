@@ -13,11 +13,8 @@ class PrincipalController extends Controller
 
 	{
 		// $usuario= Auth::id(); 
-
 		// $proyecto= Proyecto::where('user_id', '=', 'usuario' )->first(); 
-
 		return view('content.principal',['proyecto' => Proyecto::findorFail($id)] ) ;
-
 		//return $id;
 	}
 	

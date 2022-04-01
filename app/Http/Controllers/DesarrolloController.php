@@ -8,6 +8,8 @@ use App\Models\Nodo;
 use App\Models\Scorm;
 use Peopleaps\Scorm\Model\ScormModel;
 use App\Models\Diseño;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Implementacion;
 
 class DesarrolloController extends Controller
 {
@@ -21,7 +23,12 @@ class DesarrolloController extends Controller
         // $posts = Post::has('comments')->get();
 
         // $nodos= Nodo::has('scorm')->all();
-        $nodos=$proyecto->desarrollo->nodos;
+
+
+        // foreach ($nodo as &$n)
+        // {
+        //     $files = Storage::allFiles($directory);
+        // }
         
         if(is_null($proyecto->desarrollo))
         {
@@ -29,7 +36,11 @@ class DesarrolloController extends Controller
         }
 
         else{   
-            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos]);
+                $nodos=$proyecto->desarrollo->nodos;
+                $decision=$proyecto->desarrollo->implementacion->decision;
+
+            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$decision]);
+                // return dd($decision);
         };
     }
 
@@ -38,14 +49,30 @@ class DesarrolloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function importar(Proyecto $proyecto)
+    {
+        $proyecto->desarrollo->implementacion()->update(['decision'=>"importar"]);
+        $nodos=$proyecto->desarrollo->nodos;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$proyecto->desarrollo->implementacion->decision]);
+    }
+
+    public function nueva(Proyecto $proyecto)
+    {
+        $proyecto->desarrollo->implementacion()->update(['decision'=>"nueva"]);
+        $nodos=$proyecto->desarrollo->nodos;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$proyecto->desarrollo->implementacion->decision]);
+    }
+
     public function create(Proyecto $proyecto)
     {
         $proyecto->desarrollo()->create([
             'subetapa'=>1
         ]);
-
+        $proyecto->desarrollo->implementacion()->create([
+            'decision'=> 'null'
+        ]);
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa]);
-
     }
 
     /**
