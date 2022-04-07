@@ -17,15 +17,8 @@ class Nodo extends Model
     {
        return $this->belongsTo(Desarrollo::class);
     }
-    public function nodos()
-    {
-        return $this->hasMany(Nodo::class);
-    }
+  
 
-    public function scorm()
-    {
-        return $this->hasOne(ScormModel::class);
-    }
 
     use HasFactory;
 }

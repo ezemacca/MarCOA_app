@@ -19,19 +19,28 @@ class CreateScormTables extends Migration
             throw new \Exception('Error: config/scorm.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
-         Schema::create('nodos', function (Blueprint $table) {
+
+        Schema::create('implementacions', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-
             $table->unsignedBigInteger('desarrollo_id');
-
             $table->foreign('desarrollo_id')
             ->references('id')
             ->on('desarrollos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->string('decision',100)->nullable()->default('null');
+        });
 
-            $table->timestamps();
+
+         Schema::create('nodos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->unsignedBigInteger('desarrollo_id');
+            $table->foreign('desarrollo_id')
+            ->references('id')
+            ->on('desarrollos')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
 
         // scorm_model
@@ -40,15 +49,15 @@ class CreateScormTables extends Migration
             
             // $table->morphs('resource')->nullable();
 
-            $table->unsignedBigInteger('nodo_id');
+            $table->unsignedBigInteger('implementacion_id');
 
-            $table->foreign('nodo_id')
+            $table->foreign('implementacion_id')
             ->references('id')
-            ->on('nodos')
+            ->on('implementacions')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-
+            $table->boolean('imported');
             $table->string('title');
             $table->string('origin_file')->nullable();
             $table->string('version');
@@ -132,5 +141,6 @@ class CreateScormTables extends Migration
         Schema::drop($tableNames['scorm_sco_tracking_table']);
         Schema::drop($tableNames['scorm_sco_table']);
         Schema::drop($tableNames['scorm_table']);
+        Schema::dropIfExists('implementacions');
     }
 }

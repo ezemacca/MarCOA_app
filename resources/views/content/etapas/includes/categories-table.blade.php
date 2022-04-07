@@ -1,7 +1,7 @@
 
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <!-- Bootstrap -->
-{{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
 body { background-color:#fafafa; }
 .container { margin:150px auto;}
@@ -22,7 +22,7 @@ body { background-color:#fafafa; }
     }
 </style>
 
-<link rel="stylesheet" href="bootstrap.min.css">
+{{-- <link rel="stylesheet" href="bootstrap.min.css"> --}}
 
 <!-- jQuery -->
 

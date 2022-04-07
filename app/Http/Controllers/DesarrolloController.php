@@ -29,15 +29,30 @@ class DesarrolloController extends Controller
         // {
         //     $files = Storage::allFiles($directory);
         // }
-        
+       
         if(is_null($proyecto->desarrollo))
         {
-            route('desarrollo.create',$proyecto);
+            $this->create($proyecto);
         }
 
         else{   
                 $nodos=$proyecto->desarrollo->nodos;
-                $decision=$proyecto->desarrollo->implementacion->decision;
+                if(is_null($proyecto->desarrollo->implementacion->decision)){
+                    $decision=null;
+
+                }
+                else{
+                    $decision=$proyecto->desarrollo->implementacion->decision;
+                }
+
+                if(is_null($proyecto->desarrollo->implementacion->scorm)){
+                    $scorm=null;
+
+                }
+                else{
+                    $scorm=$proyecto->desarrollo->implementacion->scorm;
+                }
+
 
             return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$decision]);
                 // return dd($decision);
@@ -66,13 +81,18 @@ class DesarrolloController extends Controller
 
     public function create(Proyecto $proyecto)
     {
+
+        $subetapa=1;
         $proyecto->desarrollo()->create([
-            'subetapa'=>1
+            'subetapa'=>$subetapa
+        ])->implementacion()->create([
+            'decision'=> 'null' 
         ]);
-        $proyecto->desarrollo->implementacion()->create([
-            'decision'=> 'null'
-        ]);
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa]);
+
+        // $proyecto->desarrollo->implementacion()->create([
+        //     'decision'=> 'null' 
+        // ]);
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$subetapa]);
     }
 
     /**

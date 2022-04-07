@@ -119,11 +119,11 @@ class MapeosDinamicos extends Component
 
 
  
-        $this->inputs = [];
+        // $this->inputs = [];
  
-        $this->resetInputFields();
+        // $this->resetInputFields();
  
-        session()->flash('message', 'Mapeo/s creado/s exitosamente.');
+        // session()->flash('message', 'Mapeo/s creado/s exitosamente.');
 
         if(is_null($proyecto->desarrollo)){
 
@@ -134,6 +134,9 @@ class MapeosDinamicos extends Component
             $proyecto->desarrollo->metadatos()->create([
                 'subetapa'=>1
             ]);
+            $proyecto->desarrollo->implementacion()->create([
+            'decision'=> 'null'
+        ]);
             $proyecto->increment('etapa',1);
         }
         return (redirect()->route('principal', $proyecto));
