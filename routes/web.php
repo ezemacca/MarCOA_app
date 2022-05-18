@@ -161,6 +161,10 @@ Route::get('/implemetacion/importar{proyecto}', 'App\Http\Controllers\Desarrollo
 Route::get('/implemetacion/nueva{proyecto}', 'App\Http\Controllers\DesarrolloController@nueva')->name('desarrollo.nueva');
 
 
+// Del Gestor de Archivos de Laravel
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+     \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
 // Route::get('/etapas', function () {
     // return 'Etapas';
 // });

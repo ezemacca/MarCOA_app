@@ -32,16 +32,16 @@ class CreateScormTables extends Migration
         });
 
 
-         Schema::create('nodos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->unsignedBigInteger('desarrollo_id');
-            $table->foreign('desarrollo_id')
-            ->references('id')
-            ->on('desarrollos')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-        });
+        //  Schema::create('nodos', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('nombre');
+        //     $table->unsignedBigInteger('desarrollo_id');
+        //     $table->foreign('desarrollo_id')
+        //     ->references('id')
+        //     ->on('desarrollos')
+        //     ->onUpdate('cascade')
+        //     ->onDelete('cascade');
+        // });
 
         // scorm_model
         Schema::create($tableNames['scorm_table'], function (Blueprint $table) {
@@ -137,7 +137,7 @@ class CreateScormTables extends Migration
         if (empty($tableNames)) {
             throw new \Exception('Error: Table not found.');
         }
-        Schema::dropIfExists('nodos');
+        // Schema::dropIfExists('nodos');
         Schema::drop($tableNames['scorm_sco_tracking_table']);
         Schema::drop($tableNames['scorm_sco_table']);
         Schema::drop($tableNames['scorm_table']);

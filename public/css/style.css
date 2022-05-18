@@ -1,3 +1,12 @@
+ <link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+
+ .bootstrap-styles {
+  @import (less) url("bootstrap.css");
+}
+
+
+
 /*para centrar cualquier div*/
 .centrado {
   margin: auto;
@@ -62,7 +71,7 @@ h3{
 /* cabecera - logo marcoa - barra navegación - modales*/
 .barra-superior{
 	padding:0;
-	padding-bottom: 20px;
+	padding-bottom: 0px;
 }
 
 header{

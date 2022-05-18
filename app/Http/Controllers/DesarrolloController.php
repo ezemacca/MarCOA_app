@@ -11,6 +11,7 @@ use App\Models\Diseño;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Implementacion;
 
+
 class DesarrolloController extends Controller
 {
     /**
@@ -29,53 +30,83 @@ class DesarrolloController extends Controller
         // {
         //     $files = Storage::allFiles($directory);
         // }
-       
+       $archivos_html=null;
         if(is_null($proyecto->desarrollo))
         {
             $this->create($proyecto);
         }
-
+        
         else{   
-                $nodos=$proyecto->desarrollo->nodos;
+
                 if(is_null($proyecto->desarrollo->implementacion->decision)){
                     $decision=null;
-
                 }
+
                 else{
                     $decision=$proyecto->desarrollo->implementacion->decision;
                 }
 
-                if(is_null($proyecto->desarrollo->implementacion->scorm)){
+                if(is_null($proyecto->desarrollo->implementacion->scorm->first())){
                     $scorm=null;
 
                 }
                 else{
-                    $scorm=$proyecto->desarrollo->implementacion->scorm;
+                    $archivos_html= $this->get_nodos($proyecto);
+                    $scorm=$proyecto->desarrollo->implementacion->scorm->first();
                 }
 
 
-            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$decision]);
-                // return dd($decision);
+            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'decision'=>$decision, 'scorm'=>$scorm, 'archivos_html'=>$archivos_html]);
+            //return dd($archivos_html);  
+            
         };
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Este metodo recorre la carpeta donde está el SCORM y filtra los archivos HTML
+   public function get_nodos(Proyecto $proyecto){
+        
+        $uuid=$proyecto->desarrollo->implementacion->scorm->first()->uuid;
+        $ubicacion=$uuid;
+        $carpeta= $this->getDisk()->allFiles($uuid);
+        $htmls=array();
+        foreach ($carpeta as $archivo){
+            if( substr($archivo, strrpos($archivo, '.')+1)=='html'){
+                array_push($htmls,$archivo);
+            }
+        }
+
+        return $htmls;
+   }
+
+   private function getDisk()
+    {
+        if (!config()->has('filesystems.disks.' . config('scorm.disk'))) {
+            throw new StorageNotFoundException('scorm_disk_not_define');
+        }
+        return Storage::disk(config('scorm.disk'));
+    }
 
     public function importar(Proyecto $proyecto)
     {
         $proyecto->desarrollo->implementacion()->update(['decision'=>"importar"]);
-        $nodos=$proyecto->desarrollo->nodos;
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$proyecto->desarrollo->implementacion->decision]);
+
+        if(is_null($proyecto->desarrollo->implementacion->scorm->first()))
+        {
+            $scorm=null;
+        }
+        else
+        {
+            $scorm=$proyecto->desarrollo->implementacion->scorm->first();
+        }
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'decision'=>$proyecto->desarrollo->implementacion->decision, 'scorm'=>$scorm]);
     }
 
     public function nueva(Proyecto $proyecto)
     {
         $proyecto->desarrollo->implementacion()->update(['decision'=>"nueva"]);
         $nodos=$proyecto->desarrollo->nodos;
+
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'nodos'=>$nodos,'decision'=>$proyecto->desarrollo->implementacion->decision]);
     }
 
