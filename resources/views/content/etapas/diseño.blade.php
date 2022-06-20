@@ -88,7 +88,7 @@
 		<!--DISEÑO MULTIMEDIAL-->
 		@if($subetapa>=4)
 			<div id="diseño_mult" class="tab-pane  ">
-				@include('content.etapas.includes.multimedial_edit')
+				@include('content.etapas.includes.multimedial')
 			</div>	
 			<br><br><br>
 		<div class="centrado">

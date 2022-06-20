@@ -14,7 +14,8 @@
 
 
            
-            <form method="POST" {{-- wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)),{{$proyecto}})" --}} action="{{route('multimedial.store',$proyecto ) }}>
+            <form method="POST" wire:submit.prevent="store({{$proyecto}})" {{-- action="{{route('multimedial.store',$proyecto ) }}" --}}>
+                
                 {{ csrf_field() }}
 
                 <div class="form-group">
@@ -52,44 +53,38 @@
 
 
 
-            @php
-                $num=1;
-            @endphp   
+              
 
             @if($mapeos)
+                @foreach($mapeos as $mapeo => $num)
+                    <div class=" add-input" >
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" wire:model="nodo.{{ $num }}" placeholder="{{$mapeo['nodo']}}" required >
+                                    @error('nodo'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" wire:model="descripcion.{{ $num }}" placeholder="{{$mapeo->descripcion}}">
+                                    @error('descripcion.'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" wire:model="plantilla.{{ $num }}" placeholder="{{$mapeo->plantilla}}">
+                                    @error('plantilla'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-sm" wire:click.prevent="eliminar_mapeo({{$mapeo}})">Quitar Mapeo</button>
+                            </div>
 
-            @foreach($mapeos as $mapeo)
-                @php
-                    $num++;
-                @endphp
-                <div class=" add-input" >
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <input type="text" class="form-control" wire:model="nodo.{{ $num }}" placeholder="{{$mapeo->nodo}}" required >
-                                @error('nodo'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
-                            </div>
+                            
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <input type="text" class="form-control" wire:model="descripcion.{{ $num }}" placeholder="{{$mapeo->descripcion}}">
-                                @error('descripcion.'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <input type="text" class="form-control" wire:model="plantilla.{{ $num }}" placeholder="{{$mapeo->plantilla}}">
-                                @error('plantilla'.$num) <span class="text-danger error">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-danger btn-sm" wire:click.prevent="eliminar_mapeo({{$mapeo}})">Quitar Mapeo</button>
-                        </div>
-
-                        
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             @endif
            
 
@@ -175,7 +170,7 @@
                         </button>-->
                     <div class="conteiner-fluid text-left">
                             {{-- <button class="btn btn-secondary e-diseño" href="{{route('principal')}}" role="button"> --}}
-                            <button type="button" wire:click.prevent="store({{$proyecto}})" class="btn btn-secondary e-diseño">
+                            <button type="submit" {{-- wire:click.prevent="store()" --}} class="btn btn-secondary e-diseño">
 
                                 <svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
                                     <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>

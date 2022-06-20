@@ -28,6 +28,7 @@ class MapeosDinamicos extends Component
 
             if (  $proyecto->diseño->multimedial )
             {
+
                 $this->diseño_mult_p1= $proyecto->first()->diseño->multimedial->diseño_mult_p1;
                 $this->mapeos = $proyecto->first()->diseño->multimedial->mapeos;
             }
@@ -70,18 +71,19 @@ class MapeosDinamicos extends Component
     }
  
 
-    public function store(Proyecto $proyecto)
+    public function store()
     {
-        if (  is_null($proyecto->diseño->multimedial))
+        
+        if (  is_null($this->proyecto->diseño->multimedial))
         {
-            $proyecto->diseño->multimedial()
+           $this->proyecto->diseño->multimedial()
             ->create([
                             'diseño_mult_p1'=>$this->diseño_mult_p1
             ]); 
 
         }else{
             
-            $proyecto->diseño->multimedial()
+            $this->proyecto->diseño->multimedial()
             ->update([
                         'diseño_mult_p1'=>$this->diseño_mult_p1
             ]);
@@ -108,9 +110,9 @@ class MapeosDinamicos extends Component
         
 
         foreach ($this->nodo as $key => $value) {
-            $proyecto->diseño->multimedial->mapeos()
+            $this->proyecto->first()->diseño->multimedial->mapeos()
             ->create([
-                'multimedial_id' => $this->proyecto->diseño->multimedial->id,
+                'multimedial_id' => $this->proyecto->first()->diseño->multimedial->id,
                 'nodo' => $this->nodo[$key],
                 'descripcion' => $this->descripcion[$key],
                 'plantilla' => $this->plantilla[$key]
@@ -119,27 +121,28 @@ class MapeosDinamicos extends Component
 
 
  
-        // $this->inputs = [];
+        /*$this->inputs = [];
  
-        // $this->resetInputFields();
+        $this->resetInputFields();
  
-        // session()->flash('message', 'Mapeo/s creado/s exitosamente.');
+        session()->flash('message', 'Mapeo/s creado/s exitosamente.');*/
 
-        if(is_null($proyecto->desarrollo)){
+        if(is_null($this->proyecto->desarrollo)){
 
-            $proyecto->desarrollo()->create([
+            $this->proyecto->first()->desarrollo()->create([
                 'subetapa'=>1
             ]);
 
-            $proyecto->desarrollo->metadatos()->create([
+            $this->proyecto->first()->desarrollo->metadatos()->create([
                 'subetapa'=>1
             ]);
-            $proyecto->desarrollo->implementacion()->create([
+            $this->proyecto->first()->desarrollo->implementacion()->create([
             'decision'=> 'null'
         ]);
-            $proyecto->increment('etapa',1);
+            
         }
-        return (redirect()->route('principal', $proyecto));
+        $this->proyecto->increment('etapa',1);
+        return (redirect()->route('principal', $this->proyecto));
     }
 
     // public function update(){
