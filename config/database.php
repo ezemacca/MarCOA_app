@@ -80,7 +80,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => $DATABASE_URL["host"],
             'port' => $DATABASE_URL["port"],
             'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => $DATABASE_URL["user"],
@@ -89,7 +89,7 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'require',
-        ],
+        ]
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
