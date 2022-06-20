@@ -10,12 +10,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <!-- Open iconic Bootstrap -->
-<link href="{{ asset('open-iconic/font/css/open-iconic-bootstrap.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('open-iconic/font/css/open-iconic-bootstrap.css') }}" rel="stylesheet"> --}}
+<link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
 <!-- Styles -->
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
+<link href="css/style.css" rel="stylesheet">
 
 <!-- Funciones JS -->
+{{-- <script src="{{ asset('js/funciones.js') }}"></script> --}}
 <script src="{{ asset('js/funciones.js') }}"></script>
 
 <!-- Título -->
