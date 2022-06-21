@@ -86,7 +86,7 @@ Route::get('/configuracion', 'App\Http\Controllers\ConfiguracionController@index
 Route::get('/visualizacion', 'VisualizacionController@index')->name('visualizacion');*/
 
 // Route::get('/login', 'App\Http\Controllers\Auth\AuthenticatedSessionController@create')->name('login');
-// Route::get('/register', 'App\Http\Controllers\Auth\AuthenticatedSessionController@create')->name('login');
+//Route::get('/register', 'App\Http\Controllers\Auth\Registere@create')->name('register');
 
 
 // DESARROLLO
