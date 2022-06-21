@@ -67,7 +67,8 @@
             </h3>
             <br>
          <form method="POST" action="{{ route('register') }}">
-            @csrf
+            {{-- @csrf --}}
+            {{ csrf_field() }}
 
             <!-- Name -->
             <div>

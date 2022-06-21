@@ -66,11 +66,11 @@
                 Inicio de Sesión
             </h3>
             <form method="POST" action="{{ route('login') }}">
-            @csrf
+                {{-- @csrf --}}
+                {{ csrf_field() }}
 
             <!-- Email Address -->
             <div>
-
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="Usuario" required autofocus />
             </div>
 
