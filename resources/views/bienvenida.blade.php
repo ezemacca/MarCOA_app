@@ -3,7 +3,7 @@
 @section('content')
 
 @if (!auth()->check())
-<div class="split left"> 
+    <div class="split left"> 
 @endif
     <div class="centered">{{-- 
      <div class="container-fluid text-center titulo">
@@ -36,7 +36,7 @@
                     
 
             {{-- @endauth --}}
-            </div>
+    </div>
 	
     </div>
 
