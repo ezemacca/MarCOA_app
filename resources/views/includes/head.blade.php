@@ -14,8 +14,8 @@
 <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
 <!-- Styles -->
-{{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
-<link href="css/style.css" rel="stylesheet">
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+{{-- <link href="css/style.css" rel="stylesheet"> --}}
 
 <!-- Funciones JS -->
 {{-- <script src="{{ asset('js/funciones.js') }}"></script> --}}
