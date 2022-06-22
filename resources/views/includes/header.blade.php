@@ -30,8 +30,8 @@
 				  <li class="nav-item">
 							<form class="nav-link link-barra-superior" data-toggle="modal" id="logout-form" action="{{ route('logout') }}" method="POST" >
 	    					@csrf
-
-	    					<a class="nav-link link-barra-superior" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><br>| SALIR</a>
+	    					<a class="nav-link link-barra-superior" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+	    						<br>| SALIR</a>
 							</form>
 				  </li>
 			  @endif

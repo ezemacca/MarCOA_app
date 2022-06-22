@@ -19,7 +19,7 @@
 
 <!-- Funciones JS -->
 {{-- <script src="{{ asset('js/funciones.js') }}"></script> --}}
-<script src="{{ asset('js/funciones.js') }}"></script>
+<script src="js/funciones.js"></script>
 
 <!-- Título -->
 <title>MarCOA</title>
