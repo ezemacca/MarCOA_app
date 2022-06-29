@@ -79,7 +79,7 @@ class Mapeos extends Component
         
         $this->resetInput();
 		$this->emit('closeModal');
-		session()->flash('message', 'Mapeo Successfully created.');
+		session()->flash('message', 'Mapeo creado exitosamente!');
     }
 
     public function edit($id)
@@ -115,7 +115,7 @@ class Mapeos extends Component
 
             $this->resetInput();
             $this->updateMode = false;
-			session()->flash('message', 'Mapeo Successfully updated.');
+			session()->flash('message', 'Mapeo actualizado exitosamente!');
         }
     }
 
