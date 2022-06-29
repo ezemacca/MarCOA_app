@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Models;
 
@@ -7,11 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mapeo extends Model
 {
-    protected $fillable = ['multimedial_id','nodo','descripcion','plantilla'];
-    use HasFactory;
-    public $timestamps = false;
+	use HasFactory;
+	
+    public $timestamps = true;
 
-    public function multimedial(){
-       return $this->belongsTo(Multimedial::class);
+    protected $table = 'mapeos';
+
+    protected $fillable = ['multimedial_id','nodo','descripcion','plantilla','updated_at','created_at'];
+	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function multimedial()
+    {
+        return $this->hasOne('App\Models\Multimedial', 'id', 'multimedial_id');
     }
+    
 }

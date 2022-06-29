@@ -49,7 +49,14 @@ class EstructuraController extends Controller
 
             $diseño->increment('subetapa',1);
 
+            $multimedial=$diseño->multimedial()
+            ->create([
+                        'diseño_mult_p1'=>null
+
+            ]); 
+
             return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
+
         }else{ 
 
              return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);

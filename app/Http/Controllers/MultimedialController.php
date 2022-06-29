@@ -40,29 +40,16 @@ class MultimedialController extends Controller
     public function store(Proyecto $proyecto, Request $request)
     {
         $diseño= $proyecto->diseño()->where('proyecto_id', '=', $proyecto->id)->first();
-        // $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)->first();
+
         $multimedial=$diseño->multimedial()
-            ->create([
+            ->update([
                         'diseño_mult_p1'=>request('diseño_mult_p1')
 
             ]); 
         
-
-        $cant_mapeos= ((count($request->all())-2)/3);
-        
-        for ($i = 0; $i < $cant_mapeos; $i++) {
-            
-            $multimedial->mapeos()->create([
-                'nodo'=>request("diseño_mult_p2_c1f".$i),
-                'descripcion'=>request('diseño_mult_p2_c2f'.$i),
-                'plantilla'=>request('diseño_mult_p2_c3f'.$i),
-            ]);
-
-            $diseño->increment('subetapa',1);
-        }
+        $diseño->increment('subetapa',1);
         $proyecto->increment('etapa',1);
-       
-       $proyecto->desarrollo()->create([
+        $proyecto->desarrollo()->create([
             'subetapa'=>1
         ]);
        $proyecto->desarrollo->metadatos()->create([
@@ -107,26 +94,9 @@ class MultimedialController extends Controller
 
         $diseño= Diseño::where('proyecto_id', '=', $proyecto)->first();
 
-        $diseño->multimedial->first()->update([
+        $diseño->multimedial->update([
             'diseño_mult_p1'=>request('diseño_mult_p1')
         ]);
-
-        $cant_mapeos= ((count($request->all())-3)/3);
-        
-        for ($i = 0; $i < $cant_mapeos; $i++) {
-            
-            $diseño->multimedial->mapeos()->create([
-                'nodo'=>request("diseño_mult_p2_c1f".$i),
-                'descripcion'=>request('diseño_mult_p2_c2f'.$i),
-                'plantilla'=>request('diseño_mult_p2_c3f'.$i),
-            ]);
-
-            // $diseño->increment('subetapa',1);
-
-
-        }
-
-
          return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(),'estructura'=>$diseño->estructura()->first(), 'multimedial'=>$diseño->multimedial]); 
 
          

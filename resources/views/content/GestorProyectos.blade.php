@@ -37,30 +37,38 @@ $(document).ready(function(){
 });
 </script>
 
+<div class="volver-flecha">
+	<a href="{{url('inicio')}}">
+		<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
+	</a>
+</div>
+
 
 <div class="container-xl">
 	<div class="table-responsive">
-		<div class="table-wrapper">
+			<br><br><br>
 			<div class="table-title">
 				
 				<div class="row">
-					<div class="col-sm-6">
+					
+						<br><br><br>
+						<h1 style="color:black;">@lang('Proyectos de ') {{Auth::user()->name}}</h1>
 						<br>
-						<h2 style="color:black;">@lang('Proyectos de ') {{Auth::user()->name}}</h2>
-						<br>
-					</div>
+				
 					
 				</div>
 			</div>
+		<div class="table-wrapper">
 
 			<table class="table table-striped table-hover">
-				<thead>
+				<thead id="thead">
 					<tr>
 						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
+
 				<tbody>
 					@forelse($portafolio as $proyecto)
 						<tr>
@@ -105,10 +113,7 @@ $(document).ready(function(){
 				
 			</div>
 
-			<div class="col text-left">
-				<div class="hint-text">
-					<a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Volver</a>
-		</div>
+			
 
 	</div>  
 

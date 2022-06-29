@@ -5,37 +5,13 @@
 @if (!auth()->check())
     <div class="split left"> 
 @endif
-    <div class="centered">{{-- 
-     <div class="container-fluid text-center titulo">
-        <p>MarCOA</p> --}}
+    <div class="centered">
+
         <img src="{{url('/images/MarCOA-01.png')}}" width="100%" height="100%"/>
         @if (auth()->check())
             <a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Continuar</a>
 
-        @endif 
-    </div>
-
-    {{-- <div class="container-fluid text-center sub-titulo">
-        <b>Mar</b>co para la <b>C</b>reación de <b>O</b>bjetos de <b>A</b>prendizaje
-    </div> --}}
-
-    <div class="container-fluid text-center">
-
-        
-            {{-- <div @auth class="container-fluid text-center"> --}}
-
-            
-                      {{-- <a class="btn btn-primary"  href="{{ route('logout')  }}" role="button" > Cerrar Sesión</a> --}}
-                      {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a> --}}
-
-                   {{--  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form> --}}
-             
-                     
-                    
-
-            {{-- @endauth --}}
+        @endif
     </div>
 	
     </div>
@@ -62,9 +38,9 @@
 <div class="grid-container">
 
     <div class="grid-item">
-            <h3>
-                Inicio de Sesión
-            </h3>
+            <a style="font-family: 'Raleway';font-size: 25px; font-weight: 900;">
+                INICIAR SESIÓN
+            </a>
             <form method="POST" action="{{ route('login') }}">
                 {{-- @csrf --}}
                 {{ csrf_field() }}
@@ -91,16 +67,17 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Recordarme  ') }}</span>
                 </label>
             </div>
+
             <div class="flex items-center justify-end mt-4">
                 
 
                 <div class="btn-group" role="group" >
-                    <button class="btn btn-primary" role="button">Iniciar Sesión</button>
+                    <button class="btn btn-primary" role="button">Ingresar</button>
                 </div>
                 <div class="btn-group" role="group" >   
                  @if (Route::has('password.request'))
                     <button class="btn btn-primary"  href="{{ route('password.request') }}">
-                            {{ __('Olvidó su contraseña?') }}
+                            {{ __('Olvidé mi contraseña') }}
                     </button>
 
                     @endif
@@ -115,6 +92,7 @@
 
     <div class="grid-item">
                 @if (Route::has('register'))
+                    <br><br><br><br>
                     <div class="container-fluid text-center">    
                         <a class="btn btn-primary" href="{{ route('register') }}" role="button">Registrarse</a>
                     </div>

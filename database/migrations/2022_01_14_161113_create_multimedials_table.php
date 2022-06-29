@@ -20,7 +20,7 @@ class CreateMultimedialsTable extends Migration
             ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->text('diseño_mult_p1');
+            $table->text('diseño_mult_p1')->nullable();
         });
     }
 

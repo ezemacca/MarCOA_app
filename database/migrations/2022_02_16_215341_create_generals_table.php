@@ -58,8 +58,9 @@ class CreateGeneralsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metadatos');
         Schema::dropIfExists('generals');
+        Schema::dropIfExists('metadatos');
+       
 
     }
 }

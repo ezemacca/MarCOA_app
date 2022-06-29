@@ -19,10 +19,10 @@ class CreateMapeosTable extends Migration
             $table->foreign('multimedial_id')->references('id')->on('multimedials')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-
             $table->text('nodo');
             $table->text('descripcion');
             $table->text('plantilla');
+            $table->timestamps();
         });
     }
 

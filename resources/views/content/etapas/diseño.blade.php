@@ -33,7 +33,7 @@
 			  </li>
 		 @elseif($subetapa>1)
 		  <li class="nav-item ">
-			<a class="nav-link  pestaña" data-toggle="tab" href="#diseño_inst"> EDITAR DISEÑO INSTRUCCIONAL</a>
+			<a class="nav-link  pestaña" data-toggle="tab" href="#diseño_inst">  DISEÑO INSTRUCCIONAL</a>
 		  </li>
 		 @endif
 
@@ -43,7 +43,7 @@
 			  </li>
 		 @elseif($subetapa>2)
 			  <li class="nav-item ">
-				<a class="nav-link  pestaña" data-toggle="tab" href="#estructura">EDITAR ESTRUCTURA</a>
+				<a class="nav-link  pestaña" data-toggle="tab" href="#estructura"> ESTRUCTURA</a>
 			  </li>
 		 @endif
 
@@ -55,7 +55,7 @@
 
 		@elseif($subetapa>3)
 		  <li class="nav-item">
-			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult">EDITAR DISEÑO MULTIMEDIAL</a>
+			<a class="nav-link pestaña" data-toggle="tab" href="#diseño_mult"> DISEÑO MULTIMEDIAL</a>
 		  </li>
 		  @endif
 		</ul>	
@@ -88,7 +88,7 @@
 		<!--DISEÑO MULTIMEDIAL-->
 		@if($subetapa>=4)
 			<div id="diseño_mult" class="tab-pane  ">
-				@include('content.etapas.includes.multimedial')
+				@include('content.etapas.includes.multimedial_edit')
 			</div>	
 			<br><br><br>
 		<div class="centrado">

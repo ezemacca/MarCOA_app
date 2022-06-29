@@ -3,37 +3,29 @@
 @section('content')
 
 <div class="container-fluid">	
-	<div class="row text-right bloque-prin">
-		<div class="col">
-			<a class="nav-link" data-toggle="modal" href="#definicion"><h1>¿QUÉ ES UN OA?</h1></a>
+	<div class="row">
+		<div class="col text-left ">
+			<div class="volver-flecha">
+			<a href="{{url('GestorProyectos')}}">
+				<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
+			</a>
+
+			</div>
+		</div>
+		<div class="col text-center ">
+			<h1>(Vista en proceso de actualización) <br> PROCESO DE CREACIÓN DEL OA </h1>
+		</div>
+
+		<div class="col text-right ">
+			<div class="col">
+				<a data-toggle="modal" href="#definicion"><h1>¿QUÉ ES UN OA?</h1></a>
+			</div>
 		</div>
 	</div>
 
 	<div class="row bloque-prin">
 		<div class="col-10">
-
-			<h1>PROCESO DE CREACIÓN DEL OA</h1>
-
-			<br>
-			<h3><?php print($proyecto['titulo'])?></h3> 
-				
-				{{-- <form action="{{route('GestorProyectos.edit',$proyecto)}}" role="button">
-
-						<button>Editar nombre y descripción</button>
-					</form> --}}
-			<br>
-			<h5><?php print($proyecto['descripcion'])?></h5> 
-
-			
-		{{-- 	<?php
-				echo "<pre>";
-				print_r($proyecto); 
-				echo "</pre>";
-			?> --}}
-			
-			{{-- <h3>Etapa</h3> --}}
-			{{-- <?php print($etapa)?>  --}}
-
+			<h3><?php print($proyecto['titulo'])?></h3> <h5><?php print($proyecto['descripcion'])?></h5> 
 		</div>
 		<div class="col-2 text-right">
 			<a class="nav-link" data-toggle="modal" href="#etapas" style="padding-left:12px;">
@@ -80,7 +72,7 @@
 						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
 					</svg>	
 					</br></br>
-					EDITAR ANÁLISIS
+					ANÁLISIS
 				</a>
 			</p>
 		</div>
@@ -124,7 +116,7 @@
 					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
 					</svg>				
 					</br></br>
-					EDITAR DISEÑO
+					 DISEÑO
 				</a>
 			</p>
 		</div>
@@ -267,7 +259,7 @@
 		<div class="col-5">
 			<p class="etapas">
 				<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
-					EDITAR ANÁLISIS DE COHERENCIA INTERNA
+					 ANÁLISIS DE COHERENCIA INTERNA
 				</a>
 				INSTANCIA INTERMEDIA DE REVISIÓN
 			</p>
@@ -291,12 +283,7 @@
 	
 
 </div>
-<div class="col text-left">
-<a class="btn btn-primary"  href="{{ route('GestorProyectos') }}" role="button">
-	Volver a mis proyectos
-</a>
 
-</div>
 @stop
 
 	<!-- Extra large modal - qué es un OA -->

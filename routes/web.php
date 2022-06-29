@@ -188,3 +188,5 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
         // return "Sin descripción";
     // }
 // });
+//Route Hooks - Do not delete//
+	Route::view('mapeos', 'livewire.mapeos.index')->middleware('auth')->name('mapeos');
