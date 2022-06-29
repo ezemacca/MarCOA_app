@@ -14,6 +14,7 @@ class Implementacion extends Model
     use HasFactory;
 
     protected $fillable=['decision'];
+    public $timestamps = false;
 
     public function desarrollo()
     {

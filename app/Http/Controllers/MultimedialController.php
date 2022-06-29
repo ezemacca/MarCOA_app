@@ -52,6 +52,7 @@ class MultimedialController extends Controller
         $proyecto->desarrollo()->create([
             'subetapa'=>1
         ]);
+        $proyecto->desarrollo->implementacion()->create(['decision'=>null]);
        $proyecto->desarrollo->metadatos()->create([
             'subetapa'=>1
         ]);

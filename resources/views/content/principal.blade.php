@@ -3,285 +3,234 @@
 @section('content')
 
 <div class="container-fluid">	
-	<div class="row">
-		<div class="col text-left ">
-			<div class="volver-flecha">
-			<a href="{{url('GestorProyectos')}}">
-				<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
-			</a>
-
-			</div>
-		</div>
-		<div class="col text-center ">
-			<h1>(Vista en proceso de actualización) <br> PROCESO DE CREACIÓN DEL OA </h1>
-		</div>
-
-		<div class="col text-right ">
-			<div class="col">
-				<a data-toggle="modal" href="#definicion"><h1>¿QUÉ ES UN OA?</h1></a>
-			</div>
-		</div>
-	</div>
-
-	<div class="row bloque-prin">
-		<div class="col-10">
-			<h3><?php print($proyecto['titulo'])?></h3> <h5><?php print($proyecto['descripcion'])?></h5> 
-		</div>
-		<div class="col-2 text-right">
-			<a class="nav-link" data-toggle="modal" href="#etapas" style="padding-left:12px;">
-				<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-				  <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-				</svg>
-			</a>
-		</div>
-	</div>
-	
-	<div class="row text-right bloque-prin">
+	<div class="row" id="cabecera-proyecto">
 		<div class="col">
-			<a class="nav-link" data-toggle="modal" href="#ayuda">
+			<div class="volver-flecha" >
+				<a href="{{url('GestorProyectos')}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
+				</a>
+
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<h3>
+				<?php print($proyecto['titulo'])?>
+			</h3> 
+		</div>
+			<div class="col-2 text-right">
+				<a data-toggle="modal" href="#etapas" >
+					<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+					</svg>
+				</a>
+			
+			<a data-toggle="modal" href="#ayuda">
 				<svg class="bi bi-question-circle-fill a-marcoa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-				  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
+				 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
 				</svg>
 			</a>
 		</div>
-	</div>	
+	</div>
+
+		<div class="col text-center ">
+			<h1>PROCESO DE CREACIÓN DEL OA </h1>
+		</div>
+
 	
 	@include('includes/errores')
+
+
+<div class="row"> 
+	<div class="col-1">	
+	</div>
+	
+	<div class="col-10">
+		<div class="row"> 
+			<div class="col-1">
+			</div>
+			<div class="col">
+				<p class="etapas">
+					1RA ETAPA
+				</p>
+			</div>
+			<div class="col">
+				<p class="etapas">
+					2DA ETAPA
+				</p>
+			</div>
+			<div class="col">
+				<p class="etapas">
+					3RA ETAPA
+				</p>
+			</div>
+			<div class="col">
+				<p class="etapas">
+					4TA ETAPA
+				</p>
+			</div>
+			<div class="col">
+				<p class="etapas">
+					5TA ETAPA
+				</p>
+			</div>
+			<div class="col-1">
+			</div>
+		</div>
+
 	<div class="row"> 
-
-{{-- ETAPA1 --}}
-@if($proyecto['etapa'] === 1)
-		<div class="col">
-			<p class="etapas">1RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis',$proyecto)}}" role="button">
-					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-					</svg>	
-					</br></br>
-					ANÁLISIS
-				</a>
-			</p>
-		</div>
-@elseif ($proyecto['etapa'] > 1)
-	<div class="col">
-			<p class="etapas">1RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-analisis" href="{{route('analisis.edit',$proyecto)}}" role="button">
-					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-					</svg>	
-					</br></br>
-					ANÁLISIS
-				</a>
-			</p>
-		</div>
-
-@else
-	<div class="col">
-			<p class="etapas">1RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-analisis">
-					<svg class="bi bi-search" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-						<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-					</svg>	
-					</br></br>
-					ANÁLISIS
-				</a>
-			</p>
-		</div>
-@endif
-
-
-{{-- ETAPA2 --}}
-@if($proyecto['etapa'] == 2)
-		<div class="col">
-			<p class="etapas">2DA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-diseño" href="{{route('diseño', $proyecto)}}" role="button">
-					<svg class="bi bi-brush" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-					</svg>				
-					</br></br>
-					DISEÑO
-				</a>
-			</p>
-		</div>
-@elseif($proyecto['etapa'] >2)
-		<div class="col">
-			<p class="etapas">2DA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-diseño" href="{{route('diseño', $proyecto)}}" role="button">
-					<svg class="bi bi-brush" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-					</svg>				
-					</br></br>
-					 DISEÑO
-				</a>
-			</p>
-		</div>
-@else
-	<div class="col">
-			<p class="etapas">2DA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-diseño">
-					<svg class="bi bi-brush" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-					  <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-					</svg>				
-					</br></br>
-					DISEÑO
-				</a>
-			</p>
-		</div>
-@endif
-{{-- ETAPA3 --}}
-@if($proyecto['etapa'] == 3)
-		<div class="col">
-			<p class="etapas">3RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-desarrollo" href="{{route('desarrollo',$proyecto)}}" role="button">
-					<svg class="bi bi-tools" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-					  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-					</svg>
-					</br></br>
-					DESARROLLO
-				</a>
-			</p>
-		</div>
-@elseif($proyecto['etapa'] > 3)
-		<div class="col">
-			<p class="etapas">3RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-desarrollo" href="{{route('desarrollo',$proyecto)}}" role="button">
-					<svg class="bi bi-tools" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-					  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-					</svg>
-					</br></br>
-					DESARROLLO
-				</a>
-			</p>
-		</div>
-@else
-<div class="col">
-			<p class="etapas">3RA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-desarrollo">
-					<svg class="bi bi-tools" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-					  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-					</svg>
-					</br></br>
-					DESARROLLO
-				</a>
-			</p>
-		</div>
-@endif
-{{-- ETAPA4 --}}
-@if($proyecto['etapa'] >= 4)
-		<div class="col">
-			<p class="etapas">4TA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-publicacion" href="{{route('publicacion')}}" role="button">
-					<svg class="bi bi-tv-fill" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"/>
-					</svg>
-					</br></br>
-					PUBLICACIÓN
-				</a>
-			</p>
-		</div>
-@else
-<div class="col">
-			<p class="etapas">4TA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-publicacion" >
-					<svg class="bi bi-tv-fill" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"/>
-					</svg>
-					</br></br>
-					PUBLICACIÓN
-				</a>
-			</p>
-		</div>
-@endif
-{{-- ETAPA5 --}}
-@if($proyecto['etapa'] >= 5)
-		<div class="col">
-			<p class="etapas">5TA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-evaluacion" href="{{route('evaluacion')}}" role="button">
-					<svg class="bi bi-file-check" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8h-1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5V1z"/>
-					  <path fill-rule="evenodd" d="M15.854 2.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 4.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-					</svg>				
-					</br></br>
-					EVALUACIÓN
-				</a>
-			</p>
-		</div>
+	<div class="col-1">
+		
 	</div>
-@else
-<div class="col">
-			<p class="etapas">5TA ETAPA
-				<a class="btn btn-primary btn-lg btn-block e-evaluacion" >
-					<svg class="bi bi-file-check" width="80" height="80" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8h-1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5V1z"/>
-					  <path fill-rule="evenodd" d="M15.854 2.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 4.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-					</svg>				
-					</br></br>
-					EVALUACIÓN
+		{{-- ETAPA1 --}}
+	<div class="col-2">
+			@if($proyecto['etapa'] === 1)
+				<a  href="{{route('analisis',$proyecto)}}">
+					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>							
 				</a>
-			</p>
-		</div>
+			@elseif ($proyecto['etapa'] > 1)
+				<a  href="{{route('analisis.edit',$proyecto)}}" >
+					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>
+				</a>
+			@else
+				<a class="etapa-gris" >
+					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>					
+				</a>
+			@endif
 	</div>
-@endif
-{{-- ETAPACOHERENCIA --}}
-@if($proyecto['etapa'] < 3)
+
+		{{-- ETAPA2 --}}
+	<div class="col-2">
+		@if($proyecto['etapa'] == 2)
+				
+						<a  href="{{route('diseño', $proyecto)}}" >
+							<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+						</a>
+					
+		@elseif($proyecto['etapa'] >2)
+			<a  href="{{route('diseño', $proyecto)}}" >
+					<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+			</a>
+		@else
+			
+						<a  class="etapa-gris"  >
+								<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+							
+						</a>
+		@endif
+	</div>
+		{{-- ETAPA3 --}}
+	<div class="col-2">
+		@if($proyecto['etapa'] == 3)
+						<a  href="{{route('desarrollo',$proyecto)}}" >
+							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+						</a>
+				
+		@elseif($proyecto['etapa'] > 3)
+						<a  href="{{route('desarrollo.edit',$proyecto)}}" >
+							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+							
+						</a>
+		@else
+		
+						<a class="etapa-gris" >
+							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+						</a>
+		@endif
+	</div>
+		{{-- ETAPA4 --}}
+	<div class="col-2">
+		@if($proyecto['etapa'] >= 4)
+						<a  href="{{route('publicacion')}}" role="button">
+							<img src="{{url('/images/MarCOA-10.png')}}" width="100%" height="100%"/>
+						</a>
+		@else
+						<a class="etapa-gris" >
+								<img src="{{url('/images/MarCOA-10.png')}}" width="100%" height="100%"/>
+						</a>
+		@endif
+	</div>
+		{{-- ETAPA5 --}}
+	<div class="col-2">
+		@if($proyecto['etapa'] >= 5)
+						<a  href="{{route('evaluacion')}}" >
+							<img src="{{url('/images/MarCOA-11.png')}}" width="100%" height="100%"/>
+						</a>
+		@else
+						<a  class="etapa-gris" >
+							<img src="{{url('/images/MarCOA-11.png')}}" width="100%" height="100%"/>
+						</a>
+		@endif
+	</div>
+	<div class="col-1">
+	</div>
+	</div>
+		{{-- ETAPA COHERENCIA --}}
 	<div class="row">
-		<div class="col-5">
-			<p class="etapas">
-				<a class="btn btn-primary btn-lg btn-block e-coherencia" >
-					ANÁLISIS DE COHERENCIA INTERNA
-				</a>
-				INSTANCIA INTERMEDIA DE REVISIÓN
-			</p>
+		<div class="col-1">
+		</div>
+		
+		<div class="col-4">
+		@if($proyecto['etapa'] < 3)
+					
+						<a class="btn btn-lg e-coherencia-gris" >
+							<p id="analisis-coherencia">
+								ANÁLISIS DE COHERENCIA INTERNA 
+							</p>
+							<hr>
+							<p id="analisis-coherencia-sub">
+								INSTANCIA INTERMEDIA DE REVISIÓN
+							</p>
+						</a>
+
+					
+		@elseif($proyecto->first()->coherencia == null)
+					
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
+							<p id="analisis-coherencia">
+								ANÁLISIS DE COHERENCIA INTERNA 
+							</p>
+							<hr>
+							<p id="analisis-coherencia-sub">
+								INSTANCIA INTERMEDIA DE REVISIÓN
+							</p>
+						</a>
+			
+		@else
+				
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
+							<p id="analisis-coherencia">
+								ANÁLISIS DE COHERENCIA INTERNA 
+							</p>
+							<hr>
+							<p id="analisis-coherencia-sub">
+								INSTANCIA INTERMEDIA DE REVISIÓN
+							</p>
+						</a>
+		@endif
+		</div>
+		
+		<div class="col-7">
 		</div>
 	</div>
-@elseif($proyecto->first()->coherencia == null)
-	<div class="row">
-		<div class="col-5">
-			<p class="etapas">
-				<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
-					ANÁLISIS DE COHERENCIA INTERNA
-				</a>
-				INSTANCIA INTERMEDIA DE REVISIÓN
-			</p>
-		</div>
+			<div class="row bloque-prin">
+				<div class="col text-center">
+					<a class="btn btn-primary boton-generar" href="" role="button">EXPORTAR OA</a>
+				</div>
+			</div>
+			
+			<div class="row bloque-prin">
+				<div class="col text-right">
+
+					
+					{{-- <button type="submit" class="btn btn-secondary">GUARDAR PROYECTO</button> --}}
+					
+				</div>
+			</div>
+</div>
 	</div>
-@else
-	<div class="row">
-		<div class="col-5">
-			<p class="etapas">
-				<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
-					 ANÁLISIS DE COHERENCIA INTERNA
-				</a>
-				INSTANCIA INTERMEDIA DE REVISIÓN
-			</p>
-		</div>
-	</div>
-@endif
-	<div class="row bloque-prin">
-		<div class="col text-center">
-			<a class="btn btn-primary boton-generar" href="{{route('configuracion')}}" role="button">EXPORTAR OA</a>
-		</div>
+	<div class="col-1">
 	</div>
 	
-	<div class="row bloque-prin">
-		<div class="col text-right">
-
-			
-			{{-- <button type="submit" class="btn btn-secondary">GUARDAR PROYECTO</button> --}}
-			
-		</div>
-	</div>
-	
-
 </div>
 
 @stop

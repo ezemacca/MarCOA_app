@@ -2,22 +2,27 @@
 
 @section('content')
 <div class="container-fluid">	
-	<div class="row text-center">
-		<div class="container-fluid titulo">
-			<p>MarCOA</p>
+	<div class="row ">
+		<div class="col-3 text-left">
+			
+			<div class="volver-flecha" >
+				<a href="{{route('inicio')}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
+				</a>
+
+			</div>
+		
 		</div>
-		<div class="container-fluid sub-titulo">
-			<b>Mar</b>co para la <b>C</b>reación de <b>O</b>bjetos de <b>A</b>prendizaje
-		</div>
+		<div class="col-6 text-center">
+			<img src="{{url('/images/MarCOA-02.png')}}" width="100%" height="100%"/>	
+		</div>	
+		<div class="col-3">
+		</div>	
 	</div>
 </div>
 
 <div class="container-fluid">
-		<!--<div class="row">
-			<div class="col text-center">		
-				<h1>CREACIÓN DE UN PROYECTO DE OA</h1>
-			</div>	
-		</div>-->	
+
 		<div class="row">
 			<div class="col text-right">
 				<a class="nav-link" data-toggle="modal" href="#ayuda">
@@ -27,40 +32,45 @@
 				</a>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col text-center">
+				<h1>NUEVO PROYECTO</h1>
+			</div>	
+		</div>
 	</div>
 	@include('includes/errores')
 
 
 	<div class="conteniner-fluid creacion">
+		<div class="row justify-content-center">
 		<form method="POST" action="{{ route('GestorProyectos.store') }}"> 
 			{{-- La acción debe llevar al create de GestorProyectos --}}
 			@csrf
-
-			<div class="row justify-content-center">
-				<div class="col-sm-8">
+			<div class="row">
+				<div class="col">
 					<div class="form-group">
 						<input type="text" class="form-control" name="nom_proy" id="nom_proy" value="{{ old('nom_proy') }}" aria-describedby="aclaracion" placeholder="Nombre de nuevo proyecto" required>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				
+				<div class="col">
 						<label>
-							<br>
-							<br>
 							<textarea name="desc_proy" placeholder="Descripcion" ></textarea>
 						</label>
-						<br>
-						<!--<small class="form-text text-muted" id="aclaracion">El nombre debe ...</small>-->
-					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col">
 					<div class="form-group">
-						<!--<button type="submit" class="btn btn-secondary">CREAR</button>-->
-						{{-- <a class="btn btn-secondary" href="{{route('NuevoProyecto')}}" role="button">CREAR</a> --}}
-						{{-- <a class="btn btn-secondary" href="{{action('GestorProyectosController@create' , 'nom_proy')}}" role="button">CREAR</a> --}}
-						<button>Crear</button>
+						<button class="btn btn-secondary">Crear</button>
 					</div>
 				</div>
-			</div>				
+			
+			</div>
 		</form>
+		</div>
+	</div>				
 		
-			<a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Volver</a>
 		
 	</div>
 	@stop

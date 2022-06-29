@@ -37,86 +37,74 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="volver-flecha">
-	<a href="{{url('inicio')}}">
-		<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
-	</a>
-</div>
 
+	
 
-<div class="container-xl">
-	<div class="table-responsive">
-			<br><br><br>
-			<div class="table-title">
-				
-				<div class="row">
-					
-						<br><br><br>
-						<h1 style="color:black;">@lang('Proyectos de ') {{Auth::user()->name}}</h1>
-						<br>
-				
-					
-				</div>
+<div class="container-fluid">
+			
+	<div class="row" id="cabecera-proyecto">
+		<div class="col-2 text-left">
+			<div class="volver-flecha" >
+				<a href="{{route('inicio')}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
+				</a>
+
 			</div>
-		<div class="table-wrapper">
+		</div>
+		<div class="col-10 text-left">
+				<h1 style="color:black;">@lang('Proyectos de ') {{Auth::user()->name}} </h1>
+		</div>
+		
+	</div>
+			
+	<div class="row">
+		<div class="col-2">	
+		</div>
+		<div class="col-8">
+			<div class="row">
+				<div class="table-wrapper">
 
-			<table class="table table-striped table-hover">
-				<thead id="thead">
-					<tr>
-						<th>Nombre</th>
-						<th>Descripción</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					@forelse($portafolio as $proyecto)
-						<tr>
-
-							@if($proyecto['user_id'] == Auth::user()->id )
-
-								<td>
-									<a href="{{route('principal', $proyecto)}}">{{$proyecto['titulo']}} </a></td>
-							
-								<td>{{$proyecto['descripcion']}}</td> </a>
-
-								<td>
-									<a href="{{route('GestorProyectos.edit',$proyecto)}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-
-									<a href="#EliminarProyectoModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
-								</td>
-								
-							@endif
-
-						</tr>
-						
-
-					@empty
-
-							<li> No hay proyectos para mostrar</li>
-
-							@endforelse
-							
+					<table class="table table-striped table-hover">
+						<thead id="thead">
+							<tr>
+								<th>Nombre</th>
+								<th>Descripción</th>
+								<th>Acciones</th>
 							</tr>
+						</thead>
 
-					
-							
-							
-												
-							 
+						<tbody>
+							@forelse($portafolio as $proyecto)
+								<tr>
+
+									@if($proyecto['user_id'] == Auth::user()->id )
+
+										<td>
+											<a href="{{route('principal', $proyecto)}}">{{$proyecto['titulo']}} </a></td>
+									
+										<td>{{$proyecto['descripcion']}}</td> </a>
+
+										<td>
+											<a href="{{route('GestorProyectos.edit',$proyecto)}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+
+											<a href="#EliminarProyectoModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+										</td>
+										
+									@endif
+								</tr>
+								@empty
+										<li> No hay proyectos para mostrar</li>
+								@endforelse
+									
+								</tr>		 
 						</tbody>
 					</table>
-					
-			
-
-				</div>
-				
+				</div>			
 			</div>
-
-			
-
+		</div>
+		<div class="col-2">	
+		</div>
 	</div>  
-
 </div>
 @stop
 <!-- Edit Modal HTML -->

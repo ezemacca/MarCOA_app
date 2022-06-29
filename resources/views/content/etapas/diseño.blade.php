@@ -4,6 +4,14 @@
 	
 	<div class="container-fluid e-diseño">
 		<div class="row">
+			<div class="col">
+			<div class="volver-flecha-blanca" >
+				<a href="{{route('principal',$proyecto)}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="80%" height="80%"/>
+				</a>
+
+			</div>
+		</div>
 			<div class="col text-center">			
 				<svg class="bi bi-brush" width="50" height="50" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				  <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
@@ -91,9 +99,9 @@
 				@include('content.etapas.includes.multimedial_edit')
 			</div>	
 			<br><br><br>
-		<div class="centrado">
+		{{-- <div class="centrado">
 			<a > Usted ya completó esta etapa, si quiere editar alguna de las subetapas, seleccionela arriba.</a>
-		</div>
+		</div> --}}
 		@elseif($subetapa==3)
 		<div id="diseño_mult" class="tab-pane in active">
 			@include('content.etapas.includes.multimedial')

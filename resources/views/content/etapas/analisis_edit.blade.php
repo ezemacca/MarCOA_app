@@ -4,6 +4,14 @@
 
 <div class="container-fluid e-analisis">
 	<div class="row">
+		<div class="col">
+			<div class="volver-flecha-blanca" >
+				<a href="{{route('principal',$proyecto)}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="80%" height="80%"/>
+				</a>
+
+			</div>
+		</div>
 		<div class="col text-center">			
 			<svg class="bi bi-search" width="50" height="50" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 				<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
