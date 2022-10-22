@@ -33,10 +33,11 @@
 			</div>
 		</div>
 		<select class="form-control" name="ciclo_p2" id="ciclo_p2" value="{{ $proyecto->desarrollo->metadatos->ciclo->ciclo_p2 }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p2}} </option>
-			<option value="final">Final</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>
+			<option value="{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p2}}"selected>{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p2}}</option>
+			<option value="Borrador">Borrador</option>
+			<option value="Final">Final</option>
+			<option value="Revisado">Revisado</option>
+			<option value="No Disponible">No disponible</option>
 		</select>	
 	</div>	
 

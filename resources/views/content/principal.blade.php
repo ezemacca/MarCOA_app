@@ -4,31 +4,32 @@
 
 <div class="container-fluid">	
 	<div class="row" id="cabecera-proyecto">
-		<div class="col">
-			<div class="volver-flecha" >
+		<div class="col-1">
+			<div class="volver-flecha"  >
 				<a href="{{url('GestorProyectos')}}">
 					<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
 				</a>
 
 			</div>
 		</div>
-		<div class="col-lg-8">
+		<div class="col-8">
 			<h3>
 				<?php print($proyecto['titulo'])?>
 			</h3> 
 		</div>
-			<div class="col-2 text-right">
+		<div class="col-3 text-right" style=" display:inline-flex; ">
+
+				<a class="nav-link" data-toggle="modal" href="#definicion">
+					<h1>¿QUÉ ES UN OA?</h1>
+				</a>
+
 				<a data-toggle="modal" href="#etapas" >
-					<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					  <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-					</svg>
+					<img src="{{url('/images/MarCOA-12.png')}}" width="50" height="50"/>
 				</a>
 			
-			<a data-toggle="modal" href="#ayuda">
-				<svg class="bi bi-question-circle-fill a-marcoa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-				 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"/>
-				</svg>
-			</a>
+				<a data-toggle="modal" href="#ayuda">
+					<img src="{{url('/images/MarCOA-13.png')}}" width="50" height="50"/>
+				</a>
 		</div>
 	</div>
 
@@ -126,7 +127,7 @@
 						</a>
 				
 		@elseif($proyecto['etapa'] > 3)
-						<a  href="{{route('desarrollo.edit',$proyecto)}}" >
+						<a  href="{{route('desarrollo',$proyecto)}}" >
 							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
 							
 						</a>
@@ -183,7 +184,7 @@
 						</a>
 
 					
-		@elseif($proyecto->first()->coherencia == null)
+		@elseif($proyecto->coherencia == null)
 					
 						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
 							<p id="analisis-coherencia">

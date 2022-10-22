@@ -56,8 +56,8 @@ class EducacionalController extends Controller
     ]);
         
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
-        
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
@@ -91,7 +91,7 @@ class EducacionalController extends Controller
      */
     public function update(Proyecto $proyecto, Request $request)
     {
-        $proyecto->desarrollo->metadatos->educacional()->create([
+        $proyecto->desarrollo->metadatos->educacional()->update([
         'educacional_p1'=>request('educacional_p1'),
         'educacional_p2'=>request('educacional_p2'),
         'educacional_p3'=>request('educacional_p3'),
@@ -104,7 +104,8 @@ class EducacionalController extends Controller
         'educacional_p10'=>request('educacional_p10'),
         'educacional_p11'=>request('educacional_p11')
     ]);
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**

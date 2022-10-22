@@ -48,6 +48,7 @@ class ClasificacionController extends Controller
         ]); 
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
         $proyecto->increment('etapa',1);
+
         return redirect()->route('principal', $proyecto);
     }
 
@@ -88,8 +89,8 @@ class ClasificacionController extends Controller
             'clasificaciones_p1_cla_3'=>request('clasificaciones_p1_cla_3'),
             'clasificaciones_p1_cla_4'=>request('clasificaciones_p1_cla_4'),
         ]);  
-
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**

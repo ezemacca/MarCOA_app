@@ -11,7 +11,7 @@ class CoherenciaController extends Controller
 {
     public function index (Proyecto $proyecto)
 	{
-		return view('content.etapas.coherencia',['proyecto'=>$proyecto]);
+		return view('content.etapas.coherencia',['proyecto'=>$proyecto->first()]);
 	}
 
 	public function store(Proyecto $proyecto, Request $request)

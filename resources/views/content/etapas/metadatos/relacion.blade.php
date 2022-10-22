@@ -36,9 +36,51 @@
 				</div>
 				<select class="form-control" name="relacion_p1_rel_1" id="relacion_p1_rel_1" value="{{ old('relacion_p1_rel_1') }}" required>
 					<option selected>Elegir clase</option>
-					<option value="1">?????</option>
-					<option value="2">?????</option>
-					<option value="3">?????</option>
+					<option value="Es parte de (el material es parte de otro más complejo)">
+					Es parte de (el material es parte de otro más complejo)
+					</option>
+					<option value="
+					Tiene parte de (el material tiene a otro como parte integrante)
+					">
+					Tiene parte de (el material tiene a otro como parte integrante)	
+					</option>
+					<option value="Es una versión de (el material es una versión de otro)
+					">
+					Es una versión de (el material es una versión de otro)	
+					</option>
+					<option value="Tiene a otro como versión (el material tiene a otro como una versión)">
+					Tiene a otro como versión (el material tiene a otro como una versión)	
+					</option>
+					<option value="Es un formato de (el material es la descripción de un formato de otro material)">
+					Es un formato de (el material es la descripción de un formato de otro material)	
+					</option>
+					<option value="Tiene el formato (el material tiene a otro como formato)
+					">Tiene el formato (el material tiene a otro como formato)
+					</option>
+					<option value="Refiere a (el material refiere al otro)">
+					Refiere a (el material refiere al otro)	
+					</option>
+					<option value="Es referenciado por (el material está referido por el otro)">
+					Es referenciado por (el material está referido por el otro)	
+					</option>
+					<option value="Está basado en (el material está basado en otro)
+					">Está basado en (el material está basado en otro)	
+					</option>
+					<option value="
+					Es la base para (el material es la base de otro)
+					">
+					Es la base para (el material es la base de otro)
+					</option>
+					<option value="
+					Requiere (el material requiere la presencia de otro)
+					">
+					Requiere (el material requiere la presencia de otro)	
+					</option>
+					<option value="
+					Es requerido por (el material es requerido por otro)
+					">
+					Es requerido por (el material es requerido por otro)
+					</option>
 				</select>	
 			</div>
 			

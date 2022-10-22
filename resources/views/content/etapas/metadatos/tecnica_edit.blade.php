@@ -19,8 +19,7 @@
 		<select class="form-control" name="tecnica_p1" id="tecnica_p1" value="{{ $proyecto->desarrollo->metadatos->tecnica->tecnica_p1 }}" required>
 			<option selected>{{$proyecto->desarrollo->metadatos->tecnica->tecnica_p1}}</option>
 			<option value="Application/zip">Application/zip</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>
+			<option value="Otro">Otro</option>
 		</select>		
 	</div>
 
@@ -84,7 +83,7 @@
 					</div>
 				</div>
 				<select class="form-control" name="tecnica_p4_1" id="tecnica_p4_1" value="{{ $proyecto->desarrollo->metadatos->tecnica->tecnica_p4_1 }}" required>
-					<option selected> {{$proyecto->desarrollo->metadatos->tecnica->tecnica_p4_1 }}</option>
+					<option value="{{$proyecto->desarrollo->metadatos->tecnica->tecnica_p4_1}}"selected> {{$proyecto->desarrollo->metadatos->tecnica->tecnica_p4_1 }}</option>
 					<option value="Navegador">Navegador</option>
 					<option value="Sistema operativo">Sistema operativo</option>
 				</select>

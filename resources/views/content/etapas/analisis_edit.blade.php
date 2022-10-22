@@ -32,8 +32,9 @@
 	</div>
 </div>
 
-<div class="container-fluid cont-formulario">
-	<form method="POST" action="{{ route('analisis.update', $proyecto)}} ">
+
+		<div class=" cont-formulario">
+			<form method="POST" action="{{ route('analisis.update', $proyecto)}} ">
 		@csrf 
 		@method('PATCH')
 		
@@ -51,9 +52,23 @@
 					</a>
 				</div>
 			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p1" id="analisis_p1" value="{{ old('analisis_p1') }}" required> --}}
 
-		<textarea type="text" class="form-control" name="analisis_p1" id="analisis_p1" required >{{$analisis->analisis_p1 }}</textarea>
+		 <textarea id="editor1" type="text" class="form-control" name="analisis_p1" > {{$analisis->analisis_p1 }}</textarea>
+		 	<script>
+
+				ClassicEditor
+					.create( document.querySelector( '#editor1' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
+
+			</script>
 		</div>
 
 		<div class="form-group">
@@ -71,7 +86,22 @@
 			</div>
 			{{-- <input type="text" class="form-control" name="analisis_p2" id="analisis_p2" value="{{ old('analisis_p2') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p2" id="analisis_p2" required>{{$analisis->analisis_p2 }}</textarea>
+			<textarea id="editor2" type="text" class="form-control" name="analisis_p2" >{{$analisis->analisis_p2 }}</textarea>
+				<script>
+
+				ClassicEditor
+					.create( document.querySelector( '#editor2' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
+
+			</script>
 		</div>	
 
 		<div class="form-group">
@@ -87,8 +117,22 @@
 					</a>
 				</div>
 			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p3" id="analisis_p3" value="{{ old('analisis_p3') }}" required> --}}
-			<textarea type="text" class="form-control" name="analisis_p3" id="analisis_p3" required>{{$analisis->analisis_p3 }}</textarea>
+		 <textarea id="editor3" type="text" class="form-control" name="analisis_p3" > {{$analisis->analisis_p3 }}</textarea>
+		 	<script>
+
+				ClassicEditor
+					.create( document.querySelector( '#editor3' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
+
+			</script>
 		</div>	
 
 		<div class="form-group">
@@ -104,9 +148,22 @@
 					</a>
 				</div>
 			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p4" id="analisis_p4" value="{{ old('analisis_p4') }}" required>--}}
+			 <textarea id="editor4" type="text" class="form-control" name="analisis_p4" > {{$analisis->analisis_p4 }}</textarea>
+		 	<script>
 
-			<textarea type="text" class="form-control" name="analisis_p4" id="analisis_p4" required> {{$analisis->analisis_p4 }}</textarea>
+				ClassicEditor
+					.create( document.querySelector( '#editor4' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
+
+			</script>
 		</div>	
 
 		<div class="form-group">
@@ -122,9 +179,22 @@
 					</a>
 				</div>
 			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p5" id="analisis_p5" value="{{ old('analisis_p5') }}" required> --}}
+				 <textarea id="editor5" type="text" class="form-control" name="analisis_p5" > {{$analisis->analisis_p5 }}</textarea>
+		 	<script>
 
-			<textarea type="text" class="form-control" name="analisis_p5" id="analisis_p5"  required>{{$analisis->analisis_p5 }}</textarea>
+				ClassicEditor
+					.create( document.querySelector( '#editor5' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
+
+			</script>
 		</div>	
 
 		<div class="form-group">
@@ -140,35 +210,26 @@
 					</a>
 				</div>
 			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p6" id="analisis_p6" value="{{ old('analisis_p6') }}" required> --}}
+			 <textarea id="editor6" type="text" class="form-control" name="analisis_p6" > {{$analisis->analisis_p6 }}</textarea>
+		 	<script>
 
-			<textarea type="text" class="form-control" name="analisis_p6" id="analisis_p6" required>{{$analisis->analisis_p6 }}</textarea>
-		</div>				
-		{{-- formulario oculto que envía los datos del proyecto al controlador analisis.store --}}
-			{{-- <?php $proyecto_id = $proyecto['id']; ?>
-			<input type="hidden" name="proyecto_id" value= $proyecto> --}}
+				ClassicEditor
+					.create( document.querySelector( '#editor6' ), {
+						language: "es"
+					} )
+					.then( editor => {
+						console.log( editor );
+					} )
+					.catch( error => {
+						console.error( error );
+					} )
+					;
 
-
-
-			{{-- <input type="hidden" value="{{$proyecto->id}}" name="proyecto_id"> --}}
-
+			</script>
+		</div>		
 			<div class="row">
 				<div class="col text-left">
-					<!--<button type="submit" class="btn btn-secondary e-analisis">
-						<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-							<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-							<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-						</svg>
-						GUARDAR
-					</button>-->
 					<div class="conteiner-fluid text-left">
-						{{-- <a class="btn btn-secondary e-analisis" href="{{route('analisis','proyecto')}}" role="button">
-							<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-							</svg>
-							GUARDAR
-						</a> --}}
 						<button class="btn btn-secondary e-analisis">
 							<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
@@ -179,7 +240,7 @@
 					</div>	
 				</div>
 				<div class="col text-right">
-					<a class="btn btn-secondary boton-generar" href="" role="button">
+					<a class="btn btn-secondary boton-generar" href="{{route('analisis.pdf',$proyecto->id)}}" role="button">
 						<svg class="bi bi-box-arrow-down" width="30" height="30" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" d="M6.646 13.646a.5.5 0 01.708 0L10 16.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 							<path fill-rule="evenodd" d="M10 6.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V7a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
@@ -189,9 +250,8 @@
 				</div>
 			</div>
 		</form>
-
 	</div>
-	
+
 	@stop
 
 	<!-- Extra large modal - etapa de análisis-->
@@ -353,3 +413,5 @@
 				</div>
 			</div>
 		</div>
+
+	

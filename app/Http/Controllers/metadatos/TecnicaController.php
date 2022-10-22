@@ -56,8 +56,8 @@ class TecnicaController extends Controller
             ]);
 
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
-
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
         
     }
 
@@ -104,8 +104,8 @@ class TecnicaController extends Controller
         'tecnica_p4_5'=>request('tecnica_p4_5'),
         'tecnica_p4_6'=>request('tecnica_p4_6')
             ]);
-
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**

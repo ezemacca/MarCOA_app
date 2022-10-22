@@ -58,7 +58,10 @@ class GeneralController extends Controller
         
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
 
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+
+        $decision= $proyecto->desarrollo->implementacion->decision;
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
@@ -105,8 +108,9 @@ class GeneralController extends Controller
         //esto cambiará luego de hacer dinámica la creacion de palabras clave.
         $proyecto->desarrollo->metadatos->general->palabrasclave()->update([
                 'general_p6'=>request('general_p6-1')]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
 
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa, 'decision'=>$decision]);
     }
 
     /**

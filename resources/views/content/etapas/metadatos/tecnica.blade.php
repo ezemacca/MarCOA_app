@@ -17,9 +17,8 @@
 		</div>
 		<select class="form-control" name="tecnica_p1" id="tecnica_p1" value="{{ old('tecnica_p1') }}" required>
 			<option selected>Elegir formato</option>
-			<option value="1">Application/zip</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>
+			<option value="Aplicacation/zip">Application/zip</option>
+			<option value="Otro">Otro</option>
 		</select>		
 	</div>
 

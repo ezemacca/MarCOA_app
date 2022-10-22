@@ -29,9 +29,15 @@
 			</div>
 			<select class="form-control" name="clasificaciones_p1_cla_1" id="clasificaciones_p1_cla_1" value="{{ old('clasificaciones_p1_cla_1') }}" required>
 				<option selected>Elegir propósito</option>
-				<option value="1">?????</option>
-				<option value="2">?????</option>
-				<option value="3">?????</option>
+				<option value="Disciplina">Disciplina</option>
+				<option value="Idea">Idea</option>
+				<option value="Prerrequisitos">Prerrequisitos</option>
+				<option value="Objetivo educativo">Objetivo educativo</option>
+				<option value="Restricciones de acceso">Restricciones de acceso</option>
+				<option value="Nivel educativo">Nivel educativo</option>
+				<option value="Nivel de destreza">Nivel de destreza</option>
+				<option value="Nivel de seguridad">Nivel de seguridad</option>
+				
 			</select>
 		</div>
 		

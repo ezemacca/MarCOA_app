@@ -56,7 +56,9 @@ class CicloController extends Controller
 
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
 
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision=$proyecto->desarrollo->implementacion->decision;
+
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
@@ -101,7 +103,8 @@ class CicloController extends Controller
             'ciclo_p3_cont_2'=>request('ciclo_p3_cont_2'),
             'ciclo_p3_cont_3'=>request('ciclo_p3_cont_3'),
         ]);
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision=$proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**

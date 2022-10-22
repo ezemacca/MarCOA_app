@@ -69,6 +69,8 @@ Route::patch('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@upd
 Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
 Route::get('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@index')->name('analisis');
 Route::get('/analisis/{id}/editar','App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
+Route::get('/analisis/{id}/generar_pdf','App\Http\Controllers\AnalisisController@generar_pdf')->name('analisis.pdf');
+
 
 
 Route::get('/coherencia/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
@@ -104,7 +106,7 @@ Route::patch('/desarrollo/metadatos/general/actualizar/{proyecto}', 'App\Http\Co
 Route::post('/desarrollo/metadatos/general/guardar/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@store')->name('metadatos.general.store');
 
 
-    //METADATOS_CICLO
+//METADATOS_CICLO
 
 
 Route::patch('/desarrollo/metadatos/ciclo/actualizar/{proyecto}', 'App\Http\Controllers\metadatos\CicloController@update')->name('metadatos.ciclo.update');
@@ -190,3 +192,5 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 // });
 //Route Hooks - Do not delete//
 	Route::view('mapeos', 'livewire.mapeos.index')->middleware('auth')->name('mapeos');
+
+    

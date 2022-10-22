@@ -44,8 +44,8 @@ class DerechosController extends Controller
     ]);
         
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
-
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
      }
 
     /**
@@ -84,8 +84,9 @@ class DerechosController extends Controller
         'derechos_p2'=>request('derechos_p2'),
         'derechos_p3'=>request('derechos_p3')
     ]);    
+        $decision= $proyecto->desarrollo->implementacion->decision;
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
 
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
     }
 
     /**

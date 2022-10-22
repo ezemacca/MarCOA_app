@@ -9,7 +9,6 @@
 				<a href="{{route('principal',$proyecto)}}">
 					<img src="{{url('/images/MarCOA-18.png')}}" width="80%" height="80%"/>
 				</a>
-
 			</div>
 		</div>
 		<div class="col text-center">			
@@ -32,164 +31,210 @@
 	</div>
 </div>				
 
-@if ($analisis <> null)
-	<h1>usted ya realizó el análisis, desea editarlo? </h1>
-@else
-<div class="container-fluid cont-formulario">
-	<form method="POST" action="{{ route('analisis.store', $proyecto)}}">
-		{{ csrf_field() }}
-		
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p1">1. ¿Qué necesitan aprender los destinatarios?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda1">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p1" id="analisis_p1" value="{{ old('analisis_p1') }}" required> --}}
 
-			<textarea type="text" class="form-control" name="analisis_p1" id="analisis_p1" value="{{ old('analisis_p1') }}" required ></textarea>
-		</div>
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p2">2. ¿Por qué se cree necesario utilizar un OA y no otro tipo de material educativo?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda2">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p2" id="analisis_p2" value="{{ old('analisis_p2') }}" required> --}}
-
-			<textarea type="text" class="form-control" name="analisis_p2" id="analisis_p2" value="{{ old('analisis_p2') }}" required></textarea>
-		</div>	
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p3">3. ¿A qué nivel educativo se orienta el OA?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda3">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p3" id="analisis_p3" value="{{ old('analisis_p3') }}" required> --}}
-			<textarea type="text" class="form-control" name="analisis_p3" id="analisis_p3" value="{{ old('analisis_p3') }}" required></textarea>
-		</div>	
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p4">4. ¿Qué tema abordará el OA?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda4">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p4" id="analisis_p4" value="{{ old('analisis_p4') }}" required>--}}
-
-			<textarea type="text" class="form-control" name="analisis_p4" id="analisis_p4" value="{{ old('analisis_p4') }}" required></textarea>
-		</div>	
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p5">5. ¿Qué conocimientos previos debería tener el alumno para utlizar el OA?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda5">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p5" id="analisis_p5" value="{{ old('analisis_p5') }}" required> --}}
-
-			<textarea type="text" class="form-control" name="analisis_p5" id="analisis_p5" value="{{ old('analisis_p5') }}" required></textarea>
-		</div>	
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-11">
-					<label for="analisis_p6">6. ¿Con qué conocimientos que pueden ser adquiridos posteriomente se relaciona el OA?</label>
-				</div>
-				<div class="col text-right">
-					<a class="nav-link" data-toggle="modal" href="#a_ayuda6">
-						<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			{{-- <input type="text" class="form-control" name="analisis_p6" id="analisis_p6" value="{{ old('analisis_p6') }}" required> --}}
-
-			<textarea type="text" class="form-control" name="analisis_p6" id="analisis_p6" value="{{ old('analisis_p6') }}" required></textarea>
-		</div>				
-		{{-- formulario oculto que envía los datos del proyecto al controlador analisis.store --}}
-			{{-- <?php $proyecto_id = $proyecto['id']; ?>
-			<input type="hidden" name="proyecto_id" value= $proyecto> --}}
-			<input type="hidden" value="{{$proyecto->id}}" name="proyecto_id">
-
-			<div class="row">
-				<div class="col text-left">
-					<!--<button type="submit" class="btn btn-secondary e-analisis">
-						<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-							<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-							<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-						</svg>
-						GUARDAR
-					</button>-->
-					<div class="conteiner-fluid text-left">
-						{{-- <a class="btn btn-secondary e-analisis" href="{{route('analisis','proyecto')}}" role="button">
-							<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-							</svg>
-							GUARDAR
-						</a> --}}
-						<button class="btn btn-secondary e-analisis">
-							<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-							</svg>
-							GUARDAR
-						</button>
-					</div>	
-				</div>
-				<div class="col text-right">
-					<a class="btn btn-secondary boton-generar" href="" role="button">
-						<svg class="bi bi-box-arrow-down" width="30" height="30" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M6.646 13.646a.5.5 0 01.708 0L10 16.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-							<path fill-rule="evenodd" d="M10 6.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V7a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
-							<path fill-rule="evenodd" d="M4.5 4A1.5 1.5 0 016 2.5h8A1.5 1.5 0 0115.5 4v7a1.5 1.5 0 01-1.5 1.5h-1.5a.5.5 0 010-1H14a.5.5 0 00.5-.5V4a.5.5 0 00-.5-.5H6a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h1.5a.5.5 0 010 1H6A1.5 1.5 0 014.5 11V4z" clip-rule="evenodd"></path>
-						</svg>	
-					</a>
-				</div>
-			</div>
-		</form>
-
+<div class="row">
+	<div class="col-1">
 	</div>
-	
+	<div class="col-10">
+		<div class="container-fluid cont-formulario">
+			<form method="POST" action="{{ route('analisis.store', $proyecto)}}">
+				@csrf
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p1">1. ¿Qué necesitan aprender los destinatarios?</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda1">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				
+
+					<textarea type="text" class="form-control" name="analisis_p1" id="analisis_p1"   ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p1' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p2">
+							2. ¿Por qué se cree necesario utilizar un OA y no otro tipo de material educativo?
+							</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda2">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					
+
+					<textarea  type="text" class="form-control" name="analisis_p2" id="analisis_p2" ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p2' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>		
+				</div>	
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p3">3. ¿A qué nivel educativo se orienta el OA?</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda3">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<textarea  type="text" class="form-control" name="analisis_p3" id="analisis_p3"  ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p3' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>		
+				</div>	
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p4">4. ¿Qué tema abordará el OA?</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda4">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<textarea type="text" class="form-control" name="analisis_p4" id="analisis_p4"  ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p4' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>	
+				</div>	
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p5">5. ¿Qué conocimientos previos debería tener el alumno para utlizar el OA?</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda5">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<textarea  type="text" class="form-control" name="analisis_p5" id="analisis_p5" ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p5' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>	
+				</div>	
+				<div class="form-group">
+					<div class="row">
+						<div class="col-11">
+							<label for="analisis_p6">6. ¿Con qué conocimientos que pueden ser adquiridos posteriomente se relaciona el OA?</label>
+						</div>
+						<div class="col text-right">
+							<a class="nav-link" data-toggle="modal" href="#a_ayuda6">
+								<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<textarea  type="text" class="form-control" name="analisis_p6" id="analisis_p6" ></textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#analisis_p6' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>	
+				</div>				
+				<div class="row">
+					<div class="col text-left">
+						<div class="conteiner-fluid text-left">
+							<button type="submit" class="btn btn-secondary e-analisis">
+								<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
+									<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+									<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+								</svg>
+								GUARDAR
+							</button>
+						</div>	
+					</div>
+					<div class="col text-right">
+						<a class="btn btn-secondary boton-generar" href="" role="button">
+							<svg class="bi bi-box-arrow-down" width="30" height="30" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M6.646 13.646a.5.5 0 01.708 0L10 16.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+								<path fill-rule="evenodd" d="M10 6.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V7a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
+								<path fill-rule="evenodd" d="M4.5 4A1.5 1.5 0 016 2.5h8A1.5 1.5 0 0115.5 4v7a1.5 1.5 0 01-1.5 1.5h-1.5a.5.5 0 010-1H14a.5.5 0 00.5-.5V4a.5.5 0 00-.5-.5H6a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h1.5a.5.5 0 010 1H6A1.5 1.5 0 014.5 11V4z" clip-rule="evenodd"></path>
+							</svg>	
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-1">
+	</div>
+</div>
 	@stop
 
 	<!-- Extra large modal - etapa de análisis-->
@@ -352,4 +397,3 @@
 			</div>
 		</div>
 
-@endif

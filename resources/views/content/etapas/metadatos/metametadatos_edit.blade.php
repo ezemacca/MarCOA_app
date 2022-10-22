@@ -1,5 +1,5 @@
 <!--CATEGORÍA 3-->
-<form method="POST" action="{{ route('metadatos.metametadatos.store', $proyecto) }}">
+<form method="POST" action="{{ route('metadatos.metametadatos.update', $proyecto) }}">
 	{{ csrf_field() }}
 	@method('PATCH')
 						
@@ -38,11 +38,10 @@
 
 		<input placeholder="Seleccione fecha" type="date" id="metametadatos_p2" class="form-control" name= "metametadatos_p2" value= "{{ $proyecto->desarrollo->metadatos->Metametadatos->metametadatos_p2}}">
 
-					  <i class="fas fa-calendar input-prefix" tabindex=1></i>
-					
-			      <script >
-			        $('.datepicker').datepicker();
-			      </script>
+			  <i class="fas fa-calendar input-prefix" tabindex=1></i>	
+      <script>
+	        $('.datepicker').datepicker();
+      </script>
 
 	</div>	
 

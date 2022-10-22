@@ -35,17 +35,17 @@
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 		  <li class="nav-item active">
-			<a class="nav-link active pestaña" data-toggle="tab" href="#implementacion">IMPLEMENTACIÓN DEL OA</a>
+			<a class="nav-link  pestaña" data-toggle="tab" href="#implementacion">IMPLEMENTACIÓN DEL OA</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link pestaña" data-toggle="tab" href="#metadatos">CARGA DE METADATOS IEEE-LOM</a>
+			<a class="nav-link active pestaña" data-toggle="tab" href="#metadatos">CARGA DE METADATOS IEEE-LOM</a>
 		  </li>
 		</ul>	
 	</div>
 	
 	<div class="tab-content">
 		<!--IMPLEMENTACIÓN-->
-		<div id="implementacion" class="tab-pane in active">
+		<div id="implementacion" class="tab-pane ">
 
 			@if($decision=="nueva")
 				@include('content.etapas.includes.implementacion_nueva')
@@ -58,7 +58,7 @@
 		</div>
 		
 		<!--METADATOS-->
-		<div id="metadatos" class="tab-pane">
+		<div id="metadatos" class="tab-pane in active">
 			@include('content.etapas.includes.metadatos')
 		</div>
 		

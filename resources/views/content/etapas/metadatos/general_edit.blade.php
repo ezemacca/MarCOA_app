@@ -64,7 +64,9 @@
 			</div>
 		</div>
 		<select class="form-control" name="general_p4" id="general_p4" value="{{ $proyecto->desarrollo->metadatos->general->general_p4}}" required>
-			<option selected>Elegir idioma</option>
+			<option value="{{$proyecto->desarrollo->metadatos->general->general_p4}}"selected>
+				{{$proyecto->desarrollo->metadatos->general->general_p4}}
+			</option>
 			<option value="Español">Español</option>
 			<option value="Inglés">Inglés</option>
 			<option value="Otro">Otro</option>
@@ -101,16 +103,15 @@
 			</div>
 		</div>
 		<input type="text" class="form-control" name="general_p6-1" id="general_p6-1" value="{{$proyecto->desarrollo->metadatos->general->PalabrasClave->first()->general_p6}}" required>
-		{{-- <input type="text" class="form-control" name="general_p6-2" id="general_p6-2" value="{{ old('general_p6-2') }}" required>
-		<input type="text" class="form-control" name="general_p6-3" id="general_p6-3" value="{{ old('general_p6-3') }}" required> --}}
-		<div class="conteiner-fluid text-right">			
+		
+		{{-- <div class="conteiner-fluid text-right">			
 			<a class="btn btn-secondary boton-agregar" href="" role="button">				
 				<svg class="bi bi-plus" width="28" height="28" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" d="M10 5.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H6a.5.5 0 010-1h3.5V6a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
 					<path fill-rule="evenodd" d="M9.5 10a.5.5 0 01.5-.5h4a.5.5 0 010 1h-3.5V14a.5.5 0 01-1 0v-4z" clip-rule="evenodd"></path>
 				</svg>
 			</a>
-		</div>
+		</div> --}}
 	</div>
 
 	<div class="form-group">
@@ -143,9 +144,7 @@
 			</div>
 		</div>
 		<select class="form-control" name="general_p8" id="general_p8" value="{{$proyecto->desarrollo->metadatos->general->general_p8}}" required>
-
-
-			<option selected>Seleccionada: {{$proyecto->desarrollo->metadatos->general->general_p8}}</option>
+			<option value="{{$proyecto->desarrollo->metadatos->general->general_p8}}"selected>{{$proyecto->desarrollo->metadatos->general->general_p8}}</option>
 			<option value="Lineal">Lineal</option>
 			<option value="Jerárquica">Jerárquica</option>
 			<option value="En red">En red</option>
@@ -169,9 +168,10 @@
 		<select class="form-control" name="general_p9" id="general_p9" value="{{ $proyecto->desarrollo->metadatos->general->general_p9}}" required>
 
 			{{-- <option selected>Elegir nivel</option> --}}
-			<option value="1">Objeto de aprendizaje</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>		
+			<option value="{{$proyecto->desarrollo->metadatos->general->general_p9}}" selected>{{$proyecto->desarrollo->metadatos->general->general_p9}}</option>
+			<option value="Granularidad 1: archivo simple">Granularidad 1: archivo simple</option>
+			<option value="Granularidad 2: colección de recursos de granularidad 1">Granularidad 2: colección de recursos de granularidad 1</option>
+			<option value="Granularidad 3: coleccion de recursos de granularidad 2">Granularidad 3: coleccion de recursos de granularidad 2</option>		
 		</select>	
 	</div>		
 

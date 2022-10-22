@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Connection;
 use App\Http\Controllers\DiseñoController;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+use Tests\TestCase;
+
+use Barryvdh\DomPDF\Facade\Pdf;
+use Anam\PhantomMagick\Converter;
+use Fpdf\Fpdf;
+
 
 use DB;
 class AnalisisController extends Controller
@@ -87,6 +96,49 @@ class AnalisisController extends Controller
 		]);
 		return redirect()-> route('principal', $proyecto
 	);
+	}
+
+	public function generar_pdf($id)
+	{
+
+		// $options = new Options();
+		// $options->set('defaultFont', 'Railway');
+		// $dompdf = new Dompdf($options);
+
+		$proyecto = Proyecto::findorFail($id);
+		$analisis= $proyecto->analisis()->first();
+
+
+		// $dompdf->loadHtml(view('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis]));
+
+		// $dompdf->set_base_path('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+		// // (Optional) Setup the paper size and orientation
+		// $dompdf->setPaper('A4', 'landscape');
+		
+
+
+		// // Render the HTML as PDF
+		// $dompdf->render();
+
+		// // Output the generated PDF to Browser
+		// $dompdf->stream();
+
+  //       // return $dompdf->download('Etapa_Analisis.pdf');
+
+        // $pdf = PDF::loadView('pdf/personalpdf', compact('user','result'))->setOptions(['defaultFont' => 'sans-serif']);
+
+
+
+        // $pdf = PDF::loadView('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis])->setOptions(['defaultFont' => 'sans-serif']);
+        // $pdf->render();
+
+		$html= view('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis]);
+		$pdf = new FPDF();
+		$pdf->AddPage();
+		$pdf->$html;
+		$pdf->Output();
+
+
 	}
 }
 

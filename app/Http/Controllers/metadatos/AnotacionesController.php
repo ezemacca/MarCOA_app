@@ -49,8 +49,8 @@ class AnotacionesController extends Controller
    ]);
 
     $proyecto->desarrollo->metadatos->increment('subetapa',1);
-
-    return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+    $decision= $proyecto->desarrollo->implementacion->decision;
+    return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
@@ -88,9 +88,9 @@ class AnotacionesController extends Controller
         'anotaciones_p1_anot_1'=>request('anotaciones_p1_anot_1'),
         'anotaciones_p1_anot_2'=>request('anotaciones_p1_anot_2'),
         'anotaciones_p1_anot_3'=>request('anotaciones_p1_anot_3')
-
         ]);
-         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        $decision= $proyecto->desarrollo->implementacion->decision;
+         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
 
     }
 

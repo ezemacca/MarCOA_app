@@ -56,7 +56,7 @@ class DesarrolloController extends Controller
                 }
 
 
-            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->subetapa,'decision'=>$decision, 'scorm'=>$scorm, 'archivos_html'=>$archivos_html]);
+            return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'subetapa_desarrollo'=>$proyecto->desarrollo->subetapa,'decision'=>$decision, 'scorm'=>$scorm, 'archivos_html'=>$archivos_html]);
             //return dd($archivos_html);  
             
         };

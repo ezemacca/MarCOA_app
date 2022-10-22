@@ -1,4 +1,4 @@
-<!--CATEGORÍA 5-->
+	<!--CATEGORÍA 5-->
 <form method="POST" action="{{ route('metadatos.educacional.update',$proyecto) }}">
 	{{ csrf_field() }}
 	@method('PATCH')
@@ -17,10 +17,10 @@
 		</div>
 		<select class="form-control" name="educacional_p1" id="educacional_p1" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p1 }}" required>
 
-			<option selected>{{ $proyecto->desarrollo->metadatos->educacional->educacional_p1 }}</option>
-			<option value="1">?????</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>
+			<option value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p1 }}" selected>{{ $proyecto->desarrollo->metadatos->educacional->educacional_p1 }}</option>
+			<option value="Activo">Activo</option>
+			<option value="Expositivo">Expositivo</option>
+			<option value="Mixto">Mixto</option>
 		</select>	
 	</div>
 
@@ -39,9 +39,20 @@
 		</div>
 		<select class="form-control" name="educacional_p2" id="educacional_p2" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p2 }}" required>
 			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p2}}</option>
-			<option value="1">?????</option>
-			<option value="2">?????</option>
-			<option value="3">?????</option>
+			<option value="Ejercicio">Ejercicio</option>
+			<option value="Simulación">Simulación</option>
+			<option value="Cuestionario">Cuestionario</option>
+			<option value="Diagrama">Diagrama</option>
+			<option value="Figura">Figura</option>
+			<option value="Gráfico">Gráfico</option>
+			<option value="Índice">Índice</option>
+			<option value="Diapositiva">Diapositiva</option>
+			<option value="Tabla">Tabla</option>
+			<option value="Texto narrativo">Texto narrativo</option>
+			<option value="Examen">Examen</option>
+			<option value="Experimento">Experimento</option>
+			<option value="Enunciado de problema">Enunciado de problema</option>
+			<option value="Autoevaluación">Autoevaluación</option>
 		</select>		
 	</div>	
 
@@ -59,10 +70,14 @@
 			</div>
 		</div>
 		<select class="form-control" name="educacional_p3" id="educacional_p3" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p3 }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p3}}</option>
-			<option value="Alto">Alto</option>
-			<option value="Medio">Medio</option>
+			<option selected>
+				{{$proyecto->desarrollo->metadatos->educacional->educacional_p3}}
+			</option>
+			<option value="Muy Bajo">Muy Bajo</option>
 			<option value="Bajo">Bajo</option>
+			<option value="Medio">Medio</option>
+			<option value="Alto">Alto</option>
+			<option value="Muy Alto">Muy Alto</option>
 		</select>	
 	</div>	
 
@@ -80,10 +95,14 @@
 			</div>
 		</div>
 		<select class="form-control" name="educacional_p4" id="educacional_p4" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p4 }}" required>
-			<option selected>Elegir densidad</option>
-			<option value="Alto">Alto</option>
-			<option value="Medio">Medio</option>
-			<option value="Bajo">Bajo</option>
+			<option selected>
+				{{$proyecto->desarrollo->metadatos->educacional->educacional_p4}}
+			</option>
+			<option value="Muy Bajo">Muy Baja</option>
+			<option value="Bajo">Baja</option>
+			<option value="Medio">Media</option>
+			<option value="Alto">Alta</option>
+			<option value="Muy Alto">Muy Alta</option>
 		</select>	
 	</div>
 
@@ -100,8 +119,8 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="educacional_p5" id="educacional_p5" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p5 }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p5 }}</option>
+	<select class="form-control" name="educacional_p5" id="educacional_p5" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p5 }}" required>
+			<option value="{{$proyecto->desarrollo->metadatos->educacional->educacional_p5 }}"selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p5 }}</option>
 			<option value="Alumno">Alumno</option>
 			<option value="Docente">Docente</option>
 			<option value="Autor">Autor</option>
@@ -122,11 +141,43 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="educacional_p6" id="educacional_p6" value="{{ old('educacional_p6') }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p5}}</option>
-			<option value="Educación primaria">Educación primaria</option>
-			<option value="Educación secundaria">Educación secundaria</option>
-			<option value="Educación superior">Educación superior</option>
+		<select class="form-control" name="educacional_p6" id="educacional_p6"  required>
+			<option value="{{$proyecto->desarrollo->metadatos->educacional->educacional_p6}}" selected>
+				{{$proyecto->desarrollo->metadatos->educacional->educacional_p6}}
+			</option>
+			<option value="Educación secundaria">
+			Educación primaria
+			</option>
+			<option value="Educación secundaria">
+			Educación secundaria
+			</option>
+			<option value="Educación superior">
+				Educación superior
+			</option>
+			<option value="Primer ciclo universitario">
+				Primer ciclo universitario
+			</option>
+			<option value="Segundo ciclo universitario">
+				Segundo ciclo universitario
+			</option>
+			<option value="Postgrado">
+				Postgrado
+			</option>
+			<option value="Primer ciclo de escuela técnica">
+				Primer ciclo de escuela técnica
+			</option>
+			<option value="Segundo ciclo de escuela técnica">
+				Segundo ciclo de escuela técnica
+			</option>
+			<option value="Formación profesional">
+				Formación profesional
+			</option>
+			<option value="Formación continua">
+				Formación continua
+			</option>
+			<option value="Formación vocacional">
+				Formación vocacional
+			</option>
 		</select>		
 	</div>
 
@@ -159,11 +210,15 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="educacional_p8" id="educacional_p8" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p8 }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p8}}</option>
-			<option value="Difícil">Difícil</option>
-			<option value="Media">Media</option>
+		<select class="form-control" name="educacional_p8" id="educacional_p8" required>
+			<option value="{{$proyecto->desarrollo->metadatos->educacional->educacional_p8}}" selected>
+				{{$proyecto->desarrollo->metadatos->educacional->educacional_p8}}
+			</option>
+			<option value="Muy fácil">Muy fácil</option>
 			<option value="Fácil">Fácil</option>
+			<option value="Medio">Medio</option>
+			<option value="Difícil">Difícil</option>
+			<option value="Muy Difícil">Muy Difícil</option>
 		</select>
 	</div>	
 
@@ -213,9 +268,12 @@
 			</div>
 		</div>
 		<select class="form-control" name="educacional_p11" id="educacional_p11" value="{{ $proyecto->desarrollo->metadatos->educacional->educacional_p11 }}" required>
-			<option selected>{{$proyecto->desarrollo->metadatos->educacional->educacional_p11}}</option>
+			<option value="{{$proyecto->desarrollo->metadatos->educacional->educacional_p11}}" selected>
+				{{$proyecto->desarrollo->metadatos->educacional->educacional_p11}}
+			</option>
 			<option value="Español">Español</option>
 			<option value="Inglés">Inglés</option>
+			<option value="Otro">Otro</option>
 		</select>	
 	</div>	
 	

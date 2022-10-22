@@ -1,6 +1,13 @@
-@extends('layouts.default')
+	{{-- @php
+		var_dump($proyecto->coherencia);
+	@endphp --}}
+	@extends('layouts.default')
  
 @section('content')
+
+
+
+
 	<div class="container-fluid" style="padding:10px">
 		<div class="row">
 			<div class="col-11">

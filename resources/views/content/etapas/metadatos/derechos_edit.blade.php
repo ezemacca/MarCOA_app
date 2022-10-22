@@ -15,8 +15,9 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="derechos_p1" id="derechos_p1" value="{{ $proyecto->desarrollo->metadatos->derechos->derechos_p1 }}" required>
-			<option selected>{{ $proyecto->desarrollo->metadatos->derechos->derechos_p1 }}</option>
+		<select class="form-control" name="derechos_p1" id="derechos_p1" required>
+			<option value="{{$proyecto->desarrollo->metadatos->derechos->derechos_p1}}"selected>
+				{{ $proyecto->desarrollo->metadatos->derechos->derechos_p1 }}</option>
 			<option value="No">No</option>
 			<option value="Si">Si</option>
 		</select>
@@ -35,8 +36,10 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="derechos_p2" id="derechos_p2" value="{{  $proyecto->desarrollo->metadatos->derechos->derechos_p2}}" required>
-			<option selected>{{  $proyecto->desarrollo->metadatos->derechos->derechos_p2}}</option>
+		<select class="form-control" name="derechos_p2" id="derechos_p2"  required>
+			<option value="{{  $proyecto->desarrollo->metadatos->derechos->derechos_p2}}" selected>
+				{{  $proyecto->desarrollo->metadatos->derechos->derechos_p2}}
+			</option>
 			<option value="No">No</option>
 			<option value="Si">Si</option>
 		</select>
@@ -55,8 +58,8 @@
 				</a>
 			</div>
 		</div>
-		<select class="form-control" name="derechos_p3" id="derechos_p3" value="{{  $proyecto->desarrollo->metadatos->derechos->derechos_p3 }}" required>
-			<option selected>{{  $proyecto->desarrollo->metadatos->derechos->derechos_p3}}</option>
+		<select class="form-control" name="derechos_p3" id="derechos_p3"  required>
+			<option value="{{  $proyecto->desarrollo->metadatos->derechos->derechos_p3 }}" selected>{{  $proyecto->desarrollo->metadatos->derechos->derechos_p3}}</option>
 			<option value="CC BY">CC BY</option>
 			<option value="CC BY-SA">CC BY-SA</option>
 			<option value="CC BY-ND">CC BY-ND</option>

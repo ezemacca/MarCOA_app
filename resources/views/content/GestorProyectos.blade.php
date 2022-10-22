@@ -9,6 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+
+
 @extends('layouts.default')
 @section('content')
 <script>
@@ -80,15 +82,22 @@ $(document).ready(function(){
 									@if($proyecto['user_id'] == Auth::user()->id )
 
 										<td>
-											<a href="{{route('principal', $proyecto)}}">{{$proyecto['titulo']}} </a></td>
+											<a href="{{route('principal', $proyecto)}}">{{$proyecto->titulo}} </a></td>
 									
 										<td>{{$proyecto['descripcion']}}</td> </a>
 
 										<td>
 											<a href="{{route('GestorProyectos.edit',$proyecto)}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-
-											<a href="#EliminarProyectoModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
-										</td>
+											
+											<form action="{{route('GestorProyectos.destroy',$proyecto)}}" class="eliminar-proyecto" method="POST">
+												@method('DELETE')
+												@csrf
+												
+													<button type="submit"  data-toggle="modal" class="material-icons" data-toggle="tooltip" title="Eliminar">
+													&#xE872;
+													</button>
+											</form>
+											</td>
 										
 									@endif
 								</tr>
@@ -106,47 +115,51 @@ $(document).ready(function(){
 		</div>
 	</div>  
 </div>
-@stop
-<!-- Edit Modal HTML -->
-{{-- <div id="addEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-success" value="Add">
-				</div>
-			</form>
-		</div>
-	</div>
- </div> --}}
 
-{{-- @if(! is_null($portafolio)) --}}
-<!-- Edit Modal HTML -->
 
-<!-- Delete Modal HTML -->
- {{-- @endif --}}
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+	
+	$('.eliminar-proyecto').submit(function(e)
+	{
+		e.preventDefault();
+			const swalWithBootstrapButtons = Swal.mixin({
+			customClass: {
+				confirmButton: 'btn btn-success',
+				cancelButton: 'btn btn-danger'
+			},
+			buttonsStyling: true
+			})
+
+			swalWithBootstrapButtons.fire({
+			title: 'Está seguro?',
+			text: "Una vez elminado, no se podrá recuperar la información de su proyecto",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Sí, eliminar',
+			cancelButtonText: 'No, cancelar',
+			reverseButtons: true
+			}).then((result) => {
+			if (result.isConfirmed) {
+				swalWithBootstrapButtons.fire(
+				'Eliminado!',
+				'El proyecto fue eliminado con éxito.'
+				)
+			} else if (
+				/* Read more about handling dismissals below */
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				swalWithBootstrapButtons.fire(
+				'Cancelado',
+				'Su proyecto no se eliminó',
+				)
+			}
+			})
+	});
+</script>
+
 
  
+@stop

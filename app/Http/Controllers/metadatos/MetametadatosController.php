@@ -49,8 +49,9 @@ class MetametadatosController extends Controller
         'metametadatos_p4'=>request('metametadatos_p4')
             ]);
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
+        $decision= $proyecto->desarrollo->implementacion->decision;
 
-        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+        return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
@@ -90,7 +91,8 @@ class MetametadatosController extends Controller
         'metametadatos_p3'=>request('metametadatos_p3'),
         'metametadatos_p4'=>request('metametadatos_p4')
             ]);   
-     return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa'=>$proyecto->desarrollo->metadatos->subetapa]);
+     $decision= $proyecto->desarrollo->implementacion->decision;
+     return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 
     /**
