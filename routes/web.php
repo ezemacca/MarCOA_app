@@ -39,8 +39,6 @@ Route::delete('/Mapeo/{id}/eliminar', 'App\Http\Controllers\MapeoController@dest
 
 Route::post('/diseño/{proyecto}', 'App\Http\Controllers\DiseñoController@store')->name('diseño.store');
 
-
-
 Route::get('/diseño/{id}', 'App\Http\Controllers\DiseñoController@index')->name('diseño');
 
 Route::patch('/diseño/instruccional/{proyecto}/editar', 'App\Http\Controllers\InstruccionalController@update')->name('instruccional.update');
@@ -73,10 +71,10 @@ Route::get('/analisis/{id}/generar_pdf','App\Http\Controllers\AnalisisController
 
 
 
-Route::get('/coherencia/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
-Route::post('/coherencia/{proyecto}', 'App\Http\Controllers\CoherenciaController@store')->name('coherencia.store');
-Route::get('/coherencia/{id}/editar', 'App\Http\Controllers\CoherenciaController@edit')->name('coherencia.edit');
-Route::patch('/coherencia/{proyecto?}', 'App\Http\Controllers\CoherenciaController@update')->name('coherencia.update');
+Route::get('/coherencia/index/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
+Route::post('/coherencia/store/{proyecto}', 'App\Http\Controllers\CoherenciaController@store')->name('coherencia.store');
+Route::get('/coherencia/edit/{proyecto}/editar', 'App\Http\Controllers\CoherenciaController@edit')->name('coherencia.edit');
+Route::patch('/coherencia/update/{proyecto?}', 'App\Http\Controllers\CoherenciaController@update')->name('coherencia.update');
 
 
 
@@ -93,7 +91,7 @@ Route::get('/visualizacion', 'VisualizacionController@index')->name('visualizaci
 
 // DESARROLLO
 
-Route::get('/desarrollo/{proyecto}{scorm?}', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
+Route::get('/desarrollo/index/{proyecto}{scorm?}', 'App\Http\Controllers\DesarrolloController@index')->name('desarrollo');
 
 // Route::post('/desarrollo/general/{proyecto}', 'App\Http\Controllers\metadatos\GeneralController@store')->name('metadatos.general.store');
 

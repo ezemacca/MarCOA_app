@@ -56,6 +56,14 @@ class MultimedialController extends Controller
        $proyecto->desarrollo->metadatos()->create([
             'subetapa'=>1
         ]);
+       // $proyecto->coherencia()->create([
+       //  'coherencia_p1'=>false,
+       //  'coherencia_p2'=>false,
+       //  'coherencia_p3'=>false,
+       //  'coherencia_p4'=>false,
+       //  'coherencia_p5'=>false,
+       //  'coherencia_p6'=>false,
+       //  ]);
 
        return (redirect()->route('principal', $proyecto));
 

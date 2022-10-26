@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<select class="form-control" name="ciclo_p2" id="ciclo_p2" value="{{ old('ciclo_p2') }}" required>
-			<option value="{{$proyecto->desarrollo->metadatos->ciclo->ciclo_p1}}"selected>$proyecto->desarrollo->metadatos->ciclo->ciclo_p1</option>
+			<option selected>Seleccionar</option>
 			<option value="Borrador">Borrador</option>
 			<option value="Final">Final</option>
 			<option value="Revisado">Revisado</option>

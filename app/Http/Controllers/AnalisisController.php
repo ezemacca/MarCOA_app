@@ -70,7 +70,8 @@ class AnalisisController extends Controller
 
 		$proyecto->update(['etapa'=> DB::raw('etapa+1') ]);
 
-		return view('content.principal',['proyecto' => Proyecto::findorFail(request('proyecto_id'))]);
+		 return redirect()-> route('principal', $proyecto
+	);
 
 	}
 

@@ -1,7 +1,5 @@
-	{{-- @php
-		var_dump($proyecto->coherencia);
-	@endphp --}}
-	@extends('layouts.default')
+
+@extends('layouts.default')
  
 @section('content')
 
@@ -11,7 +9,7 @@
 	<div class="container-fluid" style="padding:10px">
 		<div class="row">
 			<div class="col-11">
-				<h1 style="color:MEDIUMSEAGREEN">ANÁLISIS DE COHERENCIA INTERNA</h1>
+				<h1 style="color:MEDIUMSEAGREEN">ANÁLISIS DE COHERENCIA INTERNA (index)</h1>
 				<h2 style="color:MEDIUMSEAGREEN">Guía para asegurar coherencia interna entre los componentes del OA</h2>
 			</div>
 			<div class="col text-right">
@@ -34,18 +32,15 @@
 
 
 	<div class="container-fluid">
-		<form method="POST" action="{{ route('coherencia.update', $proyecto) }}">
+		<form method="POST" action="{{ route('coherencia.store', ['proyecto'=>$proyecto]) }}">
 
 			@csrf	
-			@method('PATCH')
 			
 			<div class="form-check preg-guia">
 				<div class="row">
 					<div class="col-11">
 						<input class="form-check-input" type="checkbox" value="coherencia_p1"  id="coherencia_p1" name="coherencia[]" 
-							@if($proyecto->coherencia->coherencia_p1)
-								checked
-							@endif
+							
 						>
 
 						<label class="form-check-label" for="coherencia_p1">¿Hay un solo objetivo y es de carácter específico?</label>
@@ -64,9 +59,7 @@
 			<div class="form-check preg-guia">
 				<div class="row">
 					<div class="col-11">
-						<input class="form-check-input" type="checkbox" value="coherencia_p2" id="coherencia_p2" name="coherencia[]" @if($proyecto->coherencia->coherencia_p2)
-								checked
-							@endif
+						<input class="form-check-input" type="checkbox" value="coherencia_p2" id="coherencia_p2" name="coherencia[]" 
 						>
 						<label class="form-check-label" for="coherencia_p2">¿Se plantea adecuadamente la necesidad educativa que da origen al OA?</label>
 					</div>
@@ -83,18 +76,14 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" @if($proyecto->coherencia->coherencia_p3)
-								checked
-							@endif
+					<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" 
 						>
 					<label class="form-check-label" for="coherencia_p3">¿Los contenidos ofrecen la información pertinente para alcanzar el objetivo planteado?</label>		
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"@if($proyecto->coherencia->coherencia_p4)
-								checked
-							@endif
+							<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"
 							>
 							<label class="form-check-label" for="coherencia_p4">¿Los contenidos ofrecen más/menos información de la que es necesaria?</label>
 						</div>
@@ -112,18 +101,15 @@
 				
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p5" id="coherencia_p5" name="coherencia[]" @if($proyecto->coherencia->coherencia_p5)
-								checked
-							@endif
+					<input class="form-check-input" type="checkbox" value="coherencia_p5" id="coherencia_p5" name="coherencia[]" 
+						
 						>
 					<label class="form-check-label" for="coherencia_p5">¿Las actividades posibilitan poner en práctica los procesos cognitivos enunciados en el objetivo?</label>	
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p6" id="coherencia_p6" name="coherencia[]"@if($proyecto->coherencia->coherencia_p6)
-								checked
-							@endif>
+							<input class="form-check-input" type="checkbox" value="coherencia_p6" id="coherencia_p6" name="coherencia[]">
 
 							<label class="form-check-label" for="coherencia_p6">¿Las actividades permiten operar con la información incluida en los contenidos?</label>	
 						</div>
@@ -141,18 +127,14 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p7" id="coherencia_p7" name="coherencia[]" @if($proyecto->coherencia->coherencia_p7)
-								checked
-							@endif
+					<input class="form-check-input" type="checkbox" value="coherencia_p7" id="coherencia_p7" name="coherencia[]" 
 						>
 					<label class="form-check-label" for="coherencia_p7">¿La autoevaluación posibilita demostrar que el objetivo ha sido alcanzado?</label>				
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p8" id="coherencia_p8" name="coherencia[]"@if($proyecto->coherencia->coherencia_p8)
-								checked
-							@endif
+							<input class="form-check-input" type="checkbox" value="coherencia_p8" id="coherencia_p8" name="coherencia[]"
 						>
 							<label class="form-check-label" for="coherencia_p8">¿La autoevalución presenta preguntas cuya respuesta pone en juego la información presentada y los procesos cognitivos que se pretende poner en práctica?</label>
 					</div>

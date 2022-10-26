@@ -10,7 +10,6 @@
         <img src="{{url('/images/MarCOA-01.png')}}" width="100%" height="100%"/>
         @if (auth()->check())
             <a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Continuar</a>
-
         @endif
     </div>
 	

@@ -63,9 +63,24 @@ $(document).ready(function(){
 		<div class="col-2">	
 		</div>
 		<div class="col-8">
-			<div class="row">
-				<div class="table-wrapper">
-
+			
+				
+				@if($portafolio->isEmpty())
+				<div class="center">
+					
+						<p> No hay proyectos para mostrar</p>
+					<br>
+						<p> Desea crear un proyecto nuevo?</p>
+					<br>
+							<a  href="{{route('creacion')}}" >
+								<img src="{{url('/images/MarCOA-19.png')}}" width="220px" height="220px"/> 
+							</a>
+				</div>
+				@else
+			
+							
+					@forelse($portafolio as $proyecto)
+							<div class="table-wrapper">
 					<table class="table table-striped table-hover">
 						<thead id="thead">
 							<tr>
@@ -74,17 +89,16 @@ $(document).ready(function(){
 								<th>Acciones</th>
 							</tr>
 						</thead>
-
 						<tbody>
-							@forelse($portafolio as $proyecto)
 								<tr>
-
 									@if($proyecto['user_id'] == Auth::user()->id )
 
 										<td>
-											<a href="{{route('principal', $proyecto)}}">{{$proyecto->titulo}} </a></td>
+											<a href="{{route('principal', $proyecto)}}">{{$proyecto->titulo}} </a>
+										</td>
 									
-										<td>{{$proyecto['descripcion']}}</td> </a>
+										<td>{{$proyecto['descripcion']}}
+										</td> </a>
 
 										<td>
 											<a href="{{route('GestorProyectos.edit',$proyecto)}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
@@ -102,13 +116,15 @@ $(document).ready(function(){
 									@endif
 								</tr>
 								@empty
-										<li> No hay proyectos para mostrar</li>
+
 								@endforelse
 									
 								</tr>		 
 						</tbody>
 					</table>
 				</div>			
+				@endif
+				
 			</div>
 		</div>
 		<div class="col-2">	
@@ -143,6 +159,7 @@ $(document).ready(function(){
 			reverseButtons: true
 			}).then((result) => {
 			if (result.isConfirmed) {
+		 		
 				swalWithBootstrapButtons.fire(
 				'Eliminado!',
 				'El proyecto fue eliminado con éxito.'

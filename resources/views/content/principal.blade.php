@@ -171,6 +171,7 @@
 		</div>
 		
 		<div class="col-4">
+
 		@if($proyecto['etapa'] < 3)
 					
 						<a class="btn btn-lg e-coherencia-gris" >
@@ -184,9 +185,9 @@
 						</a>
 
 					
-		@elseif($proyecto->coherencia == null)
+		@elseif(isset($proyecto->coherencia))
 					
-						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
 							<p id="analisis-coherencia">
 								ANÁLISIS DE COHERENCIA INTERNA 
 							</p>
@@ -197,8 +198,7 @@
 						</a>
 			
 		@else
-				
-						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
 							<p id="analisis-coherencia">
 								ANÁLISIS DE COHERENCIA INTERNA 
 							</p>
@@ -207,6 +207,8 @@
 								INSTANCIA INTERMEDIA DE REVISIÓN
 							</p>
 						</a>
+				
+						
 		@endif
 		</div>
 		

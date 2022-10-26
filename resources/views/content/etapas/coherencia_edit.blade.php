@@ -1,7 +1,5 @@
-	{{-- @php
-		var_dump($proyecto->coherencia);
-	@endphp --}}
-	@extends('layouts.default')
+
+@extends('layouts.default')
  
 @section('content')
 
@@ -43,7 +41,7 @@
 				<div class="row">
 					<div class="col-11">
 						<input class="form-check-input" type="checkbox" value="coherencia_p1"  id="coherencia_p1" name="coherencia[]" 
-							@if($proyecto->coherencia->coherencia_p1)
+							@if(isset($proyecto->coherencia->coherencia_p1)&&($proyecto->coherencia->coherencia_p1==1))
 								checked
 							@endif
 						>
@@ -64,11 +62,16 @@
 			<div class="form-check preg-guia">
 				<div class="row">
 					<div class="col-11">
-						<input class="form-check-input" type="checkbox" value="coherencia_p2" id="coherencia_p2" name="coherencia[]" @if($proyecto->coherencia->coherencia_p2)
-								checked
-							@endif
+						<input class="form-check-input" type="checkbox" value="coherencia_p2" id="coherencia_p2" name="coherencia[]" 
+						@if(
+							isset($proyecto->coherencia->coherencia_p2)
+							&&
+							($proyecto->coherencia->coherencia_p2==1)
+							)
+							checked
+						@endif
 						>
-						<label class="form-check-label" for="coherencia_p2">¿Se plantea adecuadamente la necesidad educativa que da origen al OA?</label>
+						<label class="form-check-label" for="coherencia_p2">¿Se plantea adecuadamente la necesidad educat iva que da origen al OA?</label>
 					</div>
 					<div class="col text-right">
 						<a class="nav-link" data-toggle="modal" href="#ver_necesidad">
@@ -83,18 +86,28 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" @if($proyecto->coherencia->coherencia_p3)
-								checked
-							@endif
-						>
+					<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" 
+					@if(
+							isset($proyecto->coherencia->coherencia_p3)
+							&&
+							($proyecto->coherencia->coherencia_p3==1)
+						)
+						checked
+					@endif
+					>
 					<label class="form-check-label" for="coherencia_p3">¿Los contenidos ofrecen la información pertinente para alcanzar el objetivo planteado?</label>		
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"@if($proyecto->coherencia->coherencia_p4)
-								checked
-							@endif
+							<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"
+							@if(
+							isset($proyecto->coherencia->coherencia_p4)
+							&&
+							($proyecto->coherencia->coherencia_p4==1)
+							)
+							checked
+						@endif
 							>
 							<label class="form-check-label" for="coherencia_p4">¿Los contenidos ofrecen más/menos información de la que es necesaria?</label>
 						</div>
@@ -112,18 +125,28 @@
 				
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p5" id="coherencia_p5" name="coherencia[]" @if($proyecto->coherencia->coherencia_p5)
-								checked
-							@endif
+					<input class="form-check-input" type="checkbox" value="coherencia_p5" id="coherencia_p5" name="coherencia[]" 
+						@if(
+							isset($proyecto->coherencia->coherencia_p5)
+							&&
+							($proyecto->coherencia->coherencia_p5==1)
+							)
+							checked
+						@endif
 						>
 					<label class="form-check-label" for="coherencia_p5">¿Las actividades posibilitan poner en práctica los procesos cognitivos enunciados en el objetivo?</label>	
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p6" id="coherencia_p6" name="coherencia[]"@if($proyecto->coherencia->coherencia_p6)
-								checked
-							@endif>
+							<input class="form-check-input" type="checkbox" value="coherencia_p6" id="coherencia_p6" name="coherencia[]"
+							@if(
+							isset($proyecto->coherencia->coherencia_p6)
+							&&
+							($proyecto->coherencia->coherencia_p7==1)
+							)
+							checked
+						@endif>
 
 							<label class="form-check-label" for="coherencia_p6">¿Las actividades permiten operar con la información incluida en los contenidos?</label>	
 						</div>
@@ -141,16 +164,26 @@
 	
 			<div class="preg-guia">
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="coherencia_p7" id="coherencia_p7" name="coherencia[]" @if($proyecto->coherencia->coherencia_p7)
-								checked
-							@endif
+					<input class="form-check-input" type="checkbox" value="coherencia_p7" id="coherencia_p7" name="coherencia[]" 
+						@if(
+							isset($proyecto->coherencia->coherencia_p7)
+							&&
+							($proyecto->coherencia->coherencia_p7==1)
+							)
+							checked
+						@endif
 						>
 					<label class="form-check-label" for="coherencia_p7">¿La autoevaluación posibilita demostrar que el objetivo ha sido alcanzado?</label>				
 				</div>
 				<div class="form-check">
 					<div class="row">
 						<div class="col-11">
-							<input class="form-check-input" type="checkbox" value="coherencia_p8" id="coherencia_p8" name="coherencia[]"@if($proyecto->coherencia->coherencia_p8)
+							<input class="form-check-input" type="checkbox" value="coherencia_p8" id="coherencia_p8" name="coherencia[]"
+							@if(
+								isset($proyecto->coherencia->coherencia_p8)
+								&&
+								($proyecto->coherencia->coherencia_p8==1)
+								)
 								checked
 							@endif
 						>
@@ -231,7 +264,7 @@
 				</div>
 				<div class="modal-body">
 					<p>
-						{{$proyecto->diseño->instruccional->instruccional_p1}}
+						{{$proyecto->first()->diseño->instruccional->instruccional_p1}}
 						</p>
 				</div>
 			</div>
@@ -248,7 +281,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>{{$proyecto->analisis->analisis_p2}}</p>
+					<p>{{$proyecto->first()->analisis->analisis_p2}}</p>
 				</div>
 			</div>
 		</div>
