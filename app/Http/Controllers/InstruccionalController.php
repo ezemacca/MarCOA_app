@@ -109,13 +109,25 @@ class InstruccionalController extends Controller
 
         $instruccional=$diseño->instruccional;
 
+        $subetapa = $diseño->getAttribute('subetapa');
+
+        $estructura= $diseño->estructura()->first();
+
+        $multimedial=$diseño->multimedial()->first();
+
         $instruccional->update([
             'instruccional_p1'=>request('instruccional_p1'),
             'instruccional_p2'=>request('instruccional_p2'),
             'instruccional_p3'=>request('instruccional_p3'),
             'instruccional_p4'=>request('instruccional_p4'),
         ]);
-        return view('content.etapas.diseño',['proyecto' => $proyecto,'subetapa'=>$subetapa,'instruccional'=>$instruccional]);
+        return view('content.etapas.diseño',
+            ['proyecto' => $proyecto,
+            'subetapa'=>$subetapa,
+            'instruccional'=>$instruccional,
+            'subetapa'=> $subetapa,
+            'estructura'=>$estructura, 
+            'multimedial'=>$multimedial]);
     }
 
     /**

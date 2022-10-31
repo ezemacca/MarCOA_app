@@ -32,10 +32,9 @@
 </div>				
 
 
-<div class="row">
-	<div class="col-1">
-	</div>
-	<div class="col-10">
+
+	
+	
 		<div class="container-fluid cont-formulario">
 			<form method="POST" action="{{ route('analisis.store', $proyecto)}}">
 				@csrf
@@ -231,10 +230,9 @@
 				</div>
 			</form>
 		</div>
-	</div>
-	<div class="col-1">
-	</div>
-</div>
+	
+
+
 	@stop
 
 	<!-- Extra large modal - etapa de análisis-->

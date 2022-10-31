@@ -105,13 +105,25 @@ class EstructuraController extends Controller
         $estructura->update([
             'estructura_p1'=>request('estructura_p1'),
         ]);
+        $subetapa= $diseño->subetapa;
+        $instruccional=$diseño->instruccional;
+        $subetapa = $diseño->getAttribute('subetapa');
+        $multimedial=$diseño->multimedial()->first();
+
 
         if($request->hasFile('estructura_p2'))
         {
             $request->file('estructura_p2')->store('estructura_p2');
         }
 
-        return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
+        return view('content.etapas.diseño', 
+            ['proyecto'=>$proyecto,
+            'subetapa'=>$diseño->subetapa,
+            'instruccional'=>$diseño->instruccional()->first(),
+            'estructura'=>$diseño->estructura()->first(),
+            'subetapa'=> $subetapa,
+            'multimedial'=>$multimedial
+        ]);
     }
 
     /**
