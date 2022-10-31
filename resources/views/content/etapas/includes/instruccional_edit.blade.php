@@ -31,6 +31,18 @@
 					{{-- <input type="text" class="form-control" name="instruccional_p1" id="instruccional_p1" value="{{ old('instruccional_p1') }}" required> --}}
 					<textarea type="text" class="form-control" name="instruccional_p1" id="instruccional_p1" required >{{$instruccional->instruccional_p1 }}</textarea>
 					
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#instruccional_p1' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>
 				</div>
 				
 				<div class="form-group">
@@ -62,6 +74,18 @@
 					</div>	
 					{{-- <input type="text" class="form-control" name="instruccional_p2" id="instruccional_p2" value="{{ old('instruccional_p2') }}" required> --}}
 					<textarea type="text" class="form-control" name="instruccional_p2" id="instruccional_p2" required >{{$instruccional->instruccional_p2 }}</textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#instruccional_p2' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>
 				</div>	
 				
 				<div class="form-group">
@@ -79,6 +103,18 @@
 					</div>
 					{{-- <input type="text" class="form-control" name="instruccional_p3" id="instruccional_p3" value="{{ old('instruccional_p3') }}" required> --}}
 					<textarea type="text" class="form-control" name="instruccional_p3" id="instruccional_p3" required >{{$instruccional->instruccional_p3 }}</textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#instruccional_p3' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>
 				</div>	
 				
 				<div class="form-group">
@@ -101,37 +137,27 @@
 							</a>
 						</div>
 					</div>	
-					{{-- <input type="text" class="form-control" name="instruccional_p4" id="instruccional_p4" value="{{ old('instruccional_p4') }}" required> --}}
+					
 					<textarea type="text" class="form-control" name="instruccional_p4" id="instruccional_p4" required >{{$instruccional->instruccional_p4 }}</textarea>
+					<script>
+						ClassicEditor
+							.create( document.querySelector( '#instruccional_p4' ), {
+								language: "es"
+							} )
+							.then( editor => {
+								console.log( editor );
+							} )
+							.catch( error => {
+								console.error( error );
+							} );
+					</script>
 				</div>				
 				<input type="hidden" value="{{$proyecto}}" name="proyecto_id">
 				<div class="row">
 					<div class="col text-left">
-						<!--<button type="submit" class="btn btn-secondary e-diseño">
-							<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-								<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-								<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-							</svg>
-							GUARDAR
-						</button>-->
+					
 						<div class="conteiner-fluid text-left">
-							{{-- <button class="btn btn-secondary e-diseño" href="{{route('principal')}}" role="button">
-								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-									<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
-									<path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
-								</svg>
-								GUARDAR
-							</button>
-						</div>	
-					</div>
-					<div class="col text-right">
-						<a class="btn btn-secondary boton-generar" href="" role="button">
-							<svg class="bi bi-box-arrow-down" width="30" height="30" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M6.646 13.646a.5.5 0 01.708 0L10 16.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-								<path fill-rule="evenodd" d="M10 6.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V7a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
-								<path fill-rule="evenodd" d="M4.5 4A1.5 1.5 0 016 2.5h8A1.5 1.5 0 0115.5 4v7a1.5 1.5 0 01-1.5 1.5h-1.5a.5.5 0 010-1H14a.5.5 0 00.5-.5V4a.5.5 0 00-.5-.5H6a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h1.5a.5.5 0 010 1H6A1.5 1.5 0 014.5 11V4z" clip-rule="evenodd"></path>
-							</svg>	
-						</a> --}}
+						
 						<button class="btn btn-secondary e-diseño"  >
 								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 									<path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
