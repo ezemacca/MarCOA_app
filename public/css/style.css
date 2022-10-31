@@ -627,7 +627,7 @@ footer{
 /*TABLAS*/
 
 .table-wrapper{
-        display: flex;
+    display: fixed;
     justify-content: center;
     align-items: center;
 }

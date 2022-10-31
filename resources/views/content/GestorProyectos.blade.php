@@ -78,9 +78,7 @@ $(document).ready(function(){
 				</div>
 				@else
 			
-							
-					@forelse($portafolio as $proyecto)
-							<div class="table-wrapper">
+				<div class="table-wrapper">
 					<table class="table table-striped table-hover">
 						<thead id="thead">
 							<tr>
@@ -88,13 +86,16 @@ $(document).ready(function(){
 								<th>Descripción</th>
 								<th>Acciones</th>
 							</tr>
-						</thead>
+						</thead>							
+					@forelse($portafolio as $proyecto)
+					
 						<tbody>
 								<tr>
 									@if($proyecto['user_id'] == Auth::user()->id )
 
 										<td>
-											<a href="{{route('principal', $proyecto)}}">{{$proyecto->titulo}} </a>
+											<a href="{{route('principal', $proyecto)}}">{{$proyecto->titulo}} 
+											</a>
 										</td>
 									
 										<td>{{$proyecto['descripcion']}}
@@ -111,7 +112,7 @@ $(document).ready(function(){
 													&#xE872;
 													</button>
 											</form>
-											</td>
+										</td>
 										
 									@endif
 								</tr>
