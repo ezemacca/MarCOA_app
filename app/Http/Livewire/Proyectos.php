@@ -21,10 +21,7 @@ class Proyectos extends Component
 		$keyWord = '%'.$this->keyWord .'%';
         return view('livewire.proyectos.view', [
             'proyectos' => Proyecto::latest()
-						->orWhere('user_id', 'LIKE', $keyWord)
-						->orWhere('titulo', 'LIKE', $keyWord)
-						->orWhere('descripcion', 'LIKE', $keyWord)
-						->orWhere('etapa', 'LIKE', $keyWord)
+						->Where('user_id', 'LIKE', Auth::user()->id)
 						->paginate(10),
         ]);
     }
