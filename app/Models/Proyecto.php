@@ -1,48 +1,58 @@
-<?php
+<?php 
 
-
-namespace App\Models; 
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\desarrollo\Desarrollo;
 
 class Proyecto extends Model
 {
-    protected $fillable = ['user_id','titulo','descripcion','etapa'];
-    // protected $table ='proyectos';
-    use HasFactory;
+	use HasFactory;
+	
+    public $timestamps = true;
 
-    protected $casts = [
-        'options' => 'array',
-    ];
+    protected $table = 'proyectos';
 
-    public function user(){
-       return $this->belongsTo(User::class);
-    }
-
-    public function analisis()
+    protected $fillable = ['user_id','titulo','descripcion','etapa','updated_at','created_at'];
+	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function analise()
     {
-        return $this->hasOne(Analisis::class);
+        return $this->hasOne('App\Models\Analise', 'proyecto_id', 'id');
     }
-
-    public function diseño()
-    {
-        return $this->hasOne(Diseño::class);
-    }
-
-    public function estructura()
-    {
-        return $this->hasOne(Estructura::class);
-    }
-
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function coherencia()
     {
-        return $this->hasOne(Coherencia::class);
+        return $this->hasOne('App\Models\Coherencia', 'proyecto_id', 'id');
     }
-
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function desarrollo()
     {
-        return $this->hasOne(Desarrollo::class);
+        return $this->hasOne('App\Models\Desarrollo', 'proyecto_id', 'id');
     }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function diseño()
+    {
+        return $this->hasOne('App\Models\Diseño', 'proyecto_id', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
+    
 }

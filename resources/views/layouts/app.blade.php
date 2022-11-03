@@ -37,6 +37,9 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/proyectos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Proyectos</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/mapeos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Mapeos</a> 
                         </li>
                     </ul>

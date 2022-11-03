@@ -10,9 +10,9 @@
         "anam/phantommagick": "^2.0",
         "barryvdh/laravel-dompdf": "^2.0",
         "barryvdh/laravel-snappy": "^1.0",
-        "devianl2/laravel-scorm": "^3.0",
         "dompdf/dompdf": "^2.0",
         "flightsadmin/livewire-crud": "^0.0.17",
+        "fpdf/fpdf": "^1.84",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "h4cc/wkhtmltoimage-i386": "0.12.x",
@@ -22,10 +22,7 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.10",
-        "unisharp/laravel-filemanager": "^2.4",
-        "fpdf/fpdf": "^1.84",
-        "asifm42/scorm-cloud-laravel": "dev-master"
-
+        "unisharp/laravel-filemanager": "^2.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

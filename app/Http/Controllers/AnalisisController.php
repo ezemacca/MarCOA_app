@@ -16,7 +16,8 @@ use Tests\TestCase;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Anam\PhantomMagick\Converter;
 use Fpdf\Fpdf;
-
+use App;
+use Response;
 
 use DB;
 class AnalisisController extends Controller
@@ -102,29 +103,29 @@ class AnalisisController extends Controller
 	public function generar_pdf($id)
 	{
 
-		$options = new Options();
-		$options->set('defaultFont', 'Railway');
-		$dompdf = new Dompdf($options);
+		// $options = new Options();
+		// $options->set('defaultFont', 'Railway');
+		// $dompdf = new Dompdf($options);
 
-		$proyecto = Proyecto::findorFail($id);
-		$analisis= $proyecto->analisis()->first();
+		// $proyecto = Proyecto::findorFail($id);
+		// $analisis= $proyecto->analisis()->first();
 
 
-		$dompdf->loadHtml(view('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis]));
+		// $dompdf->loadHtml(view('content.etapas.a41', ['proyecto' => $proyecto, 'analisis'=>$analisis]));
 
-		$dompdf->set_base_path('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
-		// (Optional) Setup the paper size and orientation
-		$dompdf->setPaper('A4', 'landscape');
+		// // $dompdf->set_base_path('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+		// // (Optional) Setup the paper size and orientation
+		// // $dompdf->setPaper('A4', 'landscape');
 		
 
 
-		// Render the HTML as PDF
-		$dompdf->render();
+		// // Render the HTML as PDF
+		// $dompdf->render();
 
-		// Output the generated PDF to Browser
-		$dompdf->stream();
+		// // Output the generated PDF to Browser
+		// $dompdf->stream();
 
-        // return $dompdf->download('Etapa_Analisis.pdf');
+  //   return $dompdf->download('Etapa_Analisis.pdf');
 
         
 
@@ -132,15 +133,21 @@ class AnalisisController extends Controller
 
 
 
-        // $pdf = PDF::loadView('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis])->setOptions(['defaultFont' => 'sans-serif']);
+        // $pdf = PDF::loadView('content.etapas.a41');
         // $pdf->render();
-
-		// $html= view('content.etapas.analisis_pdf', ['proyecto' => $proyecto, 'analisis'=>$analisis]);
+        // $pdf->Output();
+		// $html= view('content.etapas.a41');
 		// $pdf = new FPDF();
 		// $pdf->AddPage();
 		// $pdf->$html;
 		// $pdf->Output();
 
+    //     $pdf = App::make('snappy.pdf.wrapper');
+				// $pdf->loadHTML('<h1>Test</h1>');
+				// return $pdf->inline();
+
+$pdf = PDF::loadView('content.etapas.a41');
+return $pdf->download('etapa.pdf');
 
 	}
 }
