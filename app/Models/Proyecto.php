@@ -18,9 +18,9 @@ class Proyecto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function analise()
+    public function analisis()
     {
-        return $this->hasOne('App\Models\Analise', 'proyecto_id', 'id');
+        return $this->hasOne('App\Models\Analisis', 'proyecto_id', 'id');
     }
     
     /**
@@ -36,7 +36,7 @@ class Proyecto extends Model
      */
     public function desarrollo()
     {
-        return $this->hasOne('App\Models\Desarrollo', 'proyecto_id', 'id');
+        return $this->hasOne('App\Models\desarrollo\Desarrollo', 'proyecto_id', 'id');
     }
     
     /**

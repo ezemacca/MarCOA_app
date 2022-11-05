@@ -181,7 +181,6 @@ return [
         // Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Anam\PhantomMagick\ConverterServiceProvider::class,
-
         
 
     ],

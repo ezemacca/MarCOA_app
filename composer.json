@@ -10,6 +10,7 @@
         "anam/phantommagick": "^2.0",
         "barryvdh/laravel-dompdf": "^2.0",
         "barryvdh/laravel-snappy": "^1.0",
+        "devianl2/laravel-scorm": "^3.0",
         "dompdf/dompdf": "^2.0",
         "flightsadmin/livewire-crud": "^0.0.17",
         "fpdf/fpdf": "^1.84",
