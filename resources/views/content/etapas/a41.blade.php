@@ -122,17 +122,19 @@
 
       }
     </style>
-    {{-- <link
+    <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      href="{{ public_path('css/pdf1.css') }}"
       data-tag="font"
+      type="text/css"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      href="{{ public_path('css/pdf2.css') }}"
       data-tag="font"
-    /> --}}
-    <link rel="stylesheet" href="./style.css" />
+      type="text/css"
+    />
+    {{-- <link rel="stylesheet" href="{{ public_path('css/style.css')}}" /> --}}
   </head>
   <body>
     <div>
@@ -140,17 +142,17 @@
       <div class="a41-container">
         <div class="a41-a41">
           <img
-            src="public/playground_assets/rectangle118-uswm-200h.png"
+            src="{{ public_path('playground_assets/rectangle118-uswm-200h.png')}}"
             alt="Rectangle118"
             class="a41-rectangle1"
           />
           <img
-            src="public/playground_assets/rectangle219-cxzo.svg"
+            src="{{ public_path('playground_assets/rectangle219-cxzo.svg')}}"
             alt="Rectangle219"
             class="a41-rectangle2"
           />
           <img
-            src="public/playground_assets/ellipse1217-66o5-200h.png"
+            src="{{ public_path('playground_assets/ellipse1217-66o5-200h.png')}}"
             alt="Ellipse1217"
             class="a41-ellipse1"
           />
@@ -159,7 +161,7 @@
           </span>
           <span class="a41-text2"><span>ETAPA DE ANÁLISIS</span></span>
           <img
-            src="public/playground_assets/marcoa061221-prq9-200h.png"
+            src="{{ public_path('playground_assets/marcoa061221-prq9-200h.png')}}"
             alt="MarCOA061221"
             class="a41-mar-c-o-a061"
           />

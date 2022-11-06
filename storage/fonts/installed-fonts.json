@@ -1,0 +1,33 @@
+{
+    "inter": {
+        "100": "\/var\/www\/html\/storage\/fonts\/inter_100_34d70a0ef39e9758ef49196d909f584f",
+        "200": "\/var\/www\/html\/storage\/fonts\/inter_200_e6c1fbcf88f8b708cc1d3e57af1c144b",
+        "300": "\/var\/www\/html\/storage\/fonts\/inter_300_6f003d6153bb6629d9efcdc027439d83",
+        "normal": "\/var\/www\/html\/storage\/fonts\/inter_normal_4c1c39b2d60dc6de8a3bc272ce3fe7dc",
+        "500": "\/var\/www\/html\/storage\/fonts\/inter_500_73384d6e47fd66bbc719b75497af932b",
+        "600": "\/var\/www\/html\/storage\/fonts\/inter_600_5fa3cee4db6b0338a4ce38a93c93ddd3",
+        "bold": "\/var\/www\/html\/storage\/fonts\/inter_bold_c57a050bb9f74fe1522e9f687ba11188",
+        "800": "\/var\/www\/html\/storage\/fonts\/inter_800_d0a767ffeda1c5c5782aa5e0f854b616",
+        "900": "inter_900_4577264094a2ca5c1e656fd5cd767851"
+    },
+    "raleway": {
+        "100_italic": "\/var\/www\/html\/storage\/fonts\/raleway_100_italic_3e5b04e47fb4b96e55661e44d4f863f6",
+        "200_italic": "\/var\/www\/html\/storage\/fonts\/raleway_200_italic_df7960ef457e6fc1d49b83ffe1fd711f",
+        "300_italic": "\/var\/www\/html\/storage\/fonts\/raleway_300_italic_2dc72fd3c0b78420f254b2cbda974e97",
+        "italic": "\/var\/www\/html\/storage\/fonts\/raleway_italic_6fed1aede0d5ffbebceab79c962269a0",
+        "500_italic": "\/var\/www\/html\/storage\/fonts\/raleway_500_italic_6927bc067d2ebdb90cb3772b9a98569e",
+        "600_italic": "\/var\/www\/html\/storage\/fonts\/raleway_600_italic_7172e9e22028a65bd11e3d249ab7bdea",
+        "bold_italic": "\/var\/www\/html\/storage\/fonts\/raleway_bold_italic_24144e9116208d732a90c9d5c5aa2601",
+        "800_italic": "\/var\/www\/html\/storage\/fonts\/raleway_800_italic_95370e54410cf2bb919e3994523cb463",
+        "900_italic": "\/var\/www\/html\/storage\/fonts\/raleway_900_italic_aa90f72c0cbab52117b84f5cfb667c03",
+        "100": "\/var\/www\/html\/storage\/fonts\/raleway_100_02bf2980131ab82f459fd2481fa2c565",
+        "200": "\/var\/www\/html\/storage\/fonts\/raleway_200_34b6de4ced3ad30cdd3f57fc2e17029d",
+        "300": "\/var\/www\/html\/storage\/fonts\/raleway_300_f8d2ec01b0b71b68e16aaba12280981f",
+        "normal": "\/var\/www\/html\/storage\/fonts\/raleway_normal_7c961367c4ea677ee00dbeeb506a20c3",
+        "500": "\/var\/www\/html\/storage\/fonts\/raleway_500_0a38ab613485e25337e1ba092e318cb3",
+        "600": "\/var\/www\/html\/storage\/fonts\/raleway_600_6c644471e33d16f8d5451769c698c373",
+        "bold": "\/var\/www\/html\/storage\/fonts\/raleway_bold_0c255ad52d963afba588d147c173f8ba",
+        "800": "\/var\/www\/html\/storage\/fonts\/raleway_800_f76b489585040d03479709ccf3390abc",
+        "900": "raleway_900_cd3161459d9cdfc03fd4fe3d7ae18c24"
+    }
+}

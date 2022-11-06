@@ -100,54 +100,18 @@ class AnalisisController extends Controller
 	);
 	}
 
-	public function generar_pdf($id)
+	public function generar_pdf( $id)
 	{
-
-		// $options = new Options();
-		// $options->set('defaultFont', 'Railway');
-		// $dompdf = new Dompdf($options);
-
-		// $proyecto = Proyecto::findorFail($id);
-		// $analisis= $proyecto->analisis()->first();
-
-
-		// $dompdf->loadHtml(view('content.etapas.a41', ['proyecto' => $proyecto, 'analisis'=>$analisis]));
-
-		// // $dompdf->set_base_path('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
-		// // (Optional) Setup the paper size and orientation
-		// // $dompdf->setPaper('A4', 'landscape');
+		$proyecto = Proyecto::findorFail($id);
+		$analisis=$proyecto->analisis()->first();
+		$pdf = PDF::loadView('content.etapas.analisis_pdf',['analisis'=>$analisis]);
 		
+		$pdf->setPaper('legal');
+		$pdf->set_option( 'dpi' , '300' );
+		return $pdf->stream();
 
+		// return view('content.etapas.analisis_pdf',['analisis'=>$analisis]);
 
-		// // Render the HTML as PDF
-		// $dompdf->render();
-
-		// // Output the generated PDF to Browser
-		// $dompdf->stream();
-
-  //   return $dompdf->download('Etapa_Analisis.pdf');
-
-        
-
-        // $pdf = PDF::loadView('pdf/personalpdf', compact('user','result'))->setOptions(['defaultFont' => 'sans-serif']);
-
-
-
-        // $pdf = PDF::loadView('content.etapas.a41');
-        // $pdf->render();
-        // $pdf->Output();
-		// $html= view('content.etapas.a41');
-		// $pdf = new FPDF();
-		// $pdf->AddPage();
-		// $pdf->$html;
-		// $pdf->Output();
-
-    //     $pdf = App::make('snappy.pdf.wrapper');
-				// $pdf->loadHTML('<h1>Test</h1>');
-				// return $pdf->inline();
-
-$pdf = PDF::loadView('content.etapas.a41');
-return $pdf->download('etapa.pdf');
 
 	}
 }

@@ -1,0 +1,36 @@
+.analisis-container {
+  min-height: 100vh;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.analisis-image {
+  width: 2551px;
+  height: auto;
+  object-fit: auto;
+}
+.analisis-analisis {
+  width: 2551px;
+  height: auto;
+  display: flex;
+  object-fit: auto;
+}
+.analisis-text {
+  width: 70%;
+  font-size: 50px;
+  margin-left: 50px;
+  font-family: Raleway;
+
+}
+
+.analisis-titulo{
+   width: 50%;
+  font-size: 60px;
+  align-self: stretch;
+  font-family: Raleway-bold;
+  
+}
+.centrado {
+  margin: auto;
+  width: 90%;
+  padding-top: 50px;
+}
