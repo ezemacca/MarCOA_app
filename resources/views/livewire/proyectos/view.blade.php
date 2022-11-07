@@ -82,27 +82,34 @@
 												<div style="padding: 10px;"></div>
 												 
 												<form action="{{route('principal', $row)}}">
-												<button type="submit" class="btn btn-sm btn-info" >
-													<a>
-													Abrir
-													</a>	
+												
+												<button type="submit" class="btn-sm btn-info" >
+													<img src="{{url('/images/buscar.png')}}"
+														 width="20" 
+														 height="20">	
 												</button>
 											</form>
+
+
 												<div style="padding: 10px;"></div>
 
-												 <button type="button" class="btn btn-sm btn-info" wire:click="edit({{$row->id}})">
+												 <button type="button" class="btn-sm btn-info" wire:click="edit({{$row->id}})">
 													 <a data-toggle="modal" data-target="#updateModal">
-														<i class="fa fa-edit"></i> 
-														Editar
+														<img src="{{url('/images/editar.png')}}"
+														 width="20" 
+														 height="20">
 													</a>		
 												</button>
+
 												<div style="padding: 10px;"></div>
-												<button type="button" class="btn btn-sm btn-info" wire:click="destroy({{$row->id}})" onclick="confirm('Confirma eliminar el proyecto {{$row->id}}? \nRecuerde que los proyectos eliminados no se pueden recuperar.')||event.stopImmediatePropagation()">
-													<a data-toggle="modal" data-target="#updateModal"  >
-														<i class="fa fa-trash"></i> 
-														Eliminar 
-													</a>   
+												<button type="button" class=" btn-sm btn-info" wire:click="destroy({{$row->id}})" onclick="confirm('Confirma eliminar el proyecto {{$row->id}}? \nRecuerde que los proyectos eliminados no se pueden recuperar.')||event.stopImmediatePropagation()">
+													<img src="{{url('/images/eliminar.png')}}"
+														 width="20" 
+														 height="20"> 
 												</button>
+												
+												</a>
+
 											</div>
 										</div>
 									</th>
