@@ -114,7 +114,9 @@
 													</a>		
 												</button>
 
-												<div style="padding: 10px;"></div>
+												<div style="padding: 10px;">
+													
+												</div>
 												<button
 												type="button" class=" btn-sm btn-acciones" wire:click="destroy({{$row->id}})" onclick="confirm('Confirma eliminar el proyecto {{$row->id}}? \nRecuerde que los proyectos eliminados no se pueden recuperar.')||event.stopImmediatePropagation()">
 													<img src="{{url('/images/eliminar.png')}}"

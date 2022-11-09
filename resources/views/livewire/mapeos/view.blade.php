@@ -31,7 +31,7 @@
 									<th>Nodo</th>
 									<th>Descripcion</th>
 									<th>Plantilla</th>
-									<td>Acciones</td>
+									<th>Acciones</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -42,7 +42,12 @@
 									<td><br>{{ $row->plantilla }}</td>
 									<td>
 
-										<div class="btn-toolbar" role="toolbar">
+										<div class="btn-toolbar" role="toolbar"
+										style=
+											"width: 80%;
+											margin-left: auto;
+											margin-right: auto;"
+											>
 											<div class="btn-group" role="group">
 												<div style="padding: 10px;"></div>
 												<button type="button" class=" btn-acciones" wire:click="edit({{$row->id}})" >
@@ -55,9 +60,10 @@
 														  
 													</a>	
 												</button>
-												<div style="padding: 10px;"></div>
+												<div style="padding: 20px;"></div>
 												<button type="button" class=" btn-sm btn-acciones" >
-													<a  onclick="confirm('Confirm Delete Mapeo id {{$row->id}}? \nDeleted Mapeos cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})">
+													<a  
+													onclick="confirm('Confirm Delete Mapeo id {{$row->id}}? \nDeleted Mapeos cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})">
 														<img src="{{url('/images/eliminar.png')}}"
 														 width="20" 
 														 height="20"> 
@@ -66,7 +72,7 @@
 											</div>
 										</div>
 									</td>
-									</tr>
+								</tr>
 								@endforeach
 							</tbody>
 						</table>										

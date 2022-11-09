@@ -129,7 +129,7 @@ li {
 	padding: 0;
 }
 .nav-link:hover{
-	color: BLACK; /**DARKRED;**/
+	color: GREY; /**DARKRED;**/
 	font-weight: bold;
 }
 .link-barra-superior{
