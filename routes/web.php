@@ -43,12 +43,17 @@ Route::get('/diseño/{id}', 'App\Http\Controllers\DiseñoController@index')->nam
 
 Route::patch('/diseño/instruccional/{proyecto}/editar', 'App\Http\Controllers\InstruccionalController@update')->name('instruccional.update');
 Route::post('/diseño/instruccional/{proyecto}', 'App\Http\Controllers\InstruccionalController@store')->name('instruccional.store');
+Route::get('/diseño/instruccional/{id}/generar_pdf','App\Http\Controllers\InstruccionalController@generar_pdf')->name('instruccional.pdf');
+
 
 Route::patch('/diseño/estructura/{proyecto},{estructura?}/editar', 'App\Http\Controllers\EstructuraController@update')->name('estructura.update');
 Route::post('/diseño/estructura/{proyecto}', 'App\Http\Controllers\EstructuraController@store')->name('estructura.store');
+Route::get('/diseño/estructura/{id}/generar_pdf','App\Http\Controllers\EstructuraController@generar_pdf')->name('estructura.pdf');
+
 
 Route::patch('/diseño/multimedial/{proyecto}/editar', 'App\Http\Controllers\MultimedialController@update')->name('multimedial.update');
 Route::post('/diseño/multimedial/{proyecto}', 'App\Http\Controllers\MultimedialController@store')->name('multimedial.store');
+Route::get('/diseño/multimedial/{id}/generar_pdf','App\Http\Controllers\MultimedialController@generar_pdf')->name('multimedial.pdf');
 
 
 Route::get('/creacion', 'App\Http\Controllers\CreacionController@index')->name('creacion');
@@ -59,9 +64,6 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 // Esta ruta recibe como parametro el id del proyecto en cuestión
 
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
-
-
-
 
 Route::patch('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@update')->name('analisis.update');
 Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
@@ -82,11 +84,6 @@ Route::patch('/coherencia/update/{proyecto?}', 'App\Http\Controllers\CoherenciaC
 Route::get('/publicacion', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');
 Route::get('/evaluacion', 'App\Http\Controllers\EvaluacionController@index')->name('evaluacion');
 Route::get('/configuracion', 'App\Http\Controllers\ConfiguracionController@index')->name('configuracion');
-/*Route::get('/ayuda', 'AyudaController@index')->name('ayuda');
-Route::get('/visualizacion', 'VisualizacionController@index')->name('visualizacion');*/
-
-// Route::get('/login', 'App\Http\Controllers\Auth\AuthenticatedSessionController@create')->name('login');
-//Route::get('/register', 'App\Http\Controllers\Auth\Registere@create')->name('register');
 
 
 // DESARROLLO

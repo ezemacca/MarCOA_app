@@ -41,18 +41,6 @@ class AnalisisController extends Controller
 	public function store($proyecto)
 	{
 
-
-		 // Analisis::create([
-
-		// $proyecto->analises()->create([
-		// 	'analisis_p1'=>request('analisis_p1'),
-		// 	'analisis_p2'=>request('analisis_p2'),
-		// 	'analisis_p3'=>request('analisis_p3'),
-		// 	'analisis_p4'=>request('analisis_p4'),
-		// 	'analisis_p5'=>request('analisis_p5'),
-		// 	'analisis_p6'=>request('analisis_p6'),
-		// ]);
-
 		$proyecto= Proyecto::find($proyecto);
 		
 		$proyecto->analisis()->create([
@@ -108,10 +96,7 @@ class AnalisisController extends Controller
 		
 		$pdf->setPaper('legal');
 		$pdf->set_option( 'dpi' , '300' );
-		return $pdf->stream();
-
-		// return view('content.etapas.analisis_pdf',['analisis'=>$analisis]);
-
+		return $pdf->download();
 
 	}
 }

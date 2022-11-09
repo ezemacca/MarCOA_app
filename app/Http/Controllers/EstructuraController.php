@@ -5,6 +5,11 @@ use App\Models\Proyecto;
 use App\Models\Diseño;
 use App\Models\Estructura;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Anam\PhantomMagick\Converter;
+use Fpdf\Fpdf;
+use App;
+use Response;
 
 class EstructuraController extends Controller
 {
@@ -34,9 +39,9 @@ class EstructuraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($proyecto, Request $request)
+    public function store(Proyecto $proyecto, Request $request)
     {
-        $diseño= Diseño::where('proyecto_id', '=', $proyecto)
+        $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)
         ->first();
 
         if($request->hasFile('estructura_p2'))
@@ -61,9 +66,6 @@ class EstructuraController extends Controller
 
              return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
         }
-
-        
-
 
         }
 
@@ -98,10 +100,7 @@ class EstructuraController extends Controller
      */
     public function update($proyecto, Request $request, Estructura $estructura)
     {
-       
-
         $diseño= Diseño::where('proyecto_id', '=', $proyecto)->first();
-
         $estructura->update([
             'estructura_p1'=>request('estructura_p1'),
         ]);
@@ -135,5 +134,15 @@ class EstructuraController extends Controller
     public function destroy(Estructura $estructura)
     {
         //
+    }
+
+    public function generar_pdf( $id)
+    {
+        $proyecto = Proyecto::findorFail($id);
+        $estructura=$proyecto->diseño->estructura()->first();
+        $pdf = PDF::loadView('content.etapas.includes.estructura_pdf',['estructura'=>$estructura]);
+        $pdf->setPaper('legal');
+        $pdf->set_option( 'dpi' , '300' );
+        return $pdf->download();
     }
 }

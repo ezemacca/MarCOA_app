@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="english">
+<html lang="spanish">
   <head>
-    <title>exported project</title>
+    <title>Multimedial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -9,7 +9,7 @@
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15; margin: 0;}
       body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea 
-        {  font-family: Raleway;  font-size: 100%;  line-height: 1;  margin: 0;}
+        {  font-family: Raleway;  font-size: 100%;  line-height: 1.15;  margin: 0;}
         button,select {  text-transform: none;}
         button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}
         button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
@@ -25,6 +25,7 @@
       }
 
       body {
+        
         font-weight: 400;
         font-style:normal;
         text-decoration: none;
@@ -36,9 +37,6 @@
 
       }
     </style>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="{{ public_path('css/pdf1.css') }}"
@@ -58,72 +56,56 @@
       <div class="analisis-container">
         <img
           alt="image"
-          src="{{ public_path('playground_assets/cabecera.png')}}"
+          src="{{ public_path('playground_assets/CabeceraDisenoMultimedial.png')}}"
           class="analisis-image"
         />
-      
+      <div class="centrado">
         <div class="analisis-analisis">
           <span class="analisis-titulo">
             1. ¿Qué necesitan aprender los destinatarios?
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p1 !!} 
-            
+            <br>
+            {!! $multimedial->diseño_mult_p1 !!} 
           </span>
-          <br><br><hr><br>
+
+          <br><br><hr><br><br><br>
            <span class="analisis-titulo">
-            2. ¿Por qué se cree necesario utilizar un OA y no otro tipo de material educativo?
+            2. Mapeos entre nodos y plantillas multimediales
           </span>
           <br>
-          <span class="analisis-text">
-            
-            {!! $analisis->analisis_p2 !!} 
-            
-          </span>
-          <br><br><hr><br><br>
-           <span class="analisis-titulo">
-            3. ¿A qué nivel educativo se orienta el OA?
-          </span>
           <br>
           <span class="analisis-text">
+          <br>  
+          <table class="table table-bordered ">
+            <thead class="thead">
+                <tr>
+                  <th>Nodo</th>
+                  <th>Descripcion</th>
+                  <th>Plantilla</th>
+                </tr>
+              </thead>
+              <tbody>
+            @foreach($multimedial->mapeos()->get() as $row)
+                
+                <tr>
+                  <td>
+                    {!! $row->nodo !!}
+                  </td>
+                  <td>
+                    {!! $row->descripcion !!}
+                  </td>
+                  <td>
+                    {!! $row->plantilla !!}
+                  </td>
+                </tr>
+            @endforeach
+            </tbody>
+            </table>  
             
-            {!! $analisis->analisis_p3 !!} 
-            
-          </span>
-          <br><br><hr><br><br>
-           <span class="analisis-titulo">
-            4. ¿Qué tema abordará el OA?
-          </span>
-          <br>
-          <span class="analisis-text">
-            
-            {!! $analisis->analisis_p4 !!} 
-            
-          </span>
-          <br><br><hr><br><br>
-           <span class="analisis-titulo">
-            5. ¿Qué conocimientos previos debería tener el alumno para utilizar el OA?
-          </span>
-          <br>
-          <span class="analisis-text">
-            
-            {!! $analisis->analisis_p5 !!} 
-            
-          </span>
-          <br><br><hr><br><br>
-           <span class="analisis-titulo">
-            6. ¿Con qué conocimiento que pueden ser adquiridos posteriormente se relaciona el OA?
-          </span>
-          <br>
-          <span class="analisis-text">
-            
-            {!! $analisis->analisis_p6 !!} 
-            
-          </span>
         </div>
-      
+      </div>
     </div>
   </body>
 </html>

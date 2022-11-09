@@ -6,6 +6,11 @@ use App\Models\Instruccional;
 use Illuminate\Http\Request;
 use App\Models\Proyecto;
 use App\Models\Diseño;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Anam\PhantomMagick\Converter;
+use Fpdf\Fpdf;
+use App;
+use Response;
 
 class InstruccionalController extends Controller
 {
@@ -38,23 +43,7 @@ class InstruccionalController extends Controller
     public function store(Proyecto $proyecto, Request $request)
     {
         
-        // $instruccional= new Instruccional([
-        //  //falta diseñoId
-        //  'instruccional_p1'=>request('instruccional_p1'),
-        //  'instruccional_p2'=>request('instruccional_p2'),
-        //  'instruccional_p3'=>request('instruccional_p3'),
-        //  'instruccional_p4'=>request('instruccional_p4'),
-        // ]);
-        
-        
-        // $this->$instruccional->save();
-        // // $proyecto = Proyecto::findorFail($id);
-        // // $subetapa=$subetapa+1;
-
-        // $diseño_id=Diseño::where('proyecto_id','=',$proyecto)->increment('subetapa',1);
-
-
-        // Diseño::where('proyecto_id', '=', $proyecto)->first();
+       
         $diseño= $proyecto->diseño;
         $diseño->instruccional()->create([
             'instruccional_p1'=>request('instruccional_p1'),
@@ -101,9 +90,7 @@ class InstruccionalController extends Controller
      */
     public function update(Proyecto $proyecto,Request $request)
     {
-        // $proyecto = Proyecto::findorFail($id)->first();
         $diseño= $proyecto->diseño;
-        // Diseño::where('proyecto_id', '=', $id)->first();
 
         $subetapa= $diseño->subetapa;
 
@@ -139,5 +126,17 @@ class InstruccionalController extends Controller
     public function destroy(Instruccional $instruccional)
     {
         //
+    }
+
+    public function generar_pdf( $id)
+    {
+        $proyecto = Proyecto::findorFail($id);
+        $instruccional=$proyecto->diseño->instruccional()->first();
+        $pdf = PDF::loadView('content.etapas.includes.instruccional_pdf',['instruccional'=>$instruccional]);
+        
+        $pdf->setPaper('legal');
+        $pdf->set_option( 'dpi' , '300' );
+        return $pdf->download(); //stream() para que no descargue
+
     }
 }

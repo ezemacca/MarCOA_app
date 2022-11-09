@@ -9,6 +9,11 @@ use App\Models\Proyecto;
 use App\Models\Diseño;
 use App\Models\Estructura;
 use App\Models\Mapeo;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Anam\PhantomMagick\Converter;
+use Fpdf\Fpdf;
+use App;
+use Response;
 class MultimedialController extends Controller
 {
     /**
@@ -53,18 +58,10 @@ class MultimedialController extends Controller
             'subetapa'=>1
         ]);
         $proyecto->desarrollo->implementacion()->create(['decision'=>null]);
-       $proyecto->desarrollo->metadatos()->create([
+        $proyecto->desarrollo->metadatos()->create([
             'subetapa'=>1
         ]);
-       // $proyecto->coherencia()->create([
-       //  'coherencia_p1'=>false,
-       //  'coherencia_p2'=>false,
-       //  'coherencia_p3'=>false,
-       //  'coherencia_p4'=>false,
-       //  'coherencia_p5'=>false,
-       //  'coherencia_p6'=>false,
-       //  ]);
-
+      
        return (redirect()->route('principal', $proyecto));
 
     }
@@ -98,16 +95,15 @@ class MultimedialController extends Controller
      * @param  \App\Models\Multimedial  $multimedial
      * @return \Illuminate\Http\Response
      */
-    public function update( $proyecto, Request $request)
+    public function update(Proyecto $proyecto, Request $request)
     {
 
-        $diseño= Diseño::where('proyecto_id', '=', $proyecto)->first();
+        $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)->first();
 
         $diseño->multimedial->update([
             'diseño_mult_p1'=>request('diseño_mult_p1')
         ]);
-         return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(),'estructura'=>$diseño->estructura()->first(), 'multimedial'=>$diseño->multimedial]); 
-
+         return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(),'estructura'=>$diseño->estructura()->first(), 'multimedial'=>$diseño->multimedial]);
          
     }
 
@@ -120,5 +116,15 @@ class MultimedialController extends Controller
     public function destroy(Multimedial $multimedial)
     {
         //
+    }
+
+    public function generar_pdf( $id)
+    {
+        $proyecto = Proyecto::findorFail($id);
+        $multimedial=$proyecto->diseño->multimedial()->first();
+        $pdf = PDF::loadView('content.etapas.includes.multimedial_pdf',['multimedial'=>$multimedial]);
+        $pdf->setPaper('legal');
+        $pdf->set_option( 'dpi' , '300' );
+        return $pdf->download();
     }
 }

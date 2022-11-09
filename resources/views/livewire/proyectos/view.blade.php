@@ -48,8 +48,6 @@
 						<table class="table table-bordered table-sm">
 							<thead class="thead">
 								<tr> 
-									{{-- <td>#</td> 
-									<th>User Id</th> --}}
 									<th>Titulo</th>
 									<th>Descripcion</th>
 									<th>Progreso </th>
@@ -59,41 +57,56 @@
 							<tbody>
 								@foreach($proyectos as $row)
 								<tr>
-									{{-- <td>{{ $loop->iteration }}</td> 
-									<td>{{ $row->user_id }}</td> --}}
 									<td><br>
-										<a href="{{route('principal', $row)}}">
+										<a href="{{route('principal',$row)}}">
 											{{$row->titulo}} 
 										</a>
 									</td>
 									<td><br>{{ $row->descripcion }}</td>
-									<td><br>							
+									<td><br>					
 
-										<div class="progress">
-										  <div class="progress-bar bg-info" role="progressbar" style="width: {{ ($row->etapa)*100/5 }}%" >{{ ($row->etapa)*100/5 }}% </div>
-										</div>
-										</div>
+										<div class="progress" 
+											style="height: 20px;
+											width: 80%;
+											margin-left: auto;
+											margin-right: auto;">
+										  <div 
+										  class="progress-bar bg-dark" 
+										  role="progressbar" 
+										  style="width: {{ ($row->etapa)*100/5-20 }}%" 
+										  >
 
-										
+										  	<div style="color:white;">
+										  		{{ ($row->etapa)*100/5-20 }}
+										  		% 
+										  	</div>
+										  	</div>
+										</div>	
 									</td>
-									<th>
-										<div class="btn-toolbar" role="toolbar" >
+									<td>
+										<div class="btn-toolbar" role="toolbar"
+
+											style=
+											"width: 80%;
+											margin-left: auto;
+											margin-right: auto;"
+											>
 											<div class="btn-group" role="group">
 												<div style="padding: 10px;"></div>
 												 
 												<form action="{{route('principal', $row)}}">
 												
-												<button type="submit" class="btn-sm btn-info" >
-													<img src="{{url('/images/buscar.png')}}"
-														 width="20" 
-														 height="20">	
-												</button>
-											</form>
+													<button type="submit" class="btn-sm btn-acciones" >
+														<img src="{{url('/images/buscar.png')}}"
+															 width="20" 
+															 height="20">	
+													</button>
 
+												</form>
 
 												<div style="padding: 10px;"></div>
 
-												 <button type="button" class="btn-sm btn-info" wire:click="edit({{$row->id}})">
+												 <button type="button" class="btn-sm btn-acciones" wire:click="edit({{$row->id}})">
 													 <a data-toggle="modal" data-target="#updateModal">
 														<img src="{{url('/images/editar.png')}}"
 														 width="20" 
@@ -102,17 +115,15 @@
 												</button>
 
 												<div style="padding: 10px;"></div>
-												<button type="button" class=" btn-sm btn-info" wire:click="destroy({{$row->id}})" onclick="confirm('Confirma eliminar el proyecto {{$row->id}}? \nRecuerde que los proyectos eliminados no se pueden recuperar.')||event.stopImmediatePropagation()">
+												<button
+												type="button" class=" btn-sm btn-acciones" wire:click="destroy({{$row->id}})" onclick="confirm('Confirma eliminar el proyecto {{$row->id}}? \nRecuerde que los proyectos eliminados no se pueden recuperar.')||event.stopImmediatePropagation()">
 													<img src="{{url('/images/eliminar.png')}}"
 														 width="20" 
 														 height="20"> 
 												</button>
-												
-												</a>
-
 											</div>
 										</div>
-									</th>
+									</td>
 									
 								@endforeach
 								

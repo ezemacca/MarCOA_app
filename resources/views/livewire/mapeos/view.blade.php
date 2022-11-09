@@ -41,18 +41,26 @@
 									<td><br>{{ $row->descripcion }}</td>
 									<td><br>{{ $row->plantilla }}</td>
 									<td>
-										<div class="btn-toolbar" role="toolbar" >
+
+										<div class="btn-toolbar" role="toolbar">
 											<div class="btn-group" role="group">
-												<button type="button" class="btn btn-sm btn-info" wire:click="edit({{$row->id}})" >
+												<div style="padding: 10px;"></div>
+												<button type="button" class=" btn-acciones" wire:click="edit({{$row->id}})" >
+
 													<a data-toggle="modal" data-target="#updateModal"   >
-														<i class="fa fa-edit"></i> 
-														Editar  
+
+														<img src="{{url('/images/editar.png')}}"
+														 width="20" 
+														 height="20">
+														  
 													</a>	
 												</button>
-												<button type="button" class="btn btn-sm btn-info" >
+												<div style="padding: 10px;"></div>
+												<button type="button" class=" btn-sm btn-acciones" >
 													<a  onclick="confirm('Confirm Delete Mapeo id {{$row->id}}? \nDeleted Mapeos cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})">
-														<i class="fa fa-trash"></i> 
-														Eliminar 
+														<img src="{{url('/images/eliminar.png')}}"
+														 width="20" 
+														 height="20"> 
 													</a>
 												</button>
 											</div>
