@@ -108,7 +108,7 @@
 
 												 <button type="button" class="btn-sm btn-acciones" wire:click="edit({{$row->id}})">
 													 <a data-toggle="modal" data-target="#updateModal">
-														<img src="{{url('/images/editar.png')}}"
+														<img src="{{url('/images/Editar.png')}}"
 														 width="20" 
 														 height="20">
 													</a>		

@@ -54,7 +54,7 @@
 
 													<a data-toggle="modal" data-target="#updateModal"   >
 
-														<img src="{{url('/images/editar.png')}}"
+														<img src="{{url('/images/Editar.png')}}"
 														 width="20" 
 														 height="20">
 														  
