@@ -4,33 +4,39 @@
 
 <div class="container-fluid">	
 	<div class="row" id="cabecera-proyecto">
-		<div class="col-1">
-			<div class="volver-flecha"  >
+		<div class="col-2" style="padding-right: 0;">
+			<div class="volver-flecha" style="padding-left:45px;" >
 				<a href="{{url('GestorProyectos')}}">
 					<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
 				</a>
 
 			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-5" style="padding-left: 0;">
 			<h3>
 				<?php print($proyecto['titulo'])?>
 			</h3> 
 		</div>
-		<div class="col-3 text-right" style=" display:inline-flex; ">
+		<div class="col-3 text-right" 
+		style="padding-bottom:auto;
+		padding-top: 15px;
+		padding-right: 0;">
 
 				<a class="nav-link" data-toggle="modal" href="#definicion">
 					<h1>¿QUÉ ES UN OA?</h1>
 				</a>
-
-				<a data-toggle="modal" href="#etapas" >
-					<img src="{{url('/images/MarCOA-12.png')}}" width="50" height="50"/>
-				</a>
-			
-				<a data-toggle="modal" href="#ayuda">
-					<img src="{{url('/images/MarCOA-13.png')}}" width="50" height="50"/>
-				</a>
 		</div>
+		<div class="col-2 text-left" style="padding-top: auto; padding-bottom: auto;">
+			<a data-toggle="modal" href="#etapas" >
+				<img src="{{url('/images/MarCOA-12.png')}}" width="auto" height="80%"/>
+			</a>
+			<a data-toggle="modal" href="#ayuda">
+				<img src="{{url('/images/MarCOA-13.png')}}" width="auto" height="80%"
+				style="padding-top: 0;"
+				/>
+			</a>
+		</div>
+		
 	</div>
 
 		<div class="col text-center ">
@@ -42,10 +48,14 @@
 
 
 <div class="row"> 
+	
+
 	<div class="col-1">	
 	</div>
 	
-	<div class="col-10">
+	<div class="col-10"
+		style=" padding-right:auto; padding-left: 30px;"
+		>
 		<div class="row"> 
 			<div class="col-1">
 			</div>
@@ -86,15 +96,45 @@
 	<div class="col-2">
 			@if($proyecto['etapa'] === 1)
 				<a  href="{{route('analisis',$proyecto)}}">
-					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>							
+					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>	
+					<div class="progress" id="progress-bar-etapas">
+					<div 
+					  class="progress-bar bg-blue" 
+					  role="progressbar" 
+					  style="width: {{0}}%" 
+					  >
+
+				  	</div>
+				 	  	
+					</div>		
+				 	<div id="porcentaje-etapas">
+				  		{{ 0 }}
+				  		% 
+				  	</div>	
 				</a>
 			@elseif ($proyecto['etapa'] > 1)
+			<div class="img-etapa">
 				<a  href="{{route('analisis.edit',$proyecto)}}" >
 					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>
+					<div class="progress" id="progress-bar-etapas">
+					<div 
+					  class="progress-bar bg-blue" 
+					  role="progressbar" 
+					  style="width: {{100}}%" 
+					  >
+
+				  	</div>
+				 	  	
+					</div>		
+				 	<div id="porcentaje-etapas">
+				  		{{ 100}}
+				  		% 
+				  	</div>	
 				</a>
+			</div>
 			@else
-				<a class="etapa-gris" >
-					<img src="{{url('/images/MarCOA-07.png')}}" width="100%" height="100%"/>					
+				<a >
+					<img src="{{url('/images/gris/analisis.jpeg')}}" width="100%" height="100%"/>					
 				</a>
 			@endif
 	</div>
@@ -105,16 +145,41 @@
 				
 						<a  href="{{route('diseño', $proyecto)}}" >
 							<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+							<div class="progress" id="progress-bar-etapas">
+								<div 
+								  class="progress-bar bg-blue" 
+								  role="progressbar" 
+								  style="width: {{(($proyecto->diseño->subetapa))*100/4 }}%" 
+								  >
+							  	</div>
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ (($proyecto->diseño->subetapa))*100/4 }}
+						  		% 
+						  	</div>	
 						</a>
 					
 		@elseif($proyecto['etapa'] >2)
 			<a  href="{{route('diseño', $proyecto)}}" >
 					<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+					<div class="progress" id="progress-bar-etapas">
+								<div 
+								  class="progress-bar bg-blue" 
+								  role="progressbar" 
+								  style="width: {{(($proyecto->diseño->subetapa))*100/4 }}%" 
+								  >
+							  	</div>
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ (($proyecto->diseño->subetapa))*100/4 }}
+						  		% 
+
+						  	</div>	
 			</a>
 		@else
 			
-						<a  class="etapa-gris"  >
-								<img src="{{url('/images/MarCOA-08.png')}}" width="100%" height="100%"/>
+						<a    >
+								<img src="{{url('/images/marcoa-gris/diseño.jpeg')}}" width="100%"height="100%"/>
 							
 						</a>
 		@endif
@@ -124,17 +189,41 @@
 		@if($proyecto['etapa'] == 3)
 						<a  href="{{route('desarrollo',$proyecto)}}" >
 							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+							<div class="progress" id="progress-bar-etapas">
+							<div 
+							  class="progress-bar bg-blue" 
+							  role="progressbar" 
+							  style="width: {{($proyecto->desarrollo->metadatos->subetapa)*50/10}}%" 
+							  >
+						  	</div>
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ ($proyecto->desarrollo->metadatos->subetapa)*50/10 }}
+						  		% 
+						  	</div>
 						</a>
 				
 		@elseif($proyecto['etapa'] > 3)
 						<a  href="{{route('desarrollo',$proyecto)}}" >
 							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+							<div class="progress" id="progress-bar-etapas">
+							<div 
+							  class="progress-bar bg-blue" 
+							  role="progressbar" 
+							  style="width: {{($proyecto->desarrollo->metadatos->subetapa)*50/10}}%" 
+							  >
+						  	</div>
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ ($proyecto->desarrollo->metadatos->subetapa)*50/10 }}
+						  		% 
+						  	</div>
 							
 						</a>
 		@else
 		
-						<a class="etapa-gris" >
-							<img src="{{url('/images/MarCOA-09.png')}}" width="100%" height="100%"/>
+						<a  >
+							<img src="{{url('/images/marcoa-gris/desarrollo.jpeg')}}" width="100%" height="100%"/>
 						</a>
 		@endif
 	</div>
@@ -143,10 +232,25 @@
 		@if($proyecto['etapa'] >= 4)
 						<a  href="{{route('publicacion')}}" role="button">
 							<img src="{{url('/images/MarCOA-10.png')}}" width="100%" height="100%"/>
+							<div class="progress" id="progress-bar-etapas">
+							<div 
+							  class="progress-bar bg-blue" 
+							  role="progressbar" 
+							  style="width: {{0}}%" 
+							  >
+
+						  	</div>
+				 	  	
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ 0 }}
+						  		% 
+						  	</div>	
 						</a>
 		@else
-						<a class="etapa-gris" >
-								<img src="{{url('/images/MarCOA-10.png')}}" width="100%" height="100%"/>
+						<a  >
+								<img src="{{url('/images/marcoa-gris/publicacion.jpeg')}}" width="100%" height="100%"/>
+
 						</a>
 		@endif
 	</div>
@@ -155,10 +259,23 @@
 		@if($proyecto['etapa'] >= 5)
 						<a  href="{{route('evaluacion')}}" >
 							<img src="{{url('/images/MarCOA-11.png')}}" width="100%" height="100%"/>
+							<div class="progress" id="progress-bar-etapas">
+							<div 
+							  class="progress-bar bg-blue" 
+							  role="progressbar" 
+							  style="width: {{0}}%" 
+							  >
+						  	</div>
+							</div>		
+						 	<div id="porcentaje-etapas">
+						  		{{ 0 }}
+						  		% 
+						  	</div>	
+
 						</a>
 		@else
-						<a  class="etapa-gris" >
-							<img src="{{url('/images/MarCOA-11.png')}}" width="100%" height="100%"/>
+						<a>
+							<img src="{{url('/images/marcoa-gris/evaluacion.jpeg')}}" width="100%" height="100%"/>
 						</a>
 		@endif
 	</div>
@@ -187,7 +304,20 @@
 					
 		@elseif(isset($proyecto->coherencia))
 					
-						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button">
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia.edit',$proyecto)}}" role="button"
+						style="
+						font-size: 16px;
+						border-radius: 0px;
+						padding: 10px 20px;}
+						:hover{
+							border-radius: 200px;
+							background-color: MEDIUMSEAGREEN;
+							border: 2px solid MEDIUMSEAGREEN;
+							
+							border: 2px solid BLACK !important; /**DARKRED;**/ 
+							box-shadow:none !important;
+						}
+						">
 							<p id="analisis-coherencia">
 								ANÁLISIS DE COHERENCIA INTERNA 
 							</p>

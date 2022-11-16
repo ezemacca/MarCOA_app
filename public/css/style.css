@@ -303,6 +303,7 @@ footer{
 	background-color: MEDIUMSEAGREEN;
 	border: 2px solid MEDIUMSEAGREEN;
 }
+
 .boton-imp{
 	font-size: 10px;
 	padding: 1px 8px;
@@ -698,3 +699,27 @@ tfoot th {
   margin-right: auto;
 }
 .thead-generico
+
+.img-etapa{
+	position:relative;
+}
+#progress-bar-etapas{
+	height: 10px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+  bottom: 25px;
+  left: 20px;	
+	 
+}
+#porcentaje-etapas{
+	color:white; 
+	position: absolute; 
+
+	margin-left: auto;
+	margin-right: auto;
+	
+	right: 20px;
+	bottom: 20px;
+}

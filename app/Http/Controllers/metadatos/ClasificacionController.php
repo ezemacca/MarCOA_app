@@ -47,7 +47,10 @@ class ClasificacionController extends Controller
             'clasificaciones_p1_cla_4'=>request('clasificaciones_p1_cla_4'),
         ]); 
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
-        $proyecto->increment('etapa',1);
+        if($proyecto->desarrollo->metadatos->subetapa>=10)
+        {
+            $proyecto->increment('etapa',1);
+        }
 
         return redirect()->route('principal', $proyecto);
     }

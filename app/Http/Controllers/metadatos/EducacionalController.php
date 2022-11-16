@@ -41,6 +41,7 @@ class EducacionalController extends Controller
      */
     public function store(Proyecto $proyecto, Request $request)
     {
+
         $proyecto->desarrollo->metadatos->educacional()->create([
         'educacional_p1'=>request('educacional_p1'),
         'educacional_p2'=>request('educacional_p2'),
@@ -57,6 +58,10 @@ class EducacionalController extends Controller
         
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
         $decision= $proyecto->desarrollo->implementacion->decision;
+        if($proyecto->desarrollo->metadatos->subetapa>=10)
+        {
+            $proyecto->increment('etapa',1);
+        }
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 

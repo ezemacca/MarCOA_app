@@ -130,7 +130,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ public_path('css/pdf2.css') }}"
+      href="{{ public_path('css/pdf1.css') }}"
       data-tag="font"
       type="text/css"
     />

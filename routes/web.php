@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\BienvenidaController@index') ;
+Route::get('/', 'App\Http\Controllers\BienvenidaController@index')->name('bienvenida');
 
 // Route::get('/', function () {
 //     return view('welcome');

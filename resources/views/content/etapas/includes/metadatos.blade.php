@@ -8,208 +8,152 @@
 
 			<div class="container-fluid">
 				<ul class="nav nav-tabs">
-					@if($subetapa_metadatos==1 )
 						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#general">1. GENERAL</a>
-						</li>
-					@elseif($subetapa_metadatos>=2 )
-						<li class="nav-item ">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#general">1. GENERAL</a>
 						</li>
-
-					@endif
-
-					@if($subetapa_metadatos==2 )
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#ciclo_de_vida">2. CICLO DE VIDA</a>
-						</li>
-					@elseif($subetapa_metadatos>=3 )
+					
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#ciclo_de_vida">2. CICLO DE VIDA</a>
 						</li>
-					@endif
 
-					@if($subetapa_metadatos==3)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#meta_metadatos">3. META-METADATOS</a>
-						</li>
-					@elseif($subetapa_metadatos>=4)
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#meta_metadatos">3. META-METADATOS</a>
 						</li>
-					@endif
-
-
-					@if($subetapa_metadatos==4)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#tecnica">4. TÉCNICA</a>
-						</li>
-					@elseif($subetapa_metadatos>=5)
+					
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#tecnica">4. TÉCNICA</a>
 						</li>
-					@endif
 
-					@if($subetapa_metadatos==5)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#educacional">5. EDUCACIONAL</a>
-						</li>
-					@elseif($subetapa_metadatos>=6)
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#educacional">5. EDUCACIONAL</a>
 						</li>
-					@endif
-
-					@if($subetapa_metadatos==6)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#derechos_de_uso">6. DERECHOS DE USO</a>
-						</li>
-					@elseif($subetapa_metadatos>=7)
+			
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#derechos_de_uso">6. DERECHOS DE USO</a>
 						</li>
-					@endif
-
-					@if($subetapa_metadatos==7)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
-						</li>
-					@elseif($subetapa_metadatos>=8)
+				
 						<li class="nav-item">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
 						</li>
-					@endif
-
-					@if($subetapa_metadatos==8)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
-						</li>
-					@elseif($subetapa_metadatos>=9)
+				
 						<li class="nav-item ">
 							<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
 						</li>
-					@endif
-
-
-					@if($subetapa_metadatos==9)
-						<li class="nav-item active">
-							<a class="nav-link active pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
-						</li>
 					
-					@elseif($subetapa_metadatos>=10)
 						<li class="nav-item">
 							<a class="nav-link  pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
 						</li>
-					@endif
-
+				
 				</ul>	
 			</div>
 			<div class="tab-content">
 				<!--CATEGORÍA 1-->
-				@if($subetapa_metadatos>=2)
-				{{-- vista de edicion --}}
-					<div id="general" class="tab-pane">
-						@include('content.etapas.metadatos.general_edit')
-					</div>
-				@elseif($subetapa_metadatos==1) 
+				@if(is_null($proyecto->desarrollo->metadatos->general))
+	
 					<div id="general" class="tab-pane in active">
 						@include('content.etapas.metadatos.general')
+					</div>
+
+				@else
+					<div id="general" class="tab-pane ">
+						@include('content.etapas.metadatos.general_edit')
 					</div>
 				@endif
 				
 				<!--CATEGORÍA 2-->
-				@if($subetapa_metadatos>=3)
-				{{-- vista de edicion --}}
-				<div id="ciclo_de_vida" class="tab-pane">
-					@include('content.etapas.metadatos.ciclo_edit')
-				</div>
-				@elseif($subetapa_metadatos==2)
-					<div id="ciclo_de_vida" class="tab-pane in active">
+				@if(is_null($proyecto->desarrollo->metadatos->ciclo))
+					<div id="ciclo_de_vida" class="tab-pane">
 						@include('content.etapas.metadatos.ciclo')
+					</div>
+				@else
+					<div id="ciclo_de_vida" class="tab-pane ">
+						@include('content.etapas.metadatos.ciclo_edit')
 					</div>
 				@endif
 
 
 				<!--CATEGORÍA 3-->
-				@if($subetapa_metadatos>=4)
-				{{-- edicion --}}
-				<div id="meta_metadatos" class="tab-pane">
+				@if(is_null($proyecto->desarrollo->metadatos->metametadatos))
+				
+					<div id="meta_metadatos" class="tab-pane">
+						@include('content.etapas.metadatos.metametadatos')
+					</div>
+
+				@else
+				<div id="meta_metadatos" class="tab-pane in active">
 					@include('content.etapas.metadatos.metametadatos_edit')
 				</div>
-				@elseif($subetapa_metadatos==3)
-				<div id="meta_metadatos" class="tab-pane in active">
-					@include('content.etapas.metadatos.metametadatos')
-				</div>
+
 				@endif
 
 				<!--CATEGORÍA 4-->
-				@if($subetapa_metadatos>=5)
+				@if(is_null($proyecto->desarrollo->metadatos->tecnica))
 				{{-- edicion --}}
 					<div id="tecnica" class="tab-pane">
-						@include('content.etapas.metadatos.tecnica_edit')
+						@include('content.etapas.metadatos.tecnica')
 					</div>
-				@elseif($subetapa_metadatos==4)
+				@else
 					<div id="tecnica" class="tab-pane in active">
-							@include('content.etapas.metadatos.tecnica')
+							@include('content.etapas.metadatos.tecnica_edit')
 						</div>
 				@endif
 
 				<!--CATEGORÍA 5-->
-				@if($subetapa_metadatos>=6)
+				@if(is_null($proyecto->desarrollo->metadatos->educacional))
 				{{-- edicion --}}
 					<div id="educacional" class="tab-pane ">
-						@include('content.etapas.metadatos.educacional_edit')
-					</div>
-				@elseif($subetapa_metadatos==5)
-					<div id="educacional" class="tab-pane in active">
 						@include('content.etapas.metadatos.educacional')
+					</div>
+				@else
+					<div id="educacional" class="tab-pane in active">
+						@include('content.etapas.metadatos.educacional_edit')
 					</div>
 				@endif
 
 				<!--CATEGORÍA 6-->
-				@if($subetapa_metadatos>=7)
+				@if(is_null($proyecto->desarrollo->metadatos->derehcos))
 				{{-- edicion --}}
 				<div id="derechos_de_uso" class="tab-pane">
-					@include('content.etapas.metadatos.derechos_edit')
+					@include('content.etapas.metadatos.derechos')
 				</div>
-				@elseif($subetapa_metadatos==6)
+				@else
 					<div id="derechos_de_uso" class="tab-pane in active">
-						@include('content.etapas.metadatos.derechos')
+						@include('content.etapas.metadatos.derechos_edit')
 					</div>
 				@endif
 
 				<!--CATEGORÍA 7-->
-				@if($subetapa_metadatos>=8)
+				@if(is_null($proyecto->desarrollo->metadatos->relacion))
 				{{-- edicion --}}
 					<div id="relacion" class="tab-pane">
-						@include('content.etapas.metadatos.relacion_edit')
+						@include('content.etapas.metadatos.relacion')
 					</div>
-				@elseif($subetapa_metadatos==7)
+				@else
 				<div id="relacion" class="tab-pane in active">
-					@include('content.etapas.metadatos.relacion')
+					@include('content.etapas.metadatos.relacion_edit')
 				</div>
 				@endif
 				<!--CATEGORÍA 8-->
-				@if($subetapa_metadatos>=9)
+				@if(is_null($proyecto->desarrollo->metadatos->anotaciones))
 					<div id="anotaciones" class="tab-pane">
-						@include('content.etapas.metadatos.anotaciones_edit')
-					</div>
-				@elseif($subetapa_metadatos==8)
-					<div id="anotaciones" class="tab-pane in active">
 						@include('content.etapas.metadatos.anotaciones')
+					</div>
+				@else
+					<div id="anotaciones" class="tab-pane in active">
+						@include('content.etapas.metadatos.anotaciones_edit')
 					</div>
 				@endif
 				
 				<!--CATEGORÍA 9-->
 
-				@if($subetapa_metadatos>=10)
+				@if(is_null($proyecto->desarrollo->metadatos->clasificacion))
 				{{-- edicion --}}
 					<div id="clasificacion" class="tab-pane">
-						@include('content.etapas.metadatos.clasificacion_edit')
-					</div>
-				@elseif($subetapa_metadatos==9)
-					<div id="clasificacion" class="tab-pane in active">
 						@include('content.etapas.metadatos.clasificacion')
+					</div>
+				@else
+					<div id="clasificacion" class="tab-pane in active">
+						@include('content.etapas.metadatos.clasificacion_edit')
 					</div>
 				@endif
 			</div>

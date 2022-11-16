@@ -1,6 +1,7 @@
+
 <!doctype html>
 <html lang="es">
-
+@if (auth()->check())
 	<head>
 		@include('includes.head')
 		@livewireStyles 
@@ -33,5 +34,7 @@
 
 		@livewireScripts
 	</body>
+@else(Redirect::to('Bienvenida'))
+@endif
 
 </html>

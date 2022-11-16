@@ -1,4 +1,3 @@
-
 @extends('layouts.default')
  
 @section('content')
@@ -321,7 +320,8 @@
 				<div class="modal-header">
 					<h5 class="modal-title">DESICIONES TOMADAS EN RELACIÓN A LAS ACTIVIDADES DEL OA</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+						<span aria-hidden="true">&times;
+						</span>
 					</button>
 				</div>
 				<div class="modal-body">

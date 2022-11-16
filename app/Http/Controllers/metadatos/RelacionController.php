@@ -49,6 +49,10 @@ class RelacionController extends Controller
 
         $proyecto->desarrollo->metadatos->increment('subetapa',1);
         $decision= $proyecto->desarrollo->implementacion->decision;
+        if($proyecto->desarrollo->metadatos->subetapa>=10)
+        {
+            $proyecto->increment('etapa',1);
+        }
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
 
         
