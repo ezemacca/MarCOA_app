@@ -4,12 +4,21 @@
 
 	<div class="container-fluid e-publicacion">
 		<div class="row">
-			<div class="col text-center">			
+			<div class="col">
+			<div class="volver-flecha-blanca" >
+				<a href="{{route('principal',$proyecto)}}">
+					<img src="{{url('/images/MarCOA-18.png')}}" width="80%" height="80%"/>
+				</a>
+
+			</div>
+			</div>
+			<div class="col text-center">
 				<svg class="bi bi-tv-fill" width="50" height="50" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-					<path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"/>
+				<path fill-rule="evenodd" d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"/>
 				</svg>
 			</div>
 			<div class="col-10">
+				
 				<h1>ETAPA DE PUBLICACIÓN</h1>
 				<h2>Indicaciones acerca de cómo publicar el OA en distintos entornos tecnológicos</h2>
 			</div>
@@ -20,6 +29,7 @@
 					</svg>				
 				</a>					
 			</div>
+			
 		</div>
 	</div>	
 	

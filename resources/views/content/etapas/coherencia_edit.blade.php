@@ -2,18 +2,21 @@
  
 @section('content')
 
-	<div class="container-fluid" style="padding:10px">
+	<div class="container-fluid e-coherencia">
 		<div class="row">
-			<div class="col-1">
-			<div class="volver-flecha"  >
-					<a href="{{url('GestorProyectos')}}">
+			<div class="col">
+			<div class="volver-flecha-blanca"  >
+					<a href="{{route('principal',$proyecto)}}">
 						<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
 					</a>
 				</div>
 			</div>
 			<div class="col-10">
-				<h1 style="color:MEDIUMSEAGREEN">ANÁLISIS DE COHERENCIA INTERNA</h1>
-				<h2 style="color:MEDIUMSEAGREEN">Guía para asegurar coherencia interna entre los componentes del OA</h2>
+				<h1 style="color:white;">
+				ANÁLISIS DE COHERENCIA INTERNA (index)
+				</h1>
+				<h2 style="color:white;">
+				Guía para asegurar coherencia interna entre los componentes del OA</h2>
 			</div>
 			<div class="col text-right">
 				<a class="nav-link" data-toggle="modal" href="#analisis-coherencia">
@@ -91,33 +94,44 @@
 					</div>
 			
 					<div class="preg-guia">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" 
-							@if(
-									isset($proyecto->coherencia->coherencia_p3)
-									&&
-									($proyecto->coherencia->coherencia_p3==1)
-								)
-								checked
-							@endif
-							>
-							<label class="form-check-label" for="coherencia_p3">¿Los contenidos ofrecen la información pertinente para alcanzar el objetivo planteado?</label>		
-						</div>
-						<div class="form-check">
-							<div class="row">
-								<div class="col-11">
-									<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"
+						<div class="row">
+							<div class="col-11  text-left">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="coherencia_p3" id="coherencia_p3" name="coherencia[]" 
 									@if(
-									isset($proyecto->coherencia->coherencia_p4)
-									&&
-									($proyecto->coherencia->coherencia_p4==1)
-									)
-									checked
-								@endif
+											isset($proyecto->coherencia->coherencia_p3)
+											&&
+											($proyecto->coherencia->coherencia_p3==1)
+										)
+										checked
+									@endif
 									>
-									<label class="form-check-label" for="coherencia_p4">¿Los contenidos ofrecen más/menos información de la que es necesaria?</label>
+									<label class="form-check-label" for="coherencia_p3">¿Los contenidos ofrecen la información pertinente para alcanzar el objetivo planteado?</label>		
 								</div>
-								<div class="col text-right">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-11 text-left">
+								<div class="form-check">
+									<div class="row">
+										<div class="col-11">
+											<input class="form-check-input" type="checkbox" value="coherencia_p4" id="coherencia_p4" name="coherencia[]"
+											@if(
+											isset($proyecto->coherencia->coherencia_p4)
+											&&
+											($proyecto->coherencia->coherencia_p4==1)
+											)
+											checked
+										@endif
+											>
+											<label class="form-check-label" for="coherencia_p4">¿Los contenidos ofrecen más/menos información de la que es necesaria?</label>
+										</div>
+									</div>	
+								</div>
+							</div>
+						<div class="col-1 text-right">
 									<a class="nav-link" data-toggle="modal" href="#ver_contenidos">
 										<svg class="bi bi-search" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
@@ -125,8 +139,7 @@
 										</svg>	
 									</a>
 								</div>
-							</div>
-						</div>
+					</div>
 					</div>
 						
 					<div class="preg-guia">

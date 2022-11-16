@@ -56,7 +56,7 @@
 	<div class="col-10"
 		style=" padding-right:auto; padding-left: 30px;"
 		>
-		<div class="row"> 
+		<div class="row" style="height:18px"> 
 			<div class="col-1">
 			</div>
 			<div class="col">
@@ -230,7 +230,7 @@
 		{{-- ETAPA4 --}}
 	<div class="col-2">
 		@if($proyecto['etapa'] >= 4)
-						<a  href="{{route('publicacion')}}" role="button">
+						<a  href="{{route('publicacion',$proyecto)}}" role="button">
 							<img src="{{url('/images/MarCOA-10.png')}}" width="100%" height="100%"/>
 							<div class="progress" id="progress-bar-etapas">
 							<div 
@@ -328,7 +328,20 @@
 						</a>
 			
 		@else
-						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button">
+						<a class="btn btn-primary btn-lg btn-block e-coherencia" href="{{route('coherencia',$proyecto)}}" role="button"
+						style="
+						font-size: 16px;
+						border-radius: 0px;
+						padding: 10px 20px;}
+						:hover{
+							border-radius: 200px;
+							background-color: MEDIUMSEAGREEN;
+							border: 2px solid MEDIUMSEAGREEN;
+							
+							border: 2px solid BLACK !important; /**DARKRED;**/ 
+							box-shadow:none !important;
+						}
+						">
 							<p id="analisis-coherencia">
 								ANÁLISIS DE COHERENCIA INTERNA 
 							</p>

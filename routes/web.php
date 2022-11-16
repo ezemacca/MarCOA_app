@@ -81,7 +81,7 @@ Route::patch('/coherencia/update/{proyecto?}', 'App\Http\Controllers\CoherenciaC
 
 
 
-Route::get('/publicacion', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');
+Route::get('/publicacion/{proyecto}', 'App\Http\Controllers\PublicacionController@index')->name('publicacion');
 Route::get('/evaluacion', 'App\Http\Controllers\EvaluacionController@index')->name('evaluacion');
 Route::get('/configuracion', 'App\Http\Controllers\ConfiguracionController@index')->name('configuracion');
 

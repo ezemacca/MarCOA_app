@@ -3,23 +3,23 @@
  
 @section('content')
 
-	<div class="container-fluid" style="padding:10px">
+	<div class="container-fluid e-coherencia">
 		<div class="row">
-			<div class="col-1">
-			<div class="volver-flecha"  >
-					<a href="{{url('GestorProyectos')}}">
+			<div class="col">
+			<div class="volver-flecha-blanca"  >
+					<a href="{{route('principal',$proyecto)}}">
 						<img src="{{url('/images/MarCOA-18.png')}}" width="50%" height="50%"/>
 					</a>
 				</div>
 			</div>
 			<div class="col-10">
-				<h1 style="color:MEDIUMSEAGREEN">
+				<h1 style="color:white;">
 				ANÁLISIS DE COHERENCIA INTERNA (index)
 				</h1>
-				<h2 style="color:MEDIUMSEAGREEN">
+				<h2 style="color:white;">
 				Guía para asegurar coherencia interna entre los componentes del OA</h2>
 			</div>
-			<div class="col text-right">
+			<div class="col text-center">
 				<a class="nav-link" data-toggle="modal" href="#analisis-coherencia">
 					<svg class="bi bi-info-circle-fill a-croa" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					  <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
