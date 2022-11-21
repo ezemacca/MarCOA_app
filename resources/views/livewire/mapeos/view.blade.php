@@ -7,9 +7,9 @@
 					<div class="card-header">
 						<div style="display: flex; justify-content: space-between; align-items: center;">
 							
-							@if (session()->has('message'))
+							{{-- @if (session()->has('message'))
 							<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
-							@endif
+							@endif --}}
 							<div>
 								<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Buscar Mapeos">
 							</div>
@@ -27,7 +27,6 @@
 						<table class="table table-bordered ">
 							<thead class="thead">
 								<tr> 
-									 
 									<th>Nodo</th>
 									<th>Descripcion</th>
 									<th>Plantilla</th>

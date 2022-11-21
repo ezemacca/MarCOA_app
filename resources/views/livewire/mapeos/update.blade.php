@@ -3,12 +3,19 @@
     <div class="modal-dialog" role="document">
        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateModalLabel">Actualizar Mapeo</h5>
+                <h5 class="modal-title" id="updateModalLabel">Actualizar Mapeo
+                   @if (session()->has('message'))
+                            <br><br>
+                            <span wire:poll.4s class="btn btn-sm btn-success" > {{ session('message') }} </span>
+                    @endif 
+                </h5>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span wire:click.prevent="cancel()" aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
+
                 <form>
 					<input type="hidden" wire:model="selected_id">
          {{--    <div class="form-group">

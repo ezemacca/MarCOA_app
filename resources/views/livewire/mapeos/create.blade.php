@@ -3,7 +3,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createDataModalLabel">Crear nuevo mapeo</h5>
+                <h5 class="modal-title" id="createDataModalLabel">Crear nuevo mapeo
+                @if (session()->has('message'))
+                            <br><br>
+                            <span wire:poll.4s class="btn btn-sm btn-success" > {{ session('message') }} </span>
+                           
+                            @endif
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true close-btn">×</span>
                 </button>

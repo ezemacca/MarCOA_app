@@ -149,12 +149,12 @@
 								<div 
 								  class="progress-bar bg-blue" 
 								  role="progressbar" 
-								  style="width: {{(($proyecto->diseño->subetapa))*100/4 }}%" 
+								  style="width: {{intdiv(((($proyecto->diseño->subetapa)-1)*100), 3)}}%" 
 								  >
 							  	</div>
 							</div>		
 						 	<div id="porcentaje-etapas">
-						  		{{ (($proyecto->diseño->subetapa))*100/4 }}
+						  		{{ intdiv(((($proyecto->diseño->subetapa)-1)*100), 3) }}
 						  		% 
 						  	</div>	
 						</a>
@@ -166,12 +166,18 @@
 								<div 
 								  class="progress-bar bg-blue" 
 								  role="progressbar" 
-								  style="width: {{(($proyecto->diseño->subetapa))*100/4 }}%" 
+								  style="width: 
+								  {{
+								  	intdiv(((($proyecto->diseño->subetapa)-1)*100), 3)
+								  }}%" 
 								  >
 							  	</div>
 							</div>		
+							
 						 	<div id="porcentaje-etapas">
-						  		{{ (($proyecto->diseño->subetapa))*100/4 }}
+						  		{{ 
+						  			intdiv(((($proyecto->diseño->subetapa)-1)*100), 3);
+						  		}}
 						  		% 
 
 						  	</div>	
