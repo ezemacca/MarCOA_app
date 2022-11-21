@@ -10,10 +10,7 @@
             </div>
            <div class="modal-body">
 				<form>
-          {{--   <div class="form-group">
-                <label for="multimedial_id">Multi</label>
-                <input wire:model="multimedial_id" type="text" class="form-control" id="multimedial_id" placeholder="Multimedial Id">@error('multimedial_id') <span class="error text-danger">{{ $message }}</span> @enderror
-            </div> --}}
+        
             <div class="form-group">
                 <label for="nodo">Nodo</label>
                 <input wire:model="nodo" type="text" class="form-control" id="nodo" placeholder="Nodo">@error('nodo') <span class="error text-danger">{{ $message }}</span> @enderror

@@ -134,7 +134,7 @@
 			</div>
 			@else
 				<a >
-					<img src="{{url('/images/gris/analisis.jpeg')}}" width="100%" height="100%"/>					
+					<img src="{{url('/images/marcoa-gris/analisis.jpeg')}}" width="100%" height="100%"/>					
 				</a>
 			@endif
 	</div>
@@ -179,7 +179,7 @@
 		@else
 			
 						<a    >
-								<img src="{{url('/images/marcoa-gris/diseño.jpeg')}}" width="100%"height="100%"/>
+								<img src="{{url('/images/marcoa-gris/diseno.jpeg')}}" width="100%"height="100%"/>
 							
 						</a>
 		@endif
