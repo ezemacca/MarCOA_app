@@ -38,40 +38,43 @@ class AnalisisController extends Controller
 		}
 	}
 
-	public function store($proyecto)
+	public function store(Proyecto $proyecto, Request $request)
 	{
+		if(is_null($proyecto->analisis()->first()))
+		{
+				
+				
+				$proyecto->analisis()->create([
+					'analisis_p1'=>request('analisis_p1'),
+					'analisis_p2'=>request('analisis_p2'),
+					'analisis_p3'=>request('analisis_p3'),
+					'analisis_p4'=>request('analisis_p4'),
+					'analisis_p5'=>request('analisis_p5'),
+					'analisis_p6'=>request('analisis_p6'),
+				]);
 
-		$proyecto= Proyecto::find($proyecto);
-		
-		$proyecto->analisis()->create([
-			'analisis_p1'=>request('analisis_p1'),
-			'analisis_p2'=>request('analisis_p2'),
-			'analisis_p3'=>request('analisis_p3'),
-			'analisis_p4'=>request('analisis_p4'),
-			'analisis_p5'=>request('analisis_p5'),
-			'analisis_p6'=>request('analisis_p6'),
-		]);
+				$diseño = new Diseño(['subetapa'=>1]);
 
-		$diseño = new Diseño(['subetapa'=>1]);
+				$proyecto->diseño()->save($diseño);
 
-		$proyecto->diseño()->save($diseño);
-
-		$proyecto->update(['etapa'=> DB::raw('etapa+1') ]);
-		if($_POST['guardar'] == 'guardar'){
+				$proyecto->update(['etapa'=> DB::raw('etapa+1') ]);
+				if($_POST['guardar'] == 'guardar'){
+					
+					return redirect()-> route('principal', $proyecto);
 			
-			return redirect()-> route('principal', $proyecto);
-	
-				
+						
+				}else{
+				 	$analisis=$proyecto->analisis()->first();
+					$pdf = PDF::loadView('content.etapas.analisis_pdf',['analisis'=>$analisis]);
+						
+					$pdf->setPaper('legal');
+					$pdf->set_option( 'dpi' , '300' );
+					return $pdf->download();
+				}
 		}else{
-		 	$analisis=$proyecto->analisis()->first();
-			$pdf = PDF::loadView('content.etapas.analisis_pdf',['analisis'=>$analisis]);
-				
-			$pdf->setPaper('legal');
-			$pdf->set_option( 'dpi' , '300' );
-			return $pdf->download();
-			 redirect()-> route('principal', $proyecto);
-		}
-		}
+            return redirect()->route('principal', $proyecto);
+     }
+	}
 		
 
 	
@@ -87,6 +90,7 @@ class AnalisisController extends Controller
 	}
 
 	public function update(Proyecto $proyecto, Request $request){
+		
 		$analisis=$proyecto->analisis;
 		$analisis->update([
 			'analisis_p1'=>request('analisis_p1'),
@@ -96,9 +100,10 @@ class AnalisisController extends Controller
 			'analisis_p5'=>request('analisis_p5'),
 			'analisis_p6'=>request('analisis_p6'),
 		]);
+
 		if($_POST['actualizar'] == 'actualizar'){
-			
-			return redirect()-> route('principal', $proyecto);
+
+			return redirect()->route('principal', $proyecto);
 	
 				
 		}else{
@@ -107,6 +112,7 @@ class AnalisisController extends Controller
 				
 			$pdf->setPaper('legal');
 			$pdf->set_option( 'dpi' , '300' );
+			
 			return $pdf->download();
 		}
 
