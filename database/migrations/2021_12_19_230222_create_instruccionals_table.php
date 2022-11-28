@@ -35,10 +35,10 @@ class CreateInstruccionalsTable extends Migration
             ->unique()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->text('instruccional_p1');
-            $table->text('instruccional_p2');
-            $table->text('instruccional_p3');
-            $table->text('instruccional_p4');
+            $table->text('instruccional_p1')->nullable();
+            $table->text('instruccional_p2')->nullable();
+            $table->text('instruccional_p3')->nullable();
+            $table->text('instruccional_p4')->nullable();
         });
     }
 

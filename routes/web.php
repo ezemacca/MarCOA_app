@@ -66,11 +66,13 @@ Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')-
 Route::get('/definicion', 'App\Http\Controllers\DefinicionController@index')->name('definicion');
 
 Route::patch('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@update')->name('analisis.update');
-Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
+Route::post('/analisis/{proyecto},','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
 Route::get('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@index')->name('analisis');
 Route::get('/analisis/{id}/editar','App\Http\Controllers\AnalisisController@edit')->name('analisis.edit');
+
 Route::get('/analisis/{id}/generar_pdf','App\Http\Controllers\AnalisisController@generar_pdf')->name('analisis.pdf');
 
+Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
 
 
 Route::get('/coherencia/index/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');

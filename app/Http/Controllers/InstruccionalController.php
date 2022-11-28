@@ -55,7 +55,22 @@ class InstruccionalController extends Controller
 
          $diseño->increment('subetapa',1);
 
-        return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first()]);
+        if($_POST['guardar'] == 'guardar'){
+            return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first()]);
+        }else{
+            $instruccional=$proyecto->diseño->instruccional()->first();
+            $pdf = PDF::loadView('content.etapas.includes.instruccional_pdf',['instruccional'=>$instruccional]);
+            
+            $pdf->setPaper('legal');
+            $pdf->set_option( 'dpi' , '300' );
+           
+            return $pdf->download(); //stream() para que no descargue
+
+            redirect()->view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first()]);
+
+        }  
+
+
     }
 
     /**
@@ -115,6 +130,8 @@ class InstruccionalController extends Controller
             'subetapa'=> $subetapa,
             'estructura'=>$estructura, 
             'multimedial'=>$multimedial]);
+
+
     }
 
     /**

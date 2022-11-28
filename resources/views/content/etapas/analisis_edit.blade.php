@@ -210,7 +210,7 @@
 					</a>
 				</div>
 			</div>
-			 <textarea id="editor6" type="text" class="form-control" name="analisis_p6" > {{$analisis->analisis_p6 }}</textarea>
+			 <textarea id="editor6" type="text" class="form-control" name="analisis_p6" > {{$analisis->analisis_p6}}</textarea>
 		 	<script>
 
 				ClassicEditor
@@ -230,7 +230,7 @@
 			<div class="row">
 				<div class="col text-left">
 					<div class="conteiner-fluid text-left">
-						<button class="btn btn-secondary e-analisis">
+						<button type="submit" name="actualizar" value="actualizar"  class="btn btn-secondary e-analisis">
 							<svg class="bi bi-search" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
 								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
 								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -240,13 +240,13 @@
 					</div>	
 				</div>
 				<div class="col text-right">
-					<a class="btn btn-secondary boton-generar" href="{{route('analisis.pdf',$proyecto->id)}}" role="button">
+					<button type="submit" name="actualizar" value="actualizar-pdf" class="btn btn-secondary boton-generar" >
 						<svg class="bi bi-box-arrow-down" width="30" height="30" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" d="M6.646 13.646a.5.5 0 01.708 0L10 16.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 							<path fill-rule="evenodd" d="M10 6.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V7a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
 							<path fill-rule="evenodd" d="M4.5 4A1.5 1.5 0 016 2.5h8A1.5 1.5 0 0115.5 4v7a1.5 1.5 0 01-1.5 1.5h-1.5a.5.5 0 010-1H14a.5.5 0 00.5-.5V4a.5.5 0 00-.5-.5H6a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h1.5a.5.5 0 010 1H6A1.5 1.5 0 014.5 11V4z" clip-rule="evenodd"></path>
 						</svg>	
-					</a>
+					</button>
 				</div>
 			</div>
 		</form>

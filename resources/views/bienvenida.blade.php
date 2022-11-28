@@ -107,7 +107,9 @@
                 @if (Route::has('register'))
                     <br><br><br><br>
                     <div class="container-fluid text-center">    
-                        <a class="btn btn-primary" href="{{ route('register') }}" role="button">Registrarse</a>
+                    <a class="btn btn-primary" href="{{ route('register') }}" role="button">
+                        Registrarse
+                    </a>
                     </div>
                 @endif  
             </div>

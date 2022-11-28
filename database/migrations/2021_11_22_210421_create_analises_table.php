@@ -21,13 +21,13 @@ class CreateAnalisesTable extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->text('analisis_p1');
-            $table->text('analisis_p2');
-            $table->text('analisis_p3');
-            $table->text('analisis_p4');
-            $table->text('analisis_p5');
-            $table->text('analisis_p6');
-            $table->timestamps();
+            $table->text('analisis_p1')->nullable();
+            $table->text('analisis_p2')->nullable();
+            $table->text('analisis_p3')->nullable();
+            $table->text('analisis_p4')->nullable();
+            $table->text('analisis_p5')->nullable();
+            $table->text('analisis_p6')->nullable();
+            $table->timestamps()->nullable();
         });
     }
 

@@ -69,8 +69,11 @@
           <br>
           <span class="analisis-text">
             
+            @if(isset($analisis->analisis_p1))
             {!! $analisis->analisis_p1 !!} 
-            
+            @else
+              Campo incompleto.
+            @endif
           </span>
           <br><br><hr><br>
            <span class="analisis-titulo">
@@ -78,9 +81,12 @@
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p2 !!} 
-            
+            @if(isset($analisis->analisis_p2))
+              {!! $analisis->analisis_p2 !!} 
+            @else
+              Campo incompleto.
+            @endif
+
           </span>
           <br><br><hr><br><br>
            <span class="analisis-titulo">
@@ -88,9 +94,11 @@
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p3 !!} 
-            
+            @if(isset($analisis->analisis_p3))
+              {!! $analisis->analisis_p3 !!} 
+            @else
+              Campo incompleto.
+            @endif
           </span>
           <br><br><hr><br><br>
            <span class="analisis-titulo">
@@ -98,9 +106,11 @@
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p4 !!} 
-            
+            @if(isset($analisis->analisis_p4))
+              {!! $analisis->analisis_p4 !!} 
+            @else
+              Campo incompleto.
+            @endif
           </span>
           <br><br><hr><br><br>
            <span class="analisis-titulo">
@@ -108,9 +118,11 @@
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p5 !!} 
-            
+           @if(isset($analisis->analisis_p5))
+              {!! $analisis->analisis_p5 !!} 
+            @else
+              Campo incompleto.
+            @endif 
           </span>
           <br><br><hr><br><br>
            <span class="analisis-titulo">
@@ -118,9 +130,11 @@
           </span>
           <br>
           <span class="analisis-text">
-            
-            {!! $analisis->analisis_p6 !!} 
-            
+            @if(isset($analisis->analisis_p6))
+              {!! $analisis->analisis_p6 !!} 
+            @else
+              Campo incompleto.
+            @endif
           </span>
         </div>
       

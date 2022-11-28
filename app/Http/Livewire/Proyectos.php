@@ -49,7 +49,7 @@ class Proyectos extends Component
 		// 'etapa' => 'required',
         ]);
 
-        Proyecto::create([ 
+        $proyecto=Proyecto::create([ 
 			'user_id' => Auth::user()->id,
 			'titulo' => $this-> titulo,
 			'descripcion' => $this-> descripcion,
@@ -57,8 +57,9 @@ class Proyectos extends Component
         ]);
         
         $this->resetInput();
-		$this->emit('closeModal');
-		session()->flash('message', 'Proyecto Successfully created.');
+		// $this->emit('closeModal');
+		// session()->flash('message', 'Proyecto Successfully created.');
+		return redirect()->route('principal',$proyecto);
     }
 
     public function edit($id)

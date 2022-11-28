@@ -6,14 +6,8 @@
 				<div class="center">
 					
 						<p> No hay proyectos para mostrar</p>
-					<br>
-						<p> Desea crear un proyecto nuevo?</p>
-					<br>
-							<a  href="{{route('creacion')}}" >
-								<img src="{{url('/images/MarCOA-19.png')}}" width="220px" height="220px"/> 
-							</a>
 				</div>
-			@else
+			@endif
 				<div class="card">
 					<div class="card-header">
 						<div style="display: flex; justify-content: space-between; align-items: center;">
@@ -75,11 +69,17 @@
 										  role="progressbar" 
 										  style="width: {{ ($row->etapa)*100/5-20 }}%" 
 										  >
-
-										  	<div style="color:white;">
+										  	@if($row->etapa==1)
+										  		<div style="color:black;">
 										  		{{ ($row->etapa)*100/5-20 }}
-										  		% 
-										  	</div>
+											  		% 
+											  	</div>
+											 @else
+											  	<div style="color:white;">
+										  		{{ ($row->etapa)*100/5-20 }}
+											  		% 
+											  	</div>
+										  	@endif
 										  	</div>
 										</div>	
 									</td>
@@ -136,7 +136,7 @@
 						</div>
 					</div>
 				</div>
-			@endif
+			
 		</div>
 	</div>
 </div>

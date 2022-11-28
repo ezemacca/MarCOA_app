@@ -10,10 +10,10 @@
 							{{-- @if (session()->has('message'))
 							<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
 							@endif --}}
-							<div>
+							{{-- <div>
 								<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Buscar Mapeos">
-							</div>
-							<div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
+							</div> --}}
+							<div class="btn btn-sm btn-info"  data-toggle="modal" data-target="#createDataModal">
 							<i class="fa fa-plus"></i>  Agregar Mapeo
 							</div>
 						</div>
