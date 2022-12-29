@@ -89,9 +89,9 @@
                 </div>
                 <div class="btn-group" role="group" >   
                  @if (Route::has('password.request'))
-                    <button class="btn btn-primary"  href="{{ route('password.request') }}">
+                    <a class="btn btn-primary"  href="{{ route('password.request') }}">
                             {{ __('Olvidé mi contraseña') }}
-                    </button>
+                    </a>
 
                     @endif
                 </div>

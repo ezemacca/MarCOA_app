@@ -142,10 +142,10 @@
 							} );
 					</script>
 				</div>				
-				<input type="hidden" value="{{$proyecto}}" name="proyecto_id">
+				
 				<div class="row">
 					<div class="col text-left">
-						</button>
+						
 						<div class="conteiner-fluid text-left">
 							<button type="submit" name="guardar" value="guardar" class="btn btn-secondary e-diseño">
 								<svg class="bi bi-brush" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">

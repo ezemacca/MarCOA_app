@@ -41,37 +41,38 @@ class InstruccionalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Proyecto $proyecto, Request $request)
-    {
-        
-        if(is_null($diseño->instruccional()))
+    {   
+        if(is_null($proyecto->diseño->instruccional()->first()))
         {
-            $diseño= $proyecto->diseño;
-            $diseño->instruccional()->create([
+            $proyecto->diseño->instruccional()->create([
                 'instruccional_p1'=>request('instruccional_p1'),
                 'instruccional_p2'=>request('instruccional_p2'),
                 'instruccional_p3'=>request('instruccional_p3'),
                 'instruccional_p4'=>request('instruccional_p4'),
             ]);
-            
-
-             $diseño->increment('subetapa',1);
+            $proyecto->diseño->increment('subetapa',1);
 
             if($_POST['guardar'] == 'guardar'){
-                return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first()]);
-            }else{
+                return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=> $proyecto->diseño->subetapa, 'instruccional'=> $proyecto->diseño->instruccional()->first()]);
+            }
+            else
+            {
                 $instruccional=$proyecto->diseño->instruccional()->first();
                 $pdf = PDF::loadView('content.etapas.includes.instruccional_pdf',['instruccional'=>$instruccional]);
-                
                 $pdf->setPaper('legal');
                 $pdf->set_option( 'dpi' , '300' );
-               
                 return $pdf->download(); //stream() para que no descargue
-
-                redirect()->view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first()]);
-            } 
+            }
         }else{
-            $this->update($proyecto,$request);
+            $proyecto->diseño->instruccional()->update([
+            'instruccional_p1'=>request('instruccional_p1'),
+            'instruccional_p2'=>request('instruccional_p2'),
+            'instruccional_p3'=>request('instruccional_p3'),
+            'instruccional_p4'=>request('instruccional_p4'),
+            ]);
+            return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=> $proyecto->diseño->subetapa, 'instruccional'=> $proyecto->diseño->instruccional()->first()]);
         }
+        
 
     }
 
@@ -125,6 +126,7 @@ class InstruccionalController extends Controller
             'instruccional_p3'=>request('instruccional_p3'),
             'instruccional_p4'=>request('instruccional_p4'),
         ]);
+
         if($_POST['actualizar'] == 'actualizar'){
 
         return view('content.etapas.diseño',
@@ -135,7 +137,7 @@ class InstruccionalController extends Controller
             'estructura'=>$estructura, 
             'multimedial'=>$multimedial]);
 
-        else{
+        }else{
             $instruccional=$proyecto->diseño->instruccional()->first();
             $pdf = PDF::loadView('content.etapas.includes.instruccional_pdf',['instruccional'=>$instruccional]);
             

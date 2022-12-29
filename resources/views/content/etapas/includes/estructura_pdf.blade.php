@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="english">
   <head>
     <title>exported project</title>
@@ -49,6 +50,12 @@
     <link rel="stylesheet" type="text/css" href="{{ public_path('css/pdf/style.css')}}"/>
   </head>
   <body>
+    @php
+      $path = 'logoweb.png';
+      $type = pathinfo($path, PATHINFO_EXTENSION);
+      $data = file_get_contents($path);
+      $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    @endphp
     <div>
       <link rel="stylesheet" type="text/css" href="{{ public_path('css/pdf/analisis.css')}}" />
 
@@ -79,6 +86,11 @@
             Archivo Cargado en el sistema: 
             <br> 
             <p>{!! $estructura->estructura_p2 !!} </p>
+            
+            <img src="<?php echo $base64?>" width="150" height="150"/>
+
+
+            <img src="{{ asset('img/' . $estructura->estructura_p2) }}" />
             
           </span>
          

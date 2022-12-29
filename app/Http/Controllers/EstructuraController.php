@@ -44,29 +44,34 @@ class EstructuraController extends Controller
         $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)
         ->first();
 
-        if($request->hasFile('estructura_p2'))
+        if(is_null($proyecto->diseño->instruccional()->first()))
         {
-            $diseño->estructura()
-            ->create([
-                        'estructura_p1'=>request('estructura_p1'),
-                        'estructura_p2'=>$request->file('estructura_p2')->store('estructura_p2')
-            ]);
+            if($request->hasFile('estructura_p2'))
+            {
+                $diseño->estructura()
+                ->create([
+                            'estructura_p1'=>request('estructura_p1'),
+                            'estructura_p2'=>$request->file('estructura_p2')->store('estructura_p2')
+                ]);
 
-            $diseño->increment('subetapa',1);
+                $diseño->increment('subetapa',1);
 
-            $multimedial=$diseño->multimedial()
-            ->create([
-                        'diseño_mult_p1'=>null
+                $multimedial=$diseño->multimedial()
+                ->create([
+                            'diseño_mult_p1'=>null
 
-            ]); 
+                ]); 
 
-            return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
+                return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
 
-        }else{ 
+            }else{ 
 
-             return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
+                 return view('content.etapas.diseño', ['proyecto'=>$proyecto, 'subetapa'=>$diseño->subetapa, 'instruccional'=>$diseño->instruccional()->first(), 'estructura'=>$diseño->estructura()->first()]);
+            }
+        }else
+        {
+            $estructura->update(['estructura_p1'=>request('estructura_p1')]);
         }
-
         }
 
     /**
@@ -114,15 +119,22 @@ class EstructuraController extends Controller
         {
             $request->file('estructura_p2')->store('estructura_p2');
         }
+        if($_POST['actualizar'] == 'actualizar'){
 
-        return view('content.etapas.diseño', 
-            ['proyecto'=>$proyecto,
-            'subetapa'=>$diseño->subetapa,
-            'instruccional'=>$diseño->instruccional()->first(),
-            'estructura'=>$diseño->estructura()->first(),
-            'subetapa'=> $subetapa,
-            'multimedial'=>$multimedial
-        ]);
+            return view('content.etapas.diseño', 
+                ['proyecto'=>$proyecto,
+                'subetapa'=>$diseño->subetapa,
+                'instruccional'=>$diseño->instruccional()->first(),
+                'estructura'=>$diseño->estructura()->first(),
+                'subetapa'=> $subetapa,
+                'multimedial'=>$multimedial
+            ]);
+        }else{
+            $pdf = PDF::loadView('content.etapas.includes.estructura_pdf',['estructura'=>$estructura]);
+            $pdf->setPaper('legal');
+            $pdf->set_option( 'dpi' , '300' );
+            return $pdf->download();
+        }
     }
 
     /**
