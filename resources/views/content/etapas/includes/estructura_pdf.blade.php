@@ -51,10 +51,11 @@
   </head>
   <body>
     @php
-      $path = 'logoweb.png';
-      $type = pathinfo($path, PATHINFO_EXTENSION);
-      $data = file_get_contents($path);
-      $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+      $path = Storage::url($estructura->estructura_p2);
+      // $type = pathinfo($path, PATHINFO_EXTENSION);
+      // $data = file_get_contents($estructura->estructura_p2);
+      // $data =Storage::get($path);
+      // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     @endphp
     <div>
       <link rel="stylesheet" type="text/css" href="{{ public_path('css/pdf/analisis.css')}}" />
@@ -85,12 +86,11 @@
             
             Archivo Cargado en el sistema: 
             <br> 
-            <p>{!! $estructura->estructura_p2 !!} </p>
+            {{-- <p>{!! $estructura->estructura_p2 !!} </p> --}}
             
-            <img src="<?php echo $base64?>" width="150" height="150"/>
+            {{-- <img src="{{$path}}"/> --}}
+            <img src="{{!!$path!!}}">
 
-
-            <img src="{{ asset('img/' . $estructura->estructura_p2) }}" />
             
           </span>
          

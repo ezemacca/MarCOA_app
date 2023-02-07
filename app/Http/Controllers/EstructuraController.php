@@ -10,6 +10,7 @@ use Anam\PhantomMagick\Converter;
 use Fpdf\Fpdf;
 use App;
 use Response;
+use Illuminate\Support\Facades\Storage; 
 
 class EstructuraController extends Controller
 {
@@ -44,7 +45,7 @@ class EstructuraController extends Controller
         $diseño= Diseño::where('proyecto_id', '=', $proyecto->id)
         ->first();
 
-        if(is_null($proyecto->diseño->instruccional()->first()))
+        if(is_null($proyecto->diseño->estructura()->first()))
         {
             if($request->hasFile('estructura_p2'))
             {
@@ -70,7 +71,7 @@ class EstructuraController extends Controller
             }
         }else
         {
-            $estructura->update(['estructura_p1'=>request('estructura_p1')]);
+            $diseño->estructura->update(['estructura_p1'=>request('estructura_p1')]);
         }
         }
 
@@ -155,6 +156,8 @@ class EstructuraController extends Controller
         $pdf = PDF::loadView('content.etapas.includes.estructura_pdf',['estructura'=>$estructura]);
         $pdf->setPaper('legal');
         $pdf->set_option( 'dpi' , '300' );
-        return $pdf->download();
+
+         // return $pdf->download();
+     return $pdf->stream();
     }
 }

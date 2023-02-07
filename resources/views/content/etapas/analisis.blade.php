@@ -30,11 +30,6 @@
 		</div>
 	</div>
 </div>				
-
-
-
-	
-	
 		<div class="container-fluid cont-formulario">
 			<form method="POST" action="{{ route('analisis.store', $proyecto)}}">
 				@csrf

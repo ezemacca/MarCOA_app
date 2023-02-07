@@ -3,6 +3,10 @@
         <x-slot name="logo">
             
         </x-slot>
+
+    <div class="grid-container" style="grid-template-columns: 400px 200px ;">
+
+        <div class="grid-item">
         <a style="font-family: 'Raleway';font-size: 25px; font-weight: 900;">
                 RESTABLECER CONTRASEÑA
             </a>
@@ -29,6 +33,23 @@
                     {{ __('Enviar link para reiniciar contraseña') }}
                 </x-button>
             </div>
+            
         </form>
-    </x-auth-card>
+
+    
+    </div>
+    <div class="grid-item">
+        <br>
+            <div class="mb-4 text-gray-600" style="font-family: 'Raleway';font-size: 15px; font-weight: 900;">
+                {{ __('Si recuerda su contraseña, inicie sesión') }}
+            </div>
+            <a  
+            class="btn btn-primary"
+            style="font-family: 'Raleway';font-size: 14px; font-weight: 900; "
+            href="{{url('/')}}" >
+                Iniciar sesión
+            </a>
+    </div>
+</div>
+</x-auth-card>
 </x-guest-layout>
