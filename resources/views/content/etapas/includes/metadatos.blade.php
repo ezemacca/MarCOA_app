@@ -48,7 +48,7 @@
 	</div>
 	<div class="tab-content">
 		<!--CATEGORÍA 1-->
-		@if(is_null($proyecto->desarrollo->metadatos->general))
+		@if(is_null($proyecto->desarrollo->metadatos->general()->first()))
 			<div id="general" class="tab-pane in active">
 				@include('content.etapas.metadatos.general')
 			</div>
@@ -60,7 +60,7 @@
 		@endif
 		
 		<!--CATEGORÍA 2-->
-		@if(is_null($proyecto->desarrollo->metadatos->ciclo))
+		@if(is_null($proyecto->desarrollo->metadatos->ciclo()->first()))
 			<div id="ciclo_de_vida" class="tab-pane">
 				@include('content.etapas.metadatos.ciclo')
 			</div>
@@ -72,7 +72,7 @@
 
 
 		<!--CATEGORÍA 3-->
-		@if(is_null($proyecto->desarrollo->metadatos->metametadatos))
+		@if(is_null($proyecto->desarrollo->metadatos->metametadatos()->first()))
 		
 			<div id="meta_metadatos" class="tab-pane">
 				@include('content.etapas.metadatos.metametadatos')
@@ -86,7 +86,7 @@
 		@endif
 
 		<!--CATEGORÍA 4-->
-		@if(is_null($proyecto->desarrollo->metadatos->tecnica))
+		@if(is_null($proyecto->desarrollo->metadatos->tecnica()->first()))
 		{{-- edicion --}}
 			<div id="tecnica" class="tab-pane">
 				@include('content.etapas.metadatos.tecnica')
@@ -98,7 +98,7 @@
 		@endif
 
 		<!--CATEGORÍA 5-->
-		@if(is_null($proyecto->desarrollo->metadatos->educacional))
+		@if(is_null($proyecto->desarrollo->metadatos->educacional()->first()))
 		{{-- edicion --}}
 			<div id="educacional" class="tab-pane ">
 				@include('content.etapas.metadatos.educacional')
@@ -110,7 +110,7 @@
 		@endif
 
 		<!--CATEGORÍA 6-->
-		@if(is_null($proyecto->desarrollo->metadatos->derehcos))
+		@if(is_null($proyecto->desarrollo->metadatos->derechos()->first()))
 		{{-- edicion --}}
 		<div id="derechos_de_uso" class="tab-pane">
 			@include('content.etapas.metadatos.derechos')
@@ -122,7 +122,7 @@
 		@endif
 
 		<!--CATEGORÍA 7-->
-		@if(is_null($proyecto->desarrollo->metadatos->relacion))
+		@if(is_null($proyecto->desarrollo->metadatos->relacion()->first()))
 		{{-- edicion --}}
 			<div id="relacion" class="tab-pane">
 				@include('content.etapas.metadatos.relacion')
@@ -133,7 +133,7 @@
 		</div>
 		@endif
 		<!--CATEGORÍA 8-->
-		@if(is_null($proyecto->desarrollo->metadatos->anotaciones))
+		@if(is_null($proyecto->desarrollo->metadatos->anotaciones()->first()))
 			<div id="anotaciones" class="tab-pane">
 				@include('content.etapas.metadatos.anotaciones')
 			</div>
@@ -145,7 +145,7 @@
 		
 		<!--CATEGORÍA 9-->
 
-		@if(is_null($proyecto->desarrollo->metadatos->clasificacion))
+		@if(is_null($proyecto->desarrollo->metadatos->clasificacion()->first()))
 		{{-- edicion --}}
 			<div id="clasificacion" class="tab-pane">
 				@include('content.etapas.metadatos.clasificacion')
