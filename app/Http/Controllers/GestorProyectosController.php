@@ -46,14 +46,14 @@ class GestorProyectosController extends Controller
     {
        // $usuario=Auth::user()->id;
         
-         Proyecto::create([
+        $proyecto= Proyecto::create([
             'user_id'=> Auth::user()->id,
             'titulo'=> request('nom_proy'),
             'descripcion'=> request('desc_proy'),
             'etapa'=> '1',
         ]);
 
-        return redirect()->route('GestorProyectos');
+        return redirect()->route('principal',$proyecto);
 
 
     }

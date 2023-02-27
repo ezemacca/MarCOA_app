@@ -9,39 +9,39 @@
 	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 				<li class="nav-item active">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#general">1. GENERAL</a>
+					<button id="general-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#general">1. GENERAL</button>
 				</li>
 			
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#ciclo_de_vida">2. CICLO DE VIDA</a>
+					<button class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#ciclo_de_vida">2. CICLO DE VIDA</button>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#meta_metadatos">3. META-METADATOS</a>
+					<a id="meta_metadatos-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#meta_metadatos">3. META-METADATOS</a>
 				</li>
 			
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#tecnica">4. TÉCNICA</a>
+					<a id="tecnica-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#tecnica">4. TÉCNICA</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#educacional">5. EDUCACIONAL</a>
+					<a id="educacional-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#educacional">5. EDUCACIONAL</a>
 				</li>
 	
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#derechos_de_uso">6. DERECHOS DE USO</a>
+					<a id="derechos_de_uso-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#derechos_de_uso">6. DERECHOS DE USO</a>
 				</li>
 		
 				<li class="nav-item">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#relacion">7. RELACIÓN</a>
+					<a id="relacion-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#relacion">7. RELACIÓN</a>
 				</li>
 		
 				<li class="nav-item ">
-					<a class="nav-link pestaña pestaña-pequeña" data-toggle="tab" href="#anotaciones">8. ANOTACIONES</a>
+					<a id="anotaciones-tab" class="nav-link pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#anotaciones">8. ANOTACIONES</a>
 				</li>
 			
 				<li class="nav-item">
-					<a class="nav-link  pestaña pestaña-pequeña" data-toggle="tab" href="#clasificacion">9. CLASIFICACIÓN</a>
+					<a id="clasificacion-tab" class="nav-link  pestaña pestaña-pequeña" data-bs-toggle="tab" data-bs-target="#clasificacion">9. CLASIFICACIÓN</a>
 				</li>
 		
 		</ul>	
@@ -49,23 +49,23 @@
 	<div class="tab-content">
 		<!--CATEGORÍA 1-->
 		@if(is_null($proyecto->desarrollo->metadatos->general()->first()))
-			<div id="general" class="tab-pane in active">
+			<div id="general" aria-labelledby="general-tab" role="tabpanel" class="tab-pane fade show active" >
 				@include('content.etapas.metadatos.general')
 			</div>
 
 		@else
-			<div id="general" class="tab-pane ">
+			<div id="general" aria-labelledby="general-tab" class="tab-pane fade show active">
 				@include('content.etapas.metadatos.general_edit')
 			</div>
 		@endif
 		
 		<!--CATEGORÍA 2-->
 		@if(is_null($proyecto->desarrollo->metadatos->ciclo()->first()))
-			<div id="ciclo_de_vida" class="tab-pane">
+			<div id="ciclo_de_vida" aria-labelledby="ciclo_de_vida-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.ciclo')
 			</div>
 		@else
-			<div id="ciclo_de_vida" class="tab-pane ">
+			<div id="ciclo_de_vida" aria-labelledby="ciclo_de_vida-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.ciclo_edit')
 			</div>
 		@endif
@@ -74,12 +74,12 @@
 		<!--CATEGORÍA 3-->
 		@if(is_null($proyecto->desarrollo->metadatos->metametadatos()->first()))
 		
-			<div id="meta_metadatos" class="tab-pane">
+			<div id="meta_metadatos" aria-labelledby="meta_metadatos-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.metametadatos')
 			</div>
 
 		@else
-		<div id="meta_metadatos" class="tab-pane ">
+		<div id="meta_metadatos" aria-labelledby="meta_metadatos-tab" role="tabpanel" class="tab-pane fade">
 			@include('content.etapas.metadatos.metametadatos_edit')
 		</div>
 
@@ -88,11 +88,11 @@
 		<!--CATEGORÍA 4-->
 		@if(is_null($proyecto->desarrollo->metadatos->tecnica()->first()))
 		{{-- edicion --}}
-			<div id="tecnica" class="tab-pane">
+			<div id="tecnica" aria-labelledby="tecnica-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.tecnica')
 			</div>
 		@else
-			<div id="tecnica" class="tab-pane ">
+			<div id="tecnica" aria-labelledby="tecnica-tab" role="tabpanel" class="tab-pane fade">
 					@include('content.etapas.metadatos.tecnica_edit')
 				</div>
 		@endif
@@ -100,11 +100,11 @@
 		<!--CATEGORÍA 5-->
 		@if(is_null($proyecto->desarrollo->metadatos->educacional()->first()))
 		{{-- edicion --}}
-			<div id="educacional" class="tab-pane ">
+			<div id="educacional" aria-labelledby="educacional-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.educacional')
 			</div>
 		@else
-			<div id="educacional" class="tab-pane ">
+			<div id="educacional" aria-labelledby="educacional-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.educacional_edit')
 			</div>
 		@endif
@@ -112,11 +112,11 @@
 		<!--CATEGORÍA 6-->
 		@if(is_null($proyecto->desarrollo->metadatos->derechos()->first()))
 		{{-- edicion --}}
-		<div id="derechos_de_uso" class="tab-pane">
+		<div id="derechos_de_uso" aria-labelledby="derechos_de_uso-tab" role="tabpanel" class="tab-pane fade">
 			@include('content.etapas.metadatos.derechos')
 		</div>
 		@else
-			<div id="derechos_de_uso" class="tab-pane ">
+			<div id="derechos_de_uso" aria-labelledby="derechos_de_uso-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.derechos_edit')
 			</div>
 		@endif
@@ -124,21 +124,21 @@
 		<!--CATEGORÍA 7-->
 		@if(is_null($proyecto->desarrollo->metadatos->relacion()->first()))
 		{{-- edicion --}}
-			<div id="relacion" class="tab-pane">
+			<div id="relacion" aria-labelledby="relacion-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.relacion')
 			</div>
 		@else
-		<div id="relacion" class="tab-pane ">
+		<div id="relacion" aria-labelledby="relacion-tab" role="tabpanel" class="tab-pane fade">
 			@include('content.etapas.metadatos.relacion_edit')
 		</div>
 		@endif
 		<!--CATEGORÍA 8-->
 		@if(is_null($proyecto->desarrollo->metadatos->anotaciones()->first()))
-			<div id="anotaciones" class="tab-pane">
+			<div id="anotaciones" aria-labelledby="anotaciones-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.anotaciones')
 			</div>
 		@else
-			<div id="anotaciones" class="tab-pane ">
+			<div id="anotaciones" aria-labelledby="anotaciones-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.anotaciones_edit')
 			</div>
 		@endif
@@ -147,11 +147,11 @@
 
 		@if(is_null($proyecto->desarrollo->metadatos->clasificacion()->first()))
 		{{-- edicion --}}
-			<div id="clasificacion" class="tab-pane">
+			<div id="clasificacion" aria-labelledby="clasificacion-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.clasificacion')
 			</div>
 		@else
-			<div id="clasificacion" class="tab-pane ">
+			<div id="clasificacion" aria-labelledby="clasificacion-tab" role="tabpanel" class="tab-pane fade">
 				@include('content.etapas.metadatos.clasificacion_edit')
 			</div>
 		@endif

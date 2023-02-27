@@ -23,7 +23,7 @@
 
         <img src="{{url('/images/MarCOA-01.png')}}" width="100%" height="100%"/>
         @if (auth()->check())
-            <a class="btn btn-primary" href="{{ route('inicio') }}" role="button">Continuar</a>
+            <a class="btn btn-primary" href="{{ route('inicio') }}" role="button">CONTINUAR</a>
         @endif
     </div>
 	
@@ -51,7 +51,7 @@
 <div class="grid-container">
 
     <div class="grid-item">
-            <a style="font-family: 'Raleway';font-size: 25px; font-weight: 900;">
+            <a style="font-family: 'Raleway';font-size: 30px; font-weight: bold; ">
                 INICIAR SESIÓN
             </a>
             <form method="POST" action="{{ route('login') }}">
@@ -81,16 +81,16 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-2">
                 
 
                 <div class="btn-group" role="group" >
-                    <button class="btn btn-primary" role="button">Ingresar</button>
+                    <button class="btn btn-primary" role="button">INGRESAR</button>
                 </div>
                 <div class="btn-group" role="group" >   
                  @if (Route::has('password.request'))
                     <a class="btn btn-primary"  href="{{ route('password.request') }}">
-                            {{ __('Olvidé mi contraseña') }}
+                            {{ __('OLVIDÉ MI CONTRASEÑA') }}
                     </a>
 
                     @endif
@@ -108,7 +108,7 @@
                     <br><br><br><br>
                     <div class="container-fluid text-center">    
                     <a class="btn btn-primary" href="{{ route('register') }}" role="button">
-                        Registrarse
+                        REGISTRARME
                     </a>
                     </div>
                 @endif  

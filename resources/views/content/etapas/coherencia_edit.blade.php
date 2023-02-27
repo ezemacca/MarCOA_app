@@ -285,9 +285,10 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>
-						{{$proyecto->first()->diseño->instruccional->instruccional_p1}}
-						</p>
+					@php
+						echo "{$proyecto->diseño->instruccional->instruccional_p1}";
+					@endphp
+					</p>
 				</div>
 			</div>
 		</div>
@@ -304,7 +305,9 @@
 				</div>
 				<div class="modal-body">
 					<p>
-						{{$proyecto->first()->analisis->analisis_p2}}
+					@php
+						echo "{$proyecto->analisis->analisis_p1}";
+					@endphp
 					</p>
 				</div>
 			</div>
@@ -321,7 +324,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Contenidos...</p>
+					<p>
+					@php
+						echo "{$proyecto->diseño->instruccional->instruccional_p2}";
+					@endphp
+					</p>				
 				</div>
 			</div>
 		</div>
@@ -338,7 +345,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Actividades...</p>
+					<p>
+					@php
+						echo "{$proyecto->diseño->instruccional->instruccional_p3}";
+					@endphp
+					</p>
 				</div>
 			</div>
 		</div>
@@ -354,7 +365,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Autoevaluación...</p>
+					<p>
+					@php
+						echo "{$proyecto->diseño->instruccional->instruccional_p4}";
+					@endphp
+					</p>
 				</div>
 			</div>
 		</div>
