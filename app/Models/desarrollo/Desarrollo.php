@@ -4,7 +4,7 @@ namespace App\Models\Desarrollo;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\desarrollo\metadatos\Metadatos;
+use App\Models\Desarrollo\Metadatos\Metadatos;
 use App\Models\Nodo;
 use App\Models\Implementacion;
 
