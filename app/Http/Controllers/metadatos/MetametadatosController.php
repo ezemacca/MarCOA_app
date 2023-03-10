@@ -54,6 +54,7 @@ class MetametadatosController extends Controller
         {
             $proyecto->increment('etapa',1);
         }
+        
         return view('content.etapas.desarrollo',['proyecto'=>$proyecto,'subetapa_metadatos'=>$proyecto->desarrollo->metadatos->subetapa,'decision'=>$decision]);
     }
 

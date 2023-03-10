@@ -71,7 +71,6 @@ class Proyectos extends Component
 		$this->titulo = $record-> titulo;
 		$this->descripcion = $record-> descripcion;
 		$this->etapa = $record-> etapa;
-		
         $this->updateMode = true;
     }
 

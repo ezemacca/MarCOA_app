@@ -101,8 +101,8 @@
 			</div>
 		</div>
 		<input type="text" class="form-control" name="general_p6-1" id="general_p6-1" value="{{ old('general_p6-1') }}" required>
-		</div>
 	</div>
+	
 
 	<div class="form-group">
 		<div class="row">

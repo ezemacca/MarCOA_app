@@ -10,10 +10,8 @@
                 </button>
             </div>
            <div class="modal-body">
-                <div>
-                    <img src="{{url('/images/MarCOA-02.png')}}" width="100%" height="100%"/>    
-                </div>  
-				<form>
+            <br>
+                				<form>
            {{--  <div class="form-group">
                 <label for="user_id"></label>
                 <input wire:model="user_id" type="text" class="form-control" id="user_id" placeholder="User Id">@error('user_id') <span class="error text-danger">{{ $message }}</span> @enderror
@@ -23,9 +21,10 @@
                 <input wire:model="titulo" type="text" class="form-control" id="titulo" placeholder="Titulo">@error('titulo') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="descripcion">Descripcion</label>
+                <label for="descripcion" >Descripcion</label>
                 <input wire:model="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripcion">@error('descripcion') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
+            <br>
            {{--  <div class="form-group">
                 <label for="etapa"></label>
                 <input wire:model="etapa" type="text" class="form-control" id="etapa" placeholder="Etapa">@error('etapa') <span class="error text-danger">{{ $message }}</span> @enderror

@@ -34,8 +34,8 @@
             </div>
             <div class="modal-footer">
                 
-                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Guardar</button>
-                <button type="button" class="btn btn-primary close-btn" data-dismiss="modal">Cancelar</button>
+                <button type="button"  wire:click.prevent="store()" class="btn btn-primary close-modal">Guardar</button>
+                <button type="button" class="btn btn-primary close-btn" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

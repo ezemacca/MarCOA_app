@@ -103,15 +103,7 @@
 			</div>
 		</div>
 		<input type="text" class="form-control" name="general_p6-1" id="general_p6-1" value="{{$proyecto->desarrollo->metadatos->general->PalabrasClave->first()->general_p6}}" required>
-		
-		{{-- <div class="conteiner-fluid text-right">			
-			<a class="btn btn-secondary boton-agregar" href="" role="button">				
-				<svg class="bi bi-plus" width="28" height="28" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M10 5.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H6a.5.5 0 010-1h3.5V6a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
-					<path fill-rule="evenodd" d="M9.5 10a.5.5 0 01.5-.5h4a.5.5 0 010 1h-3.5V14a.5.5 0 01-1 0v-4z" clip-rule="evenodd"></path>
-				</svg>
-			</a>
-		</div> --}}
+
 	</div>
 
 	<div class="form-group">
@@ -166,25 +158,12 @@
 			</div>
 		</div>
 		<select class="form-control" name="general_p9" id="general_p9" value="{{ $proyecto->desarrollo->metadatos->general->general_p9}}" required>
-
-			{{-- <option selected>Elegir nivel</option> --}}
 			<option value="{{$proyecto->desarrollo->metadatos->general->general_p9}}" selected>{{$proyecto->desarrollo->metadatos->general->general_p9}}</option>
 			<option value="Granularidad 1: archivo simple">Granularidad 1: archivo simple</option>
 			<option value="Granularidad 2: colección de recursos de granularidad 1">Granularidad 2: colección de recursos de granularidad 1</option>
 			<option value="Granularidad 3: coleccion de recursos de granularidad 2">Granularidad 3: coleccion de recursos de granularidad 2</option>		
 		</select>	
 	</div>		
-
-
-	<!--<div class="conteiner-fluid text-center">
-		<button type="submit" class="btn btn-secondary e-desarrollo">
-			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
-				<path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-				<path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-			</svg>
-			GUARDAR		
-		</button>
-	</div>-->
 	<div class="conteiner-fluid text-left">
 		<button class="btn btn-secondary e-desarrollo"  role="button">
 			<svg class="bi bi-tools" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:WHITE;">
