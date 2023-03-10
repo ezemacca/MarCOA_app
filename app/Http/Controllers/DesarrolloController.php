@@ -10,7 +10,7 @@ use Peopleaps\Scorm\Model\ScormModel;
 use App\Models\Diseño;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Implementacion;
-
+use App\Models\Desarrollo\Metadatos\General;
 
 class DesarrolloController extends Controller
 {
