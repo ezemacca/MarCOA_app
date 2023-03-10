@@ -4,9 +4,9 @@ namespace App\Models\Desarrollo;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\desarrollo\mets\Metadatos;
-use App\Models\Nodo;
-use App\Models\Implementacion;
+use \App\Models\Desarrollo\Mets\Metadatos;
+use \App\Models\Nodo;
+use \App\Models\Implementacion;
 
 class Desarrollo extends Model
 {
