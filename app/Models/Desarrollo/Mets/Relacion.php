@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Desarrollo\Metadatos;
+namespace App\Models\Desarrollo\Mets;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
