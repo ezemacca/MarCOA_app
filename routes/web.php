@@ -72,7 +72,7 @@ Route::get('/analisis/{id}/editar','App\Http\Controllers\AnalisisController@edit
 
 Route::get('/analisis/{id}/generar_pdf','App\Http\Controllers\AnalisisController@generar_pdf')->name('analisis.pdf');
 
-Route::post('/analisis/{proyecto}','App\Http\Controllers\AnalisisController@store')->name('analisis.store');
+
 
 
 Route::get('/coherencia/index/{proyecto}', 'App\Http\Controllers\CoherenciaController@index')->name('coherencia');
