@@ -57,7 +57,7 @@ Route::get('/diseño/multimedial/{id}/generar_pdf','App\Http\Controllers\Multime
 
 
 Route::get('/creacion', 'App\Http\Controllers\CreacionController@index')->name('creacion');
-Route::post('/creacion', 'App\Http\Controllers\CreacionController@crear')->name('creacion');
+// Route::post('/creacion', 'App\Http\Controllers\CreacionController@crear')->name('creacion');
 Route::get('/edicion', 'App\Http\Controllers\EdicionController@index')->name('edicion');
 
 Route::get('/principal/{id}', 'App\Http\Controllers\PrincipalController@index')->name('principal'); 
