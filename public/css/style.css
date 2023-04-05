@@ -260,9 +260,9 @@ footer{
 	box-shadow:0 0 0 2px BLACK !important; /**DARKRED;**/ 
 }
 .btn-primary{
-	font-size: 16px;
-	border-radius: 20px;
-	padding: 10px 20px;
+	font-size: 14px;
+	border-radius: 30px;
+	padding: 15px 20px;
 }
 .btn-secondary{
 	font-size: 12px;
@@ -592,10 +592,20 @@ footer{
 .grid-container {
   display: grid;
   grid-template-columns: 500px auto ;
+/*  grid-template-rows: 20% 80% ;*/
   background-color: lightgrey;
   padding: 0px;
   grid-column-gap: 5px;
 }
+/*El Grid de bienvenida para registro*/
+
+.grid-container-registro {
+  display: grid;
+  grid-template-columns: 500px auto ;
+  background-color: lightgrey;
+  padding: 0px;
+}
+
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 0px solid rgba(0, 0, 0, 0.8);

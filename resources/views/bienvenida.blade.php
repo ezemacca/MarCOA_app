@@ -51,16 +51,18 @@
 <div class="grid-container">
 
     <div class="grid-item">
-            <a style="font-family: 'Raleway';font-size: 30px; font-weight: bold; ">
+
+            <div class="grid-row" style="padding: 12px">
+            <a style="font-family: 'Raleway';font-size: 30px; font-weight: bold; padding: 10px; ">
                 INICIAR SESIÓN
             </a>
             <form method="POST" action="{{ route('login') }}">
                 {{-- @csrf --}}
                 {{ csrf_field() }}
-
+            </div>
             <!-- Email Address -->
             <div>
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="Usuario" required autofocus />
+                <input style="width: 300px;" id="email" class="block mt-1 w-full" type="email" name="email" placeholder="nombre de usuario" required autofocus />
             </div>
 
             <!-- Password -->
