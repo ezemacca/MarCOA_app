@@ -27,7 +27,6 @@ class CreateAnalisesTable extends Migration
             $table->text('analisis_p4')->nullable();
             $table->text('analisis_p5')->nullable();
             $table->text('analisis_p6')->nullable();
-            $table->timestamps()->nullable();
         });
     }
 
